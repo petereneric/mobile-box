@@ -1,0 +1,39 @@
+@import "../../../theme/variables";
+
+.footer-container-one {
+  background: $colorFooter;
+  justify-content: center !important;
+  padding: $marginStandard !important;
+  margin-top: $marginStandard*3 !important;
+}
+
+.footer-box {
+  text-align: start;
+}
+
+.footer-container-two {
+  background: $colorFooter;
+  text-align: center !important;
+  justify-content: center !important;
+  padding: $marginStandard/2 !important;
+}
+
+.footer-text {
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  line-height: $lineHeightText;
+}
+
+.footer-text:hover {
+  text-decoration: underline;
+}
+
+.footer-social-media {
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0rem;
+  cursor:pointer;
+}
+
+

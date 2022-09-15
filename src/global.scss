@@ -1,14 +1,3 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -24,3 +13,500 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import "theme/variables";
+
+
+// COLOR
+
+$colorPrimary: #315c00;
+
+
+// TEXT
+
+// Text | Size
+$textSizeMenu: 1rem;
+
+
+// Text | Color
+$textColorMenu: #4e4e4e;
+
+// HTML
+
+p {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: $colorPrimary; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1.5rem; /* Also needed for space (tweak if needed) */
+  margin-left: -1.5em; /* Also needed for space (tweak if needed) */
+}
+
+img {
+  padding: 0rem !important;
+  margin: 0rem !important;
+}
+
+b {
+  font-weight: 500;
+}
+
+// IONIC
+
+ion-grid {
+  margin: 0rem !important;
+  padding: 0rem !important;
+}
+
+ion-row {
+  margin: 0rem !important;
+  padding: 0rem !important;
+}
+
+ion-col {
+  margin: 0rem !important;
+  padding: 0rem !important;
+}
+
+ion-tab-bar {
+  height: 5rem !important;
+}
+
+ion-tab-button {
+  width: 10rem;
+  ion-label {
+    font-size: 1.25rem;
+  }
+  ion-icon {
+    font-size: 1.5rem;
+    padding-bottom: 0.35rem !important;
+  }
+}
+
+ion-button {
+  --background-hover-opacity: 0 !important;
+}
+
+// Logo
+
+.logo-white {
+  height: 5rem;
+  object-fit: cover;
+  filter: brightness(0) invert(1);
+}
+
+// MENU
+
+.menu-container {
+  display: flex;
+  background: white;
+  opacity: 0.8;
+  height: 6rem;
+}
+
+.menu-container-text {
+  margin-right: 2.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-container-text-single {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4rem;
+  cursor: pointer;
+
+}
+
+.menu-container-text-single:hover {
+  .menu-text-underline {
+    visibility: visible;
+  }
+}
+
+.menu-logo {
+  height: 4rem;
+  margin: auto 0rem auto 5rem !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu-text {
+  font-size: 1rem;
+  color: $textColorMenu;
+  margin-right: 0rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.menu-text-underline {
+  height: 0.25rem;
+  background: $colorPrimary;
+  visibility: hidden;
+}
+
+.menu-text-underline-visible {
+  @extend .menu-text-underline;
+  visibility: visible;
+}
+
+
+
+.header-container {
+  height: 45rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+.header-image-main {
+  width: 100%;
+  height: 45rem;
+  position: absolute;
+  object-fit: cover;
+}
+
+.header-image-center {
+  color: white;
+  position: absolute;
+  height: 70%;
+  filter: brightness(0) invert(1);
+  align-self: center;
+}
+
+// Box-Image-Text
+
+.box-group {
+  margin-top: 5rem !important;
+  margin-right: 5rem !important;
+  margin-left: 5rem !important;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-green {
+  @extend .box;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.box-icon {
+  font-size: 3rem;
+  text-align: center;
+  color: $colorPrimary;
+  margin-bottom: 1rem;
+}
+
+.box-icon-white {
+  @extend .box-icon;
+  color: white;
+}
+
+.box-icon-gold {
+  @extend .box-icon;
+  color: $colorGold;
+}
+
+.box-icon-silver {
+  @extend .box-icon;
+  color: $colorSilver;
+}
+
+.box-icon-copper {
+  @extend .box-icon;
+  color: $colorCopper;
+}
+
+.box-title {
+  font-size: 1.5rem;
+  color: $colorTextPrimary;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.box-title-white {
+  @extend .box-title;
+  color: white;
+}
+
+.box-subtitle {
+  font-size: 1rem;
+  margin: 0rem auto 0.5rem auto;
+  padding-top: 0rem;
+  color: $colorTextSecondary;
+  font-weight: 500;
+}
+
+.box-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.box-text-white {
+  @extend .box-text;
+  color: white;
+}
+
+.box-image {
+  height: 5rem;
+  margin-bottom: 1.5rem !important;
+  object-fit: contain;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.box-button {
+  --color: $colorPrimary;
+  --background: $colorTransparent !important;
+  --ion-text-color: white;
+  border: 1px solid $colorPrimary;
+  border-radius: 1rem;
+  color: $colorPrimary !important;
+  --box-shadow: #00;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.box-button:hover {
+  --background: $colorPrimary !important;
+  background: $colorPrimary !important;
+  color: white !important;
+}
+
+// page
+
+.page {
+  overflow: auto;
+  height: 100%;
+  -ms-overflow-style: none;
+}
+
+.page::-webkit-scrollbar {
+  display: none;
+}
+
+.page-title {
+  font-size: 3rem;
+  color: $colorPrimary;
+  text-align: center;
+  font-weight: 600;
+}
+
+// section
+
+.section {
+  margin-top: 5rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.section-rounded {
+  @extend .section;
+  border: 0.25rem solid $colorPrimary;
+  border-left-color: white;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+
+.section-image {
+
+}
+
+.section-image-left {
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+}
+
+.section-image-certificate {
+  width: 100%;
+  height: 20rem;
+  border-radius: 1rem;
+  object-fit: contain;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.section-image-certificate:hover {
+  filter: none;
+}
+
+.section-container-text {
+  padding: 2.5rem !important;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: $colorPrimary;
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-list {
+  margin: 1.5rem;
+}
+
+.section-list-item {
+  font-size: 1.2rem;
+  color: $colorTextSecondary;
+  line-height: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-button {
+  --color: $colorPrimary;
+  --background: $colorTransparent !important;
+  --ion-text-color: white;
+  border: 1px solid $colorPrimary;
+  border-radius: 1rem;
+  color: $colorPrimary !important;
+  --box-shadow: #00;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1rem !important;
+  height: auto !important;
+}
+
+.section-button:hover {
+  color: white !important;
+  background: $colorPrimary !important;
+}
+
+.box-button:hover {
+  --background: $colorPrimary !important;
+  background: $colorPrimary !important;
+  color: white !important;
+}
+
+.section-title-green {
+  @extend .section-title-white;
+  background: $colorPrimary;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.section-title-green-stroke {
+  @extend .section-title-white;
+  border-color: $colorPrimary;
+  border-width: 0.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+  border-radius: 2rem;
+}
+
+.section-title-white {
+  @extend .section-title;
+  color: white;
+}
+
+.section-text {
+  font-size: 1.2rem;
+  color: $colorTextSecondary;
+  line-height: 2rem;
+  margin-top: 2rem;
+}
+
+.section-container-green {
+  background: $colorPrimary;
+  margin-top: 5rem !important;
+  padding: 5rem 2.5rem 5rem 2.5rem;
+}
+
+
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-top: 4rem solid $colorPrimary;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arrow-down-stroke {
+  width: 0;
+  height: 0;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-top: 4rem solid $colorPrimary;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-container {
+  margin: $marginStandard;
+}
+
+.text {
+  font-size: 1rem;
+  color: $colorTextPrimary;
+  line-height: $lineHeightText;
+}
+
+.text-secondary {
+  @extend .text;
+  color: $colorTextSecondary;
+}
+
+// Alert & Toast
+
+.my-alert .alert-wrapper {
+  justify-content: center;
+
+  .alert-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .alert-sub-title {
+    font-size: $sizeText;
+    color: $colorTextSecondary;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .alert-message {
+    font-size: $sizeText;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+    color: $colorTextPrimary;
+    line-height: $lineHeightText;
+  }
+
+  .alert-title {
+    font-weight: 500;
+    font-size: $sizeTitle;
+    color: $colorTextPrimary;
+    text-align: center;
+  }
+}

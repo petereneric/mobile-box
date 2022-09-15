@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="menu-container">
+    <ion-img slot="start" class="menu-logo" [src]="'../../assets/logo/logo_mobile_box.png'" [routerLink]="'/mobile-box/menu/home'"></ion-img>
+    <div slot="end" class="menu-container-text">
+      <div class="menu-container-text-single" [routerLink]="'/mobile-box/menu/home'" (click)="onMenu(0)">
+        <p class="menu-text">HOME</p>
+        <div [ngClass]="menuSelected == 0 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
+      </div>
+      <div class="menu-container-text-single" [routerLink]="'/mobile-box/menu/donation'" (click)="onMenu(1)">
+        <p class="menu-text">HANDYS SPENDEN</p>
+        <div [ngClass]="menuSelected == 1 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
+      </div>
+      <div class="menu-container-text-single" [routerLink]="'/mobile-box/menu/collection'" (click)="onMenu(2)">
+        <p class="menu-text">SAMMELAKTION STARTEN</p>
+        <div [ngClass]="menuSelected == 2 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
+      </div>
+      <div class="menu-container-text-single" [routerLink]="'/mobile-box/menu/about'" (click)="onMenu(3)">
+        <p class="menu-text">ÜBER UNS</p>
+        <div [ngClass]="menuSelected == 3 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+
+
+

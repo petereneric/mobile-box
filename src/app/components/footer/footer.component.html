@@ -1,0 +1,21 @@
+<ion-row class="footer-container-one">
+  <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
+    <img src='../../assets/logo/logo_mobile_box.png' class="logo-white">
+    <ion-row>
+      <ion-icon class="footer-social-media" name="logo-facebook"></ion-icon>
+      <ion-icon class="footer-social-media" name="logo-instagram"></ion-icon>
+    </ion-row>
+  </ion-col>
+  <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
+    <p class="footer-text" (click)="onLink('www.handysammlerportal.de')">Handysammlerportal</p>
+    <p class="footer-text" (click)="onLink('www.futurephones-shop.de')">Futurephones-Shop</p>
+    <p class="footer-text" (click)="onLink('www.green2b.de/')">Green2B</p>
+  </ion-col>
+  <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
+    <p class="footer-text" [routerLink]="'/mobile-box/menu/privacy'">Datenschutz</p>
+    <p class="footer-text" [routerLink]="'/mobile-box/menu/impressum'">Impressum</p>
+  </ion-col>
+</ion-row>
+<ion-row class="footer-container-two">
+  <p class="footer-text">© mobile-box 2022</p>
+</ion-row>
