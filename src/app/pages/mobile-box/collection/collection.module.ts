@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CollectionPageRoutingModule } from './collection-routing.module';
 
 import { CollectionPage } from './collection.page';
+import {FooterModule} from "../../../components/footer/footer.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CollectionPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        CollectionPageRoutingModule,
+        FooterModule
+    ],
   declarations: [CollectionPage]
 })
 export class CollectionPageModule {}
