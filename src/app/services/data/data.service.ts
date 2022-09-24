@@ -7,6 +7,7 @@ import {BehaviorSubject, Subject} from 'rxjs';
 export class DataService {
 
   private menuSubject = new Subject<any>();
+  private scrollSubject = new Subject<any>();
 
   constructor() { }
 
@@ -16,6 +17,14 @@ export class DataService {
 
   callbackMenu(): Subject<any> {
     return this.menuSubject;
+  }
+
+  scroll(data: any) {
+    this.scrollSubject.next(data);
+  }
+
+  callbackScroll(): Subject<any> {
+    return this.scrollSubject;
   }
 
 }

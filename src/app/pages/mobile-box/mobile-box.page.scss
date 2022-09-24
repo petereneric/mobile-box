@@ -1,0 +1,19 @@
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  #menu-toggle { display: block !important; }  /* show it on small screens */
+}
+
+@media screen and (min-width: 901px) {
+  #menu-toggle { display: none !important; }   /* hide it elsewhere */
+}
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  #menu-container-text { display: none; }
+}
+
+@media screen and (min-width: 901px) {
+  #menu-container-text { display: flex; }
+}
+
+.ion-content-absolute {
+  position: absolute;
+}

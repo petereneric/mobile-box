@@ -1,4 +1,4 @@
-<ion-content class="page">
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)"class="page">
   <div class="page">
     <div class="header-container">
       <img src="../../assets/image/forest.jpg" class="header-image-main">
@@ -11,7 +11,7 @@
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <ion-icon class="box-icon" name="phone-portrait-outline"></ion-icon>
-              <p class="box-title">{{get_nDevices()}}</p>
+              <p class="box-title">{{uNumbers.getNumberFormatted(get_nDevices())}}</p>
               <p class="box-subtitle">GESAMMELTE HANDYS</p>
             </div>
 
@@ -126,8 +126,8 @@
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <img src="../../assets/logo/duh.png" class="box-image">
-              <p class="box-title">34.938 Handys</p>
-              <p class="box-subtitle">DEUTSCHE UMWELTHILFE</p>
+              <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
+              <p class="box-subtitle">{{oDuh != null ? oDuh.cPayee : "-"}}</p>
             </div>
 
           </ion-col>
@@ -135,24 +135,24 @@
             <div class="box">
               <img src="../../assets/logo/bund.png" class="box-image">
               <p
-                class="box-title">18.594 Handys</p>
-              <p class="box-subtitle">BUND</p>
+                class="box-title">{{oBundNrw != null ? uNumbers.getNumberFormatted(oBundNrw.nDevices) : "-"}}</p>
+              <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <img src="../../assets/logo/koelner_zoo.png" class="box-image">
               <p
-                class="box-title">13.498 Handys</p>
-              <p class="box-subtitle">KÖLNER ZOO</p>
+                class="box-title">{{oKoelnerZoo != null ? uNumbers.getNumberFormatted(oKoelnerZoo.nDevices) : "-"}}</p>
+              <p class="box-subtitle">{{oKoelnerZoo != null ? oKoelnerZoo.cPayee : "-"}}</p>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <img src="../../assets/logo/foej.jpg" class="box-image">
               <p
-                class="box-title">11.098 Handys</p>
-              <p class="box-subtitle">FÖJ</p>
+                class="box-title">{{oFoej != null ? uNumbers.getNumberFormatted(oFoej.nDevices) : "-"}}</p>
+              <p class="box-subtitle">{{oFoej != null ? oFoej.cPayee : "-"}}</p>
             </div>
           </ion-col>
         </ion-row>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../../services/data/data.service";
 
@@ -11,6 +11,15 @@ export class MobileBoxPage implements OnInit {
 
   // variables
   menuSelected = 0
+  bMenuVertical = false
+
+  menuHeightFix = 4
+  menuHeightFlex = 2
+  menuHeight = this.menuHeightFix + this.menuHeightFlex
+
+  menuOpacityFix = 0.75
+  menuOpacityFlex = 0.25
+  menuOpacity = this.menuOpacityFix + this.menuOpacityFlex;
 
   constructor(private dataService: DataService, private router: Router) { }
 
@@ -31,9 +40,37 @@ export class MobileBoxPage implements OnInit {
           break
       }
     })
+    this.dataService.callbackScroll().subscribe((scroll) => {
+      console.log(scroll)
+      if (scroll <= 200) {
+        this.menuHeight = (this.menuHeightFix + (this.menuHeightFlex * (1-scroll/200)))
+        this.menuOpacity = (this.menuOpacityFix + (this.menuOpacityFlex * (1-scroll/200)))
+        console.log(this.menuHeight)
+      } else {
+        this.menuHeight = this.menuHeightFix
+        this.menuOpacity = this.menuOpacityFix
+      }
+    })
+  }
+
+  // @HostListener('scroll', ['$event']) // for scroll events of the current element
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(e) {
+    console.log(this.getYPosition(e));
+  }
+
+  getYPosition(e: Event): number {
+    return (e.target as Element).scrollTop;
   }
 
   onMenu(item: number) {
-    this.menuSelected = item;
+    this.bMenuVertical = false
+    this.menuSelected = item
+    this.menuHeight = 6
+    this.menuOpacity = 1
+  }
+
+  onMenuToggle() {
+    this.bMenuVertical = !this.bMenuVertical
   }
 }
