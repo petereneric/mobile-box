@@ -5,7 +5,12 @@ import { MobileBoxPage } from './mobile-box.page';
 
 const routes: Routes = [
   {
-    path: 'menu',
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: MobileBoxPage,
     children: [
       {
@@ -37,11 +42,6 @@ const routes: Routes = [
         loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
       },
     ]
-  },
-  {
-    path: '',
-    redirectTo: 'menu/home',
-    pathMatch: 'full'
   },
 
 

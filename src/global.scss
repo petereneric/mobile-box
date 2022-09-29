@@ -63,6 +63,10 @@ b {
   font-weight: 500;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
 // IONIC
 
 ion-grid {
@@ -183,7 +187,6 @@ ion-toolbar {
   flex-direction: column;
   margin-right: 4rem;
   cursor: pointer;
-
 }
 
 .menu-container-text-single:hover {
@@ -304,6 +307,7 @@ ion-toolbar {
   color: $colorTextPrimary;
   font-weight: 500;
   margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .box-title-white {
@@ -364,6 +368,10 @@ ion-toolbar {
   overflow: hidden;
   //height: 100%;
   -ms-overflow-style: none;
+}
+
+.page-padding {
+  padding: 2.5rem;
 }
 
 .page::-webkit-scrollbar {

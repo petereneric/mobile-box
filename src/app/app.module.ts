@@ -12,9 +12,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
+import {NgcCookieConsentConfig, NgcCookieConsentModule} from 'ngx-cookieconsent';
+
+const cookieConfig: NgcCookieConsentConfig = {
+  cookie: {
+    domain: window.location.hostname // or 'mobile-box.eu'
+  },
+  palette: {
+    popup: {
+      background: '#c9c9c9'
+    },
+    button: {
+      background: '#315c00'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, RouterModule, HttpClientModule],
+  imports: [NgcCookieConsentModule.forRoot(cookieConfig), BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, RouterModule, HttpClientModule],
   providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

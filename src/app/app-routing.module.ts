@@ -4,13 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'mobile-box',
-    pathMatch: 'full'
-  },
-  {
-    path: 'mobile-box',
     loadChildren: () => import('./pages/mobile-box/mobile-box.module').then( m => m.MobileBoxPageModule)
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

@@ -25,5 +25,4 @@ export class ConnApiService {
     console.log(url);
     return this.http.post<HttpResponse<any>>(`${this.urlApi}${url}`, json, httpOptions);
   }
-
 }

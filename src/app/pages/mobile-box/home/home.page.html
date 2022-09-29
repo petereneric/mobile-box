@@ -12,7 +12,7 @@
             <div class="box">
               <ion-icon class="box-icon" name="phone-portrait-outline"></ion-icon>
               <p class="box-title">{{uNumbers.getNumberFormatted(get_nDevices())}}</p>
-              <p class="box-subtitle">GESAMMELTE HANDYS</p>
+              <h3 class="box-subtitle">GESAMMELTE HANDYS</h3>
             </div>
 
           </ion-col>
@@ -48,7 +48,7 @@
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <div class="section-container-text">
-            <p class="section-title">WARUM WIR DEINE ALTEN HANDYS SAMMELN</p>
+            <h1 class="section-title">WARUM WIR DEINE ALTEN HANDYS SAMMELN</h1>
             <div>
               <p class="section-text"><b>200 Millionen alte Handys</b> lagern in deutschen Schubladen. Das hat eine repräsentative Umfrage des Branchenverbands Bitkom 2021 ergeben. Gemeinsam mit Dir wollen wir aktiv daran arbeiten, dass diese Handys umweltgerecht verwertet werden.
                 </p>
@@ -59,10 +59,10 @@
         </ion-col>
       </ion-row>
       <div class="section-container-green">
-        <p class="section-title-white">DAS PASSIERT MIT DEINEN ALTEN HANDYS</p>
+        <h2 class="section-title-white">DAS PASSIERT MIT DEINEN ALTEN HANDYS</h2>
         <div class="box-group">
           <ion-row>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="infinite"></ion-icon>
                 <p
@@ -71,7 +71,7 @@
                   Sammelstellen abgeben. Diese werden anschließend an unserem Standort in Köln erfasst und abhängig von Alter und Zustand in die Fraktionen Wiederverwendung und Recycling unterteilt.</p>
               </div>
             </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="aperture"></ion-icon>
                 <p
@@ -80,7 +80,7 @@
                   wir nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln. Diese Rohstoffe müssen nun nicht mehr in Bergwerken abgebaut werden sondern stehen dem Rohstoffkreislauf wieder zur Verfügung.</p>
               </div>
             </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="build"></ion-icon>
                 <p
@@ -89,7 +89,7 @@
                   Aufbereitete Handys werden dann in unserem Online-Shop als sogenannte Futurephones zum Kauf angeboten.</p>
               </div>
             </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="lock-closed"></ion-icon>
                 <p
@@ -120,10 +120,10 @@
         </ion-col>
       </ion-row>
       <div class="section">
-        <p class="section-title-green">SAMMELPARTNER VON MOBILE-BOX</p>
+        <h2 class="section-title-green">SAMMELPARTNER VON MOBILE-BOX</h2>
         <div class="arrow-down"></div>
         <ion-row class="box-group">
-          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
               <img src="../../assets/logo/duh.png" class="box-image">
               <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
@@ -131,7 +131,7 @@
             </div>
 
           </ion-col>
-          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
               <img src="../../assets/logo/bund.png" class="box-image">
               <p
@@ -139,7 +139,7 @@
               <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
             </div>
           </ion-col>
-          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
               <img src="../../assets/logo/koelner_zoo.png" class="box-image">
               <p
@@ -147,7 +147,7 @@
               <p class="box-subtitle">{{oKoelnerZoo != null ? oKoelnerZoo.cPayee : "-"}}</p>
             </div>
           </ion-col>
-          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
               <img src="../../assets/logo/foej.jpg" class="box-image">
               <p
@@ -166,14 +166,14 @@
           <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="mail-outline"></ion-icon>
-              <p class="box-title">Handys spenden</p>
+              <h3 class="box-title">Handys spenden</h3>
               <ion-button class="box-button" (click)="onMenu('donation')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
           <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="rocket-outline"></ion-icon>
-              <p class="box-title">Sammelaktion starten</p>
+              <h3 class="box-title">Sammelaktion starten</h3>
               <ion-button class="box-button" (click)="onMenu('collection')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
