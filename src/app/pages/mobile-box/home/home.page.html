@@ -1,10 +1,29 @@
-<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)"class="page">
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
       <img src="../../assets/image/forest.jpg" class="header-image-main">
-      <img *ngIf="false" rc="../../assets/image/circle.png" class="header-image-center">
-    </div>
+      <div class="header-title-container">
+        <p class="header-title">Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</p>
+        <h1 class="header-title-button" (click)="onMenu('handys-spenden')">HANDYS SPENDEN</h1>
+      </div>
+      <div class="header-footer">
+        <ion-row class="header-footer">
+          <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
+            <p class="header-footer-title">IN PARTNERSCHAFT MIT</p>
+            <img src="../../assets/logo/bund.png" class="header-footer-logo">
+          </ion-col>
+          <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
+            <p class="header-footer-title">ZERTIFIZIERT DURCH</p>
+            <img src="../../assets/logo/gutcert.jpg" class="header-footer-logo">
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="header-circle-quarter">
+        <img src="../../assets/image/circle.png" class="header-image-circle">
+      </div>
 
+
+    </div>
     <ion-grid>
       <div class="box-group">
         <ion-row>
@@ -14,13 +33,11 @@
               <p class="box-title">{{uNumbers.getNumberFormatted(get_nDevices())}}</p>
               <h3 class="box-subtitle">GESAMMELTE HANDYS</h3>
             </div>
-
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <ion-icon class="box-icon" name="leaf-outline"></ion-icon>
-              <p
-                class="box-title">{{oStatisticsOverview != null ? (transGramm(oStatisticsOverview.gGold)).value + " " + (transGramm(oStatisticsOverview.gGold)).unit : "-"}}</p>
+              <p class="box-title">{{oStatisticsOverview != null ? (transGramm(oStatisticsOverview.gGold)).value + " " + (transGramm(oStatisticsOverview.gGold)).unit : "-"}}</p>
               <p class="box-subtitle">RECYCELTES GOLD</p>
             </div>
           </ion-col>
@@ -48,11 +65,11 @@
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <div class="section-container-text">
-            <h1 class="section-title">WARUM WIR DEINE ALTEN HANDYS SAMMELN</h1>
+            <h2 class="section-title">WARUM WIR DEINE ALTEN HANDYS SAMMELN</h2>
             <div>
               <p class="section-text"><b>200 Millionen alte Handys</b> lagern in deutschen Schubladen. Das hat eine repräsentative Umfrage des Branchenverbands Bitkom 2021 ergeben. Gemeinsam mit Dir wollen wir aktiv daran arbeiten, dass diese Handys umweltgerecht verwertet werden.
                 </p>
-                <p class="section-text"><b>1 Tonne Golderz</b> muss geschürft werden um dieselbe Menge Gold zu gewinnen, wie sie in 41 Handys enthalten ist. Damit wird unterstrichen welcher Beitrag zum Umweltschutz durch die Sammlung und das Recycling von alten Handys geleistet werden kann.</p>
+                <p class="section-text"><b>1 Tonne Golderz</b> muss geschürft werden um dieselbe Menge Gold zu gewinnen, wie sie in 41 Handys enthalten ist. Damit wird unterstrichen welcher Beitrag zum Umweltschutz, durch die Sammlung und das Recycling von alten Handys, geleistet werden kann.</p>
                 <p class="section-text"><b>10-jähriges Bestehen</b> der Handy-Sammlung von Mobile-Box sind für uns der Beweis, dass wir auf dem richtigen Weg sind, wenn es darum geht eine einfache Rückgabemöglichkeit für alte Handys zu schaffen.</p>
             </div>
           </div>
@@ -167,14 +184,14 @@
             <div class="box">
               <ion-icon class="box-icon" name="mail-outline"></ion-icon>
               <h3 class="box-title">Handys spenden</h3>
-              <ion-button class="box-button" (click)="onMenu('donation')">Mehr erfahren</ion-button>
+              <ion-button class="box-button" (click)="onMenu('handys-spenden')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
           <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="rocket-outline"></ion-icon>
               <h3 class="box-title">Sammelaktion starten</h3>
-              <ion-button class="box-button" (click)="onMenu('collection')">Mehr erfahren</ion-button>
+              <ion-button class="box-button" (click)="onMenu('sammelaktion-starten')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
           <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <ion-grid>
     <ion-row>
       <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
@@ -35,7 +35,7 @@
             <div class="box-green">
               <ion-icon class="box-icon-white" name="megaphone"></ion-icon>
               <h2 class="box-title-white">Handy-Sammlung starten</h2>
-              <p class="box-text-white">Als Sammelstandort besonders gut eignen sich viel besuchte Orte mit guter
+              <p class="box-text-white">Als Sammelstandort besonders gut eignen sich viel besuchte Orte mit leichter
                 Zugänglichkeit. Je häufiger eure Mobile-Box von jemanden gesehen wird, desto besser das Sammelergebnis.
                 Ein weiterer Erfolgsfaktor sind Artikel in lokalen Zeitungen, die über die Sammlung informieren und zur
                 Handy-Spende aufrufen.</p>

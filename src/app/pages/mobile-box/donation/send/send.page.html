@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <ion-grid>
     <ion-row>
       <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
@@ -13,7 +13,7 @@
             </li>
             <li class="section-list-item"><b>Versandadresse:</b> Mobile-Box, Vogelsanger Straße 282, 50825 Köln</li>
             <li class="section-list-item"><b>Akkus:</b> Lithium-Ionen-Akkus bitte im Gerät belassen und nicht einzeln versenden.</li>
-            <li class="section-list-item"><b>Handy-Ladekabel:</b> Da wir einen Teil der gesammelten Handys wiederverwenden können, bitten wir Dich uns auch uns Deine Handy-Ladekabel zuzusenden. Sofern wir diese nicht wiederverwenden können, werden gesammelte Kabel ebenfalls umweltschonend recycelt.</li>
+            <li class="section-list-item"><b>Handy-Ladekabel:</b> Da wir einen Teil der gesammelten Handys wiederverwenden können, bitten wir Dich uns auch Deine Handy-Ladekabel zuzusenden. Sofern wir diese nicht wiederverwenden können, werden gesammelte Kabel ebenfalls umweltschonend recycelt.</li>
           </ul>
         </div>
       </ion-col>
@@ -60,7 +60,7 @@
             </li>
           </ul>
         </div>
-        <ion-button class="section-button">Lithium-Ionen-Warnhinweis öffnen</ion-button>
+        <ion-button class="section-button" (click)="onClickBattery()">Lithium-Ionen-Warnhinweis öffnen</ion-button>
       </ion-col>
 
     </ion-row>

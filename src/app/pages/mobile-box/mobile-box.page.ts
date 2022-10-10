@@ -24,19 +24,30 @@ export class MobileBoxPage implements OnInit {
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
+    console.log("jjooo: " + this.router.url)
+    switch (this.router.url) {
+      case '/handys-spenden/versenden':
+      case '/handys-spenden/abgeben':
+        this.menuSelected = 1
+      case '/sammelaktion-starten':
+        this.menuSelected = 2
+      case '/%C3%BCber-uns':
+        this.menuSelected = 3
+    }
+
     this.dataService.callbackMenu().subscribe((data) => {
       switch (data) {
         case 'home':
           this.menuSelected = 0
-          this.router.navigate(['mobile-box/menu/home'])
+          this.router.navigate(['home'])
           break
-        case 'donation':
+        case 'handys-spenden':
           this.menuSelected = 1
-          this.router.navigate(['mobile-box/menu/donation'])
+          this.router.navigate(['handys-spenden'])
           break;
-        case 'collection':
+        case 'sammelaktion-starten':
           this.menuSelected = 2
-          this.router.navigate(['mobile-box/menu/collection'])
+          this.router.navigate(['sammelaktion-starten'])
           break
       }
     })

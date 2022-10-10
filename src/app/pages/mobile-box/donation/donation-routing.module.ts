@@ -5,24 +5,25 @@ import { DonationPage } from './donation.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
+    redirectTo: 'versenden',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: DonationPage,
     children: [
       {
-        path: 'send',
+        path: 'versenden',
         loadChildren: () => import('./send/send.module').then( m => m.SendPageModule)
       },
       {
-        path: 'location',
+        path: 'abgeben',
         loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
       }
     ]
   },
-  {
-    path: '',
-    redirectTo: 'tabs/send',
-    pathMatch: 'full'
-  },
+
 ];
 
 @NgModule({

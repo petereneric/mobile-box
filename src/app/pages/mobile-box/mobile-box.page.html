@@ -7,15 +7,15 @@
         <p class="menu-text">HOME</p>
         <div [ngClass]="menuSelected == 0 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
-      <div class="menu-container-text-single" [routerLink]="'/donation'" (click)="onMenu(1)">
+      <div class="menu-container-text-single" [routerLink]="'/handys-spenden'" (click)="onMenu(1)">
         <p class="menu-text">HANDYS SPENDEN</p>
         <div [ngClass]="menuSelected == 1 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
-      <div class="menu-container-text-single" [routerLink]="'/collection'" (click)="onMenu(2)">
+      <div class="menu-container-text-single" [routerLink]="'/sammelaktion-starten'" (click)="onMenu(2)">
         <p class="menu-text">SAMMELAKTION STARTEN</p>
         <div [ngClass]="menuSelected == 2 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
-      <div class="menu-container-text-single" [routerLink]="'/about'" (click)="onMenu(3)">
+      <div class="menu-container-text-single" [routerLink]="'/über-uns'" (click)="onMenu(3)">
         <p class="menu-text">ÜBER UNS</p>
         <div [ngClass]="menuSelected == 3 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
@@ -31,9 +31,9 @@
   </div>
   <div class="menu-container-vertical">
     <p [ngClass]="menuSelected == 0 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/home'" (click)="onMenu(0)">HOME</p>
-    <p [ngClass]="menuSelected == 1 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/donation'" (click)="onMenu(1)">HANDYS SPENDEN</p>
-    <p [ngClass]="menuSelected == 2 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/collection'" (click)="onMenu(2)">SAMMELAKTION STARTEN</p>
-    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/about'" (click)="onMenu(3)">ÜBER UNS</p>
+    <p [ngClass]="menuSelected == 1 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/handys-spenden'" (click)="onMenu(1)">HANDYS SPENDEN</p>
+    <p [ngClass]="menuSelected == 2 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/sammelaktion-starten'" (click)="onMenu(2)">SAMMELAKTION STARTEN</p>
+    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/über-uns'" (click)="onMenu(3)">ÜBER UNS</p>
   </div>
 </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../../../services/data/data.service";
+import {ConnApiService} from "../../../../services/conn-api/conn-api.service";
 
 @Component({
   selector: 'app-send',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendPage implements OnInit {
 
-  constructor() { }
+  private urlLithiumIonLabel = 'lithium-ion-label';
+
+  constructor(private dataService: DataService, private connApi: ConnApiService) { }
 
   ngOnInit() {
   }
 
+  onScroll(event) {
+    this.dataService.scroll(event.detail.scrollTop)
+  };
+
+  onClickBattery() {
+    this.connApi.getFile(this.urlLithiumIonLabel).subscribe(response => {
+      console.log(response);
+      let blob: any = new Blob([response], {type: 'application/pdf'});
+      const url = window.URL.createObjectURL(blob);
+      window.open(url);
+    });
+  }
 }

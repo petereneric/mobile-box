@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../../services/data/data.service";
 
 @Component({
   selector: 'app-collection',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionPage implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
@@ -15,4 +16,8 @@ export class CollectionPage implements OnInit {
   onLink(link) {
     window.open('https://'+link, '_blank');
   }
+
+  onScroll(event) {
+    this.dataService.scroll(event.detail.scrollTop)
+  };
 }

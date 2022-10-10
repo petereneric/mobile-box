@@ -1,15 +1,15 @@
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <ion-grid>
     <ion-row>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-        <img src="../../assets/logo/logo_mobile_box.png" class="section-logo">
-      </ion-col>
       <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="section-container-text">
         <h1 class="section-title">Mobile-Box | Handysammlung</h1>
           <p class="section-text">Das Handy-Rücknahmesystem Mobile-Box wurde 2012 von Till & Eric in Köln gegründet und
             ermöglicht mit seinen über 1000 Sammelstandorten in ganz Deutschland eine einfache und umweltgerechte
-            Verwertung von alten Handys. Auf die Idee sind wir durch einen Zeitungsartikel gekommen, der über die vielen ungenutzten Handys in deutschen Schubladen berichtet hat. Wir konnten nicht verstehen, warum noch keine funktionierende Verwertungs-Lösung existierte und sahen darin unsere Chance.
-          Nach dem Ende unseres Studiums 2014 haben wir neben dem Recycling angefangen alte Handys aufzubereiten und innerhalb Europas über Online-Shops zu verkaufen. Das Unternehmen wurde damit nicht nur nachhaltiger, sondern konnte auch eine wirtschaftliche Perspektive entwickeln, die bis heute die Grundlage für die Existenz von Mobile-Box.</p>
+            Verwertung von alten Handys. Auf die Idee sind wir durch einen Zeitungsartikel gekommen, der über die vielen ungenutzten Handys in deutschen Schubladen berichtet hat. Wir konnten nicht verstehen, warum noch keine funktionierende Rücknahme-Lösung existiert und sahen darin unsere Chance.
+          Nach dem Ende unseres Studiums 2014 haben wir neben dem Recycling angefangen alte Handys aufzubereiten und innerhalb Europas über Online-Shops zu verkaufen. Das Unternehmen wurde damit nicht nur nachhaltiger, sondern konnte auch eine wirtschaftliche Perspektive entwickeln, die bis heute die Grundlage für die Existenz von Mobile-Box ist.</p>
+      </ion-col>
+      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <img src="../../assets/logo/logo_mobile_box.png" class="section-logo">
       </ion-col>
     </ion-row>
     <div class="section-container-green">
@@ -21,7 +21,7 @@
               <ion-icon class="box-icon-white" name="cube"></ion-icon>
               <p
                 class="box-title-white">Soziale Teilhabe</p>
-              <p class="box-text-white">Mobile-Box versuchen für jeden der bei uns im Unternehmen mit "anpacken" möchte
+              <p class="box-text-white">Mobile-Box versucht für jeden der bei uns im Unternehmen mit "anpacken" möchte
                 einen Arbeitsplatz zu finden. Wir arbeiten eng mit sozialen Trägern wie der Caritas zusammen, um auch
                 Menschen mit Einschränkungen beschäftigen zu können.</p>
             </div>
@@ -42,7 +42,7 @@
                 class="box-title-white">Wirtschaftlichkeit</p>
               <p class="box-text-white">In herausfordernden Zeiten ist solides Wirtschaften die Voraussetzung für ein
                 Fortbestehen. In unseren Augen aber nicht zum Preis der Nachhaltigkeit. Daher verkaufen wir
-                ausschließlich aufbereitete Handys und führen nicht wiederverwendbare Geräte einem umweltschonenden
+                ausschließlich aufbereitete (keine neuen) Handys und führen nicht wiederverwendbare Geräte einem umweltschonenden
                 Recycling zu. </p>
             </div>
           </ion-col>
@@ -75,9 +75,6 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-        <img src="../../assets/logo/logo_green2b.png" class="section-logo">
-      </ion-col>
       <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="section-container-text">
         <h3 class="section-title">Green2B | Firmenhandys</h3>
           <p class="section-text">Green2B ermöglicht die umweltgerechte und sichere Verwertung von Dienstgeräten. Die
@@ -85,6 +82,9 @@
             ausgerichtet. Die Idee zu Green2B kam uns als die Mobile-Box immer mehr Anfragen von Unternehmen erhielt und wir erkannten, dass es für diese ein eigenes Angebot benötigt. Green2B hat sich seitdem auf die sichere Verwertung von Dienstgeräten spezialisiert und konnte seinen Kundenstamm stegig erweitern.
           Um den steigenden Anfragen gerecht zu werden, haben wir uns 2022 flächenmäßig vergrößert und wollen das Angebot von Green2B nun erweitern.</p>
         <ion-button class="section-button" (click)="onLink('https://www.green2b.de')">Website besuchen</ion-button>
+      </ion-col>
+      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <img src="../../assets/logo/logo_green2b.png" class="section-logo">
       </ion-col>
     </ion-row>
   </ion-grid>

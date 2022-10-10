@@ -14,15 +14,15 @@ const routes: Routes = [
     component: MobileBoxPage,
     children: [
       {
-        path: 'about',
+        path: 'über-uns',
         loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
       },
       {
-        path: 'collection',
+        path: 'sammelaktion-starten',
         loadChildren: () => import('./collection/collection.module').then( m => m.CollectionPageModule)
       },
       {
-        path: 'donation',
+        path: 'handys-spenden',
         loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
       },
       {
@@ -34,15 +34,21 @@ const routes: Routes = [
         loadChildren: () => import('./impressum/impressum.module').then( m => m.ImpressumPageModule)
       },
       {
-        path: 'privacy',
+        path: 'datenschutzerklärung',
         loadChildren: () => import('./privacy/privacy.module').then( m => m.PrivacyPageModule)
       },
       {
-        path: 'contact',
+        path: 'kontakt',
         loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+      },
+      {
+        path: 'ruecksendung',
+        loadChildren: () => import('./ruecksendung/ruecksendung.module').then( m => m.RuecksendungPageModule)
       },
     ]
   },
+
+
 
 
 ];

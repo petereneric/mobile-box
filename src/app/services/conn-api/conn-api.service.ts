@@ -25,4 +25,11 @@ export class ConnApiService {
     console.log(url);
     return this.http.post<HttpResponse<any>>(`${this.urlApi}${url}`, json, httpOptions);
   }
+
+  getFile(url: string): any {
+    return this.http.get(`${this.urlApi}${url}`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'}),
+      responseType: 'blob'
+    });
+  }
 }

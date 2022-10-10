@@ -18,7 +18,9 @@ export class HomePage implements OnInit {
   urlStatisticsOverview = "statistics/overview"
 
   // data
+  testNumber = 1112
   oStatisticsOverview = null;
+  oStatisticsOverviewTest = null;
 
   oBundNrw = null;
   oKoelnerZoo = null;
@@ -40,19 +42,10 @@ export class HomePage implements OnInit {
     this.loadDataPartner()
   }
 
+
+
   onScroll(event) {
-    // used a couple of "guards" to prevent unnecessary assignments if scrolling in a direction and the var is set already:
     this.dataService.scroll(event.detail.scrollTop)
-    /*if (event.detail.deltaY > 0 && this.footerHidden) return;
-    if (event.detail.deltaY < 0 && !this.footerHidden) return;
-    if (event.detail.deltaY > 0) {
-      console.log("scrolling down, hiding footer...");
-      this.footerHidden = true;
-    } else {
-      console.log("scrolling up, revealing footer...");
-      this.footerHidden = false;
-    };
-     */
   };
 
 
@@ -97,9 +90,8 @@ export class HomePage implements OnInit {
     if (this.oStatisticsOverview != null) {
       return this.oStatisticsOverview.nDevices;
     } else {
-      "-"
+      return "-"
     }
-
   }
 
   transGramm(nGramm) {
