@@ -16,6 +16,17 @@
 
 @import "theme/variables";
 
+// FONTS
+@font-face {
+  font-family: neo_sans_pro;
+  src: url(assets/font/NeoSansProRegular.OTF) format("opentype");
+}
+
+@font-face {
+  font-family: neo_sans_pro_medium;
+  src: url(assets/font/NeoSansProMedium.OTF) format("opentype");
+}
+
 // MENU
 $heightMenu: 6rem;
 
@@ -36,9 +47,20 @@ $textColorMenu: #4e4e4e;
 
 // HTML
 
+* {
+  font-family: 'neo_sans_pro' !important;
+}
+
+b {
+  font-family: 'neo_sans_pro_medium' !important;
+}
+
 p {
   margin: 0rem;
   padding: 0rem;
+}
+
+span {
 }
 
 ul {
@@ -108,6 +130,13 @@ ion-button {
 ion-toolbar {
   margin: 0rem !important;
   padding: 0rem !important;
+}
+
+ion-toggle {
+  --background-checked: #BDBDBD;
+  --background: #BDBDBD;
+  --handle-background: #c34a4a;;
+  --handle-background-checked: #315c00;
 }
 
 // Logo
@@ -460,6 +489,7 @@ ion-toolbar {
   --box-shadow: #00;
   display: block;
   width: auto;
+  height: auto;
   margin: 0.5rem 1rem 0.5rem 1rem !important;
 }
 
@@ -717,6 +747,40 @@ ion-toolbar {
 
 // Buttons
 
+.button {
+  border: 1px solid;
+  width: auto;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  font-size: $sizeText;
+}
+
+.button-one {
+  @extend .button;
+  border: $colorPrimary;
+  color: white;
+  background: $colorPrimary;
+}
+
+.button-one:hover {
+
+}
+
+.button-two {
+  @extend .button;
+  border: $colorPrimary;
+  color: $colorPrimary;
+  background: transparent;
+}
+
+.button-two:hover {
+  color: white;
+  background: $colorPrimary;
+}
+
 .button-white-two {
   font-size: 1.5rem;
   border: 1px solid white;
@@ -736,3 +800,97 @@ ion-toolbar {
   background: white !important;
   color: $colorPrimary !important;
 }
+
+// Dialog
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.dialog-container {
+  padding: 0px !important;
+}
+
+// Cookie Banner
+
+/*
+.cookie-banner {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  overflow: auto;
+}
+
+.cookie-topper {
+  height: 1rem;
+  background: $colorPrimary;
+}
+
+.cookie-container {
+  display: block;
+  margin: 4rem;
+}
+
+.cookie-header {
+  display: flex;
+}
+
+.cookie-title {
+  font-size: $sizeTitle;
+  color: $colorTextPrimary;
+  align-self: center;
+}
+
+.cookie-logo {
+  height: 3.5rem;
+  margin-left: auto !important;
+}
+
+.cookie-text-container {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cookie-text {
+  font-size: $sizeText;
+  color: $colorTextSecondary;
+}
+
+.cookie-button-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: auto !important;
+}
+
+.cookie-button-one {
+  @extend .button-one;
+}
+
+.cookie-button-two {
+  @extend .button-two;
+}
+
+.cookie-footer {
+
+}
+
+.cookie-footer-row {
+  margin-top: 4rem !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.cookie-footer-text {
+  font-size: $sizeTextSmall;
+  color: $colorTextSecondary;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.cookie-footer-text:hover {
+  text-decoration: underline;
+}
+
+ */

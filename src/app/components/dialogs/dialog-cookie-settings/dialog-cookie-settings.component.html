@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="header">
+    <img class="header-logo" src="assets/logo/logo_mobile_box.png">
+    <p class="header-title">Cookie Einstellungen</p>
+    <ion-icon class="header-close" name="close" (click)="closeDialog()"></ion-icon>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xl="3" size-lg="4" size-md="6" size-sm="12" size-xs="12">
+        <div *ngFor="let category of lSettings; let i = index" class="menu-container">
+          <div class="menu-item" (click)="selectCategory(category.id)">
+            <div [ngClass]="i == oCategory.id ? 'menu-item-selector' : 'menu-item-selector-hidden'"></div>
+            <p class="menu-item-title">{{category.cName}}</p>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size-xl="9" size-lg="8" size-md="6" size-sm="12" size-xs="12">
+        <div class="settings-container">
+          <div class="settings-header">
+            <p>{{oCategory.cName}}</p>
+            <ion-toggle *ngIf="oCategory.id > 0" [disabled]="oCategory.id == 1" class="settings-header-toggle" [checked]="oCategory.bActive"
+                        (ionChange)="onToggleSettings($event)"></ion-toggle>
+          </div>
+          <div class="settings-info">
+            <p class="settings-info-text">{{oCategory.cText}}</p>
+            <p class="settings-info-text-details" (click)="onCookieDetails()">{{oCategory.id > 0 ? oCategory.lCookieList.length > 0 ? 'Cookie-Details' : 'Keine Cookies' : ''}}</p>
+            <div *ngIf="bShowCookieList" class="cookie-category-container">
+              <div *ngFor="let cookieList of oCategory.lCookieList" class="cookie-list-container">
+                <div class="cookie-list-header">
+                  <p class="cookie-list-header-title">{{cookieList.cName}}</p>
+                  <p class="cookie-list-header-toogle" (click)="onCookieList()">Cookies anzeigen</p>
+                </div>
+                <div *ngIf="bShowCookies">
+                  <div *ngFor="let cookie of cookieList.lCookies" class="cookie-container">
+                    <div class="cookie">
+                      <div class="cookie-line">
+                        <p class="cookie-key">Name</p>
+                        <p class="cookie-key">{{cookie.cName}}</p>
+                      </div>
+                      <div class="cookie-line">
+                        <p class="cookie-key">Dauer</p>
+                        <p class="cookie-key">{{cookie.cDuration}}</p>
+                      </div>
+                      <div class="cookie-line">
+                        <p class="cookie-key">Kategorie</p>
+                        <p class="cookie-key">{{cookie.cCategory}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="footer-container">
+    <div class="footer-divider"></div>
+    <button  class="footer-button" (click)="closeDialog()">Meine Auswahl bestätigen</button>
+    <button *ngIf="!cookiesAccepted()" class="footer-button-two" (click)="onAcceptAll()">Alle zulassen</button>
+  </div>
+
+</div>

@@ -20,7 +20,8 @@
         <div [ngClass]="menuSelected == 3 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
     </div>
-    <ion-icon id="menu-toggle" slot="end" class="menu-toggle" [name]="bMenuVertical ? 'close' : 'menu'" (click)="onMenuToggle()"></ion-icon>
+    <ion-icon id="menu-toggle" slot="end" class="menu-toggle" [name]="bMenuVertical ? 'close' : 'menu'"
+              (click)="onMenuToggle()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 <ion-content [ngClass]="{'ion-content-absolute' : menuSelected == 0}" (scroll)="onScroll($event)">
@@ -30,11 +31,30 @@
   <div class="menu-vertical-transparency">
   </div>
   <div class="menu-container-vertical">
-    <p [ngClass]="menuSelected == 0 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/home'" (click)="onMenu(0)">HOME</p>
-    <p [ngClass]="menuSelected == 1 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/handys-spenden'" (click)="onMenu(1)">HANDYS SPENDEN</p>
-    <p [ngClass]="menuSelected == 2 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/sammelaktion-starten'" (click)="onMenu(2)">SAMMELAKTION STARTEN</p>
-    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/über-uns'" (click)="onMenu(3)">ÜBER UNS</p>
+    <p [ngClass]="menuSelected == 0 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/home'"
+       (click)="onMenu(0)">HOME</p>
+    <p [ngClass]="menuSelected == 1 ? 'menu-vertical-text-selected' : 'menu-vertical-text'"
+       [routerLink]="'/handys-spenden'" (click)="onMenu(1)">HANDYS SPENDEN</p>
+    <p [ngClass]="menuSelected == 2 ? 'menu-vertical-text-selected' : 'menu-vertical-text'"
+       [routerLink]="'/sammelaktion-starten'" (click)="onMenu(2)">SAMMELAKTION STARTEN</p>
+    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/über-uns'"
+       (click)="onMenu(3)">ÜBER UNS</p>
   </div>
+</div>
+<div *ngIf="!cookiesAccepted()" class="cookie-container">
+  <ion-row class="cookie-ion-row">
+    <ion-col size-xl="8" size-lg="8" size-md="12" size-sm="12" size-xs="12">
+        <p class="cookie-text">Mit Klick auf "Alle Cookies akzteptieren" stimmst Du zu, dass alle Cookies auf deinem
+          Gerät gespeichert werden, um die Seitennavigation zu verbessern, die Seitennutzung zu analysieren und unser
+          Marketing genauer zu machen.</p>
+    </ion-col>
+    <ion-col class="cookie-button-container" size-xl="2" size-lg="2" size-md="12" size-sm="12" size-xs="12">
+      <button class="button-two" (click)="onCookieSettings()">Cookie Einstellungen</button>
+    </ion-col>
+    <ion-col class="cookie-button-container" size-xl="2" size-lg="2" size-md="12" size-sm="12" size-xs="12">
+      <button class="button-one" (click)="onCookieAccept()">Alle Cookies akzeptieren</button>
+    </ion-col>
+  </ion-row>
 </div>
 
 

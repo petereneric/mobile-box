@@ -7,10 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { MobileBoxPageRoutingModule } from './mobile-box-routing.module';
 
 import { MobileBoxPage } from './mobile-box.page';
+import {MatDialogModule} from "@angular/material/dialog";
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
+    MatDialogModule,
     FormsModule,
     IonicModule,
     MobileBoxPageRoutingModule,

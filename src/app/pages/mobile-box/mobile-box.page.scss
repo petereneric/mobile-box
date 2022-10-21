@@ -1,3 +1,6 @@
+@import "../../../global";
+@import "../../../theme/variables";
+
 @media screen and (min-width: 0px) and (max-width: 900px) {
   #menu-toggle { display: block !important; }  /* show it on small screens */
 }
@@ -16,4 +19,34 @@
 
 .ion-content-absolute {
   position: absolute;
+}
+
+.cookie-container {
+  height: auto !important;
+  background: $colorBackground;
+  position: relative !important;
+}
+
+.cookie-text {
+  font-size: $sizeTextSmall;
+  color: $colorTextSecondary;
+  padding: 1.5rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  .cookie-text { text-align: center }
+}
+
+.cookie-text-container {
+  margin-top: 0rem;
+}
+
+.cookie-ion-row {
+  display: flex!important;
+  align-content: center!important;
+  align-items: center!important;
+}
+
+.cookie-button-container {
+  text-align: center;
 }

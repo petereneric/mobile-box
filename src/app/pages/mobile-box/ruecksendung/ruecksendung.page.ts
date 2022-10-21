@@ -13,6 +13,6 @@ export class RuecksendungPage implements OnInit {
   }
 
   onSend() {
-    window.open('https://www.dhl.de/dhl-rpi/gw/rpcustomerweb/OrderAnon.action?__userlocale=DE&__gwfs=6278655104554630712', '_blank');
+    window.open('https://www.dhl.de/retoure/gw/rpcustomerweb/OrderEntry.action?hash=331307107d4e919367228944354809599f0873d6c803095f0e02a9a49902693f', '_blank');
   }
 }

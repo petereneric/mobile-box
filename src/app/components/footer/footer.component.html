@@ -12,8 +12,9 @@
     <p class="footer-text" (click)="onLink('www.green2b.de/')">Green2B</p>
   </ion-col>
   <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
-    <p class="footer-text" [routerLink]="'/mobile-box/menu/privacy'">Datenschutz</p>
-    <p class="footer-text" [routerLink]="'/mobile-box/menu/impressum'">Impressum</p>
+    <p class="footer-text" (click)="onCookieSettings()">Cookie Einstellungen</p>
+    <p class="footer-text" [routerLink]="'/datenschutzerklärung'">Datenschutz</p>
+    <p class="footer-text" [routerLink]="'/impressum'">Impressum</p>
   </ion-col>
 </ion-row>
 <ion-row class="footer-container-two">

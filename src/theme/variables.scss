@@ -39,8 +39,9 @@ $app-theme: mat.define-light-theme((
 
 // Color - Text
 $colorTextPrimary: #212121;
-$colorTextSecondary: #757575;
+$colorTextSecondary: #424242;
 $colorDivider: #BDBDBD;
+$colorBackground: #e8e8e8;
 
 // Color
 $colorPrimary: #315c00;
@@ -48,10 +49,12 @@ $colorGold: #FFC107;
 $colorSilver: #9E9E9E;
 $colorCopper: #FF5722;
 $colorFooter: #848484;
+$red: #c34a4a;
 
 // Size - text
 $sizeText: 1rem;
 $sizeTitle: 1.2rem;
+$sizeTextSmall: 0.8rem;
 
 // LineHeight - text
 $lineHeightText: 1.5rem;
