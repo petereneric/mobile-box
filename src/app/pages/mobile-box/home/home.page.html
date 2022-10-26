@@ -1,28 +1,26 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
-      <img src="../../assets/image/forest.jpg" class="header-image-main">
+      <img src="../../assets/image/forest.jpg" width="1920px" height="1280px" class="header-image-main">
       <div class="header-title-container">
-        <p class="header-title">Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</p>
+        <p class="header-title"><b>Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</b></p>
         <h1 class="header-title-button" (click)="onMenu('handys-spenden')">HANDYS SPENDEN</h1>
       </div>
       <div class="header-footer">
         <ion-row class="header-footer">
           <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
             <p class="header-footer-title">IN PARTNERSCHAFT MIT</p>
-            <img src="../../assets/logo/bund.png" class="header-footer-logo">
+            <img src="../../assets/logo/bund.png" width="1110" height="136" class="header-footer-logo">
           </ion-col>
           <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
             <p class="header-footer-title">ZERTIFIZIERT DURCH</p>
-            <img src="../../assets/logo/gutcert.jpg" class="header-footer-logo">
+            <img src="../../assets/logo/gutcert.jpg" width="500" height="119" class="header-footer-logo">
           </ion-col>
         </ion-row>
       </div>
       <div class="header-circle-quarter">
         <img src="../../assets/image/circle.png" class="header-image-circle">
       </div>
-
-
     </div>
     <ion-grid>
       <div class="box-group">
@@ -61,7 +59,7 @@
       </div>
       <ion-row class="section">
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <img src="../../assets/image/phones.jpg" class="section-image-left">
+          <img src="../../assets/image/phones.jpg" height="720" width="1080" class="section-image-left">
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <div class="section-container-text">
@@ -133,7 +131,7 @@
           </div>
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <img src="../../assets/image/certificate.jpg" class="section-image-certificate">
+          <img src="../../assets/image/certificate.jpg" width="340" height="481" class="section-image-certificate">
         </ion-col>
       </ion-row>
       <div class="section">
@@ -142,7 +140,7 @@
         <ion-row class="box-group">
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/duh.png" class="box-image">
+              <img src="../../assets/logo/duh.png" width="340" height="481" class="box-image">
               <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oDuh != null ? oDuh.cPayee : "-"}}</p>
             </div>
@@ -150,7 +148,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/bund.png" class="box-image">
+              <img src="../../assets/logo/bund.png" width="1110" height="136" class="box-image">
               <p
                 class="box-title">{{oBundNrw != null ? uNumbers.getNumberFormatted(oBundNrw.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
@@ -158,7 +156,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/koelner_zoo.png" class="box-image">
+              <img src="../../assets/logo/koelner_zoo.png" width="287" height="176" class="box-image">
               <p
                 class="box-title">{{oKoelnerZoo != null ? uNumbers.getNumberFormatted(oKoelnerZoo.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oKoelnerZoo != null ? oKoelnerZoo.cPayee : "-"}}</p>
@@ -166,7 +164,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/foej.jpg" class="box-image">
+              <img src="../../assets/logo/foej.jpg" width="225" height="225"  class="box-image">
               <p
                 class="box-title">{{oFoej != null ? uNumbers.getNumberFormatted(oFoej.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oFoej != null ? oFoej.cPayee : "-"}}</p>

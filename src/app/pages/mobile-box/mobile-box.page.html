@@ -3,7 +3,7 @@
     <ion-img slot="start" class="menu-logo" [src]="'../../assets/logo/logo_mobile_box.png'"
              [routerLink]="'/mobile-box/menu/home'"></ion-img>
     <div id="menu-container-text" slot="end" class="menu-container-text">
-      <div class="menu-container-text-single" [routerLink]="'/home'" (click)="onMenu(0)">
+      <div class="menu-container-text-single" [routerLink]="'/'" (click)="onMenu(0)">
         <p class="menu-text">HOME</p>
         <div [ngClass]="menuSelected == 0 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>

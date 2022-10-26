@@ -6,11 +6,6 @@ import { MobileBoxPage } from './mobile-box.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
     component: MobileBoxPage,
     children: [
       {
@@ -26,7 +21,7 @@ const routes: Routes = [
         loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
       },
       {
-        path: 'home',
+        path: '**',
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
       {
