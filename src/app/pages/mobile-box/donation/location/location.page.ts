@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ConnApiService} from "../../../../services/conn-api/conn-api.service";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-location',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationPage implements OnInit {
 
-  constructor() { }
+  // urls
+  urlLocationsZip: string = "locations/zip/"
+  urlLocationsCity: string = "locations/city/"
+
+  // data
+  lLocations = null
+
+  constructor(private connApi: ConnApiService) {
+
+  }
 
   ngOnInit() {
+  }
+
+  loadLocations(cZip, cCity, nDistance) {
+    console.log("loadLocations")
+    // set url
+    let urlVariable = ""
+    if (cZip === null && cCity !== null) {
+      urlVariable = this.urlLocationsCity+cCity
+    }
+    if (cZip !== null && cCity === null) {
+      urlVariable = this.urlLocationsZip+cZip
+    }
+
+    // request
+    this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
+      this.lLocations = response.body.lLocations
+      console.log(this.lLocations)
+    })
   }
 
 }

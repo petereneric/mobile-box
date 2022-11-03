@@ -1,9 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Diese Seite befindet sich noch im Aufbau</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-searchbar class="searchbar" show-clear-button="always" value="PLZ oder Stadt eingeben"></ion-searchbar>
 
+  <button (click)="loadLocations(null, 'Köln', null)">Standorte laden</button>
+  <ion-row>
+  <div class="dropoffLocationlist">
+    <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations"></location-element>
+  </div>
+  </ion-row>
 </ion-content>

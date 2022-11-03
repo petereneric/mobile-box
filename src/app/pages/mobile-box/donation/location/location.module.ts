@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LocationPageRoutingModule } from './location-routing.module';
 
 import { LocationPage } from './location.page';
+import {LocationModule} from "../../../../components/location/location.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LocationPageRoutingModule
+    LocationPageRoutingModule,
+    LocationModule
   ],
   declarations: [LocationPage]
 })
