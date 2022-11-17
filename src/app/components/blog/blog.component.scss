@@ -1,0 +1,49 @@
+@import "../../../global";
+
+.blog-container {
+  margin: 1rem;
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 25rem;
+  box-shadow: 0.1rem 0.05rem 0.1rem 0.1rem silver;
+  cursor: pointer;
+}
+
+.blog-image {
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.blog-container-text {
+  height: 100%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-title {
+  height: auto;
+  font-size: 1.2rem;
+  color: $colorTextPrimary;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.blog-subtitle {
+  align-self: start;
+  font-size: $sizeText;
+  color: $colorTextSecondary;
+  height: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.blog-date {
+  height: 1rem;
+  font-size: 0.7rem;
+  color: $colorTextTertiary;
+}

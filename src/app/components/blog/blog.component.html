@@ -1,0 +1,8 @@
+<div class="blog-container" (click)="onClick()">
+  <img [src]="getPathImage()" class="blog-image">
+  <div class="blog-container-text">
+    <p class="blog-title">{{oBlog != null ? oBlog.cTitle : "..."}}</p>
+    <p class="blog-subtitle">{{oBlog != null ? oBlog.cSubtitle : "..."}}</p>
+    <p class="blog-date">{{getDate()}}</p>
+  </div>
+</div>
