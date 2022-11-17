@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="menu-container" [style.height.rem]="menuHeight" [style.opacity]="menuOpacity">
-    <ion-img slot="start" class="menu-logo" [src]="'../../assets/logo/logo_mobile_box.png'"
+    <ion-img slot="start" class="menu-logo" width="286" height="300" [src]="'../../assets/logo/mobile_box.webp'"
              [routerLink]="'/mobile-box/menu/home'"></ion-img>
     <div id="menu-container-text" slot="end" class="menu-container-text">
       <div class="menu-container-text-single" [routerLink]="'/'" (click)="onMenu(0)">
@@ -44,15 +44,14 @@
 <div *ngIf="!cookiesAccepted()" class="cookie-container">
   <ion-row class="cookie-ion-row">
     <ion-col size-xl="8" size-lg="8" size-md="12" size-sm="12" size-xs="12">
-        <p class="cookie-text">Mit Klick auf "Alle Cookies akzteptieren" stimmst Du zu, dass alle Cookies auf deinem
-          Gerät gespeichert werden, um die Seitennavigation zu verbessern, die Seitennutzung zu analysieren und unser
-          Marketing genauer zu machen.</p>
+        <p class="cookie-text">Mit Klick auf "Alle Cookies akzeptieren" stimmst Du zu, dass alle Cookies auf deinem
+          Gerät gespeichert werden. Durch die Nutzung von Cookies verstehen wir wie die Website genutzt wird und nutzen dieses Wissen zur Weiterentwicklung der Website.</p>
     </ion-col>
     <ion-col class="cookie-button-container" size-xl="2" size-lg="2" size-md="12" size-sm="12" size-xs="12">
       <button class="button-two" (click)="onCookieSettings()">Cookie Einstellungen</button>
     </ion-col>
     <ion-col class="cookie-button-container" size-xl="2" size-lg="2" size-md="12" size-sm="12" size-xs="12">
-      <button class="button-one" (click)="onCookieAccept()">Alle Cookies akzeptieren</button>
+      <button class="button-one" (click)="onCookieAccept()">Cookies akzeptieren</button>
     </ion-col>
   </ion-row>
 </div>

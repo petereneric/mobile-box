@@ -21,10 +21,6 @@ const routes: Routes = [
         loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
       },
       {
-        path: '**',
-        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-      },
-      {
         path: 'impressum',
         loadChildren: () => import('./impressum/impressum.module').then( m => m.ImpressumPageModule)
       },
@@ -40,8 +36,24 @@ const routes: Routes = [
         path: 'ruecksendung',
         loadChildren: () => import('./ruecksendung/ruecksendung.module').then( m => m.RuecksendungPageModule)
       },
+      {
+        path: 'kontakt-versendet',
+        loadChildren: () => import('./contact-sent/contact-sent.module').then( m => m.ContactSentPageModule)
+      },
+      {
+        path: 'blog',
+        loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
+      },
+      {
+        path: '**',
+        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+      },
     ]
   },
+
+
+
+
 
 
 

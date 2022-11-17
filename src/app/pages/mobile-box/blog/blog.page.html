@@ -1,0 +1,13 @@
+<ion-content>
+  <div *ngIf="!bLoading" class="blog-page">
+    <img class="blog-image" [src]="getPathImage()">
+    <div class="blog-container-text">
+      <p class="blog-title">{{oBlog?.cTitle}}</p>
+      <p class="blog-subtitle">{{oBlog != null ? oBlog.cSubtitle : "..."}}</p>
+      <p class="blog-text">{{oBlog != null ? oBlog.cText : "..."}}</p>
+      <p class="blog-date">{{getDate()}}</p>
+    </div>
+  </div>
+  <ion-spinner *ngIf="bLoading"></ion-spinner>
+  <app-footer></app-footer>
+</ion-content>

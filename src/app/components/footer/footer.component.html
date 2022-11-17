@@ -1,6 +1,6 @@
 <ion-row class="footer-container-one">
   <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
-    <img src='../../assets/logo/logo_mobile_box.png' class="logo-white">
+    <img src='../../assets/logo/mobile_box.webp' class="logo-white">
     <ion-row>
       <ion-icon class="footer-social-media" name="logo-facebook" (click)="onLink('www.facebook.com/mobileboxeu')"></ion-icon>
       <ion-icon class="footer-social-media" name="logo-instagram" (click)="onLink('www.instagram.com/mobilebox2012/')"></ion-icon>
@@ -12,6 +12,8 @@
     <p class="footer-text" (click)="onLink('www.green2b.de/')">Green2B</p>
   </ion-col>
   <ion-col size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12">
+    <p class="footer-text" [routerLink]="'/kontakt'">Kontakt</p>
+    <p class="footer-text" [routerLink]="'/blog'">Blog</p>
     <p class="footer-text" (click)="onCookieSettings()">Cookie Einstellungen</p>
     <p class="footer-text" [routerLink]="'/datenschutzerklärung'">Datenschutz</p>
     <p class="footer-text" [routerLink]="'/impressum'">Impressum</p>

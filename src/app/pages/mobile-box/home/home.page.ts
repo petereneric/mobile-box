@@ -5,6 +5,8 @@ import { Alert } from 'src/app/utilities/alert';
 import { DataService } from 'src/app/services/data/data.service';
 import {Router} from "@angular/router";
 import {Numbers} from "../../../utilities/numbers";
+import {EventpingBlog} from "../../../components/interfaces/eventpingBlog";
+import {Blog} from "../../../components/interfaces/blog";
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomePage implements OnInit {
 
   // Urls
   urlStatisticsOverview = "statistics/overview"
+  urlBlog = "blog"
 
   // data
   testNumber = 1112
@@ -27,8 +30,10 @@ export class HomePage implements OnInit {
   oFoej = null;
   oDuh = null;
 
+  lBlog = null;
 
-  constructor(private uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, public Alert: Alert) {
+
+  constructor(public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, public Alert: Alert) {
   }
 
   ngOnInit() {
@@ -40,6 +45,7 @@ export class HomePage implements OnInit {
     })
 
     this.loadDataPartner()
+    this.loadBlog()
   }
 
 
@@ -83,6 +89,12 @@ export class HomePage implements OnInit {
     let json = {kPayee : 6}
     this.connApi.post(this.urlStatisticsOverview, json).subscribe((response: HttpResponse<any>) => {
       this.oDuh = response.body
+    })
+  }
+
+  loadBlog() {
+    this.connApi.get(this.urlBlog).subscribe((response: HttpResponse<any>) => {
+      this.lBlog = response.body;
     })
   }
 
@@ -132,10 +144,26 @@ export class HomePage implements OnInit {
   }
 
   onContact() {
-    this.Alert.contact()
+    this.router.navigate(['/kontakt'])
   }
 
   onMenu(page) {
     this.dataService.callMenu(page)
+  }
+
+  onLink(link) {
+    window.open(link, '_blank');
+  }
+
+  onBlog($event: EventpingBlog) {
+    let oBlog: Blog = $event.object
+    switch ($event.label) {
+      case 'click':
+      this.router.navigate(['/blog/'+oBlog.cTitle.replace(/\s/g, '_')])
+    }
+  }
+
+  onSubscribe() {
+    // subscribe to newsletter
   }
 }

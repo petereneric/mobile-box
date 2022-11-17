@@ -1,0 +1,56 @@
+@import "../../../../global";
+
+.blog-page {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: $heightMenu;
+}
+
+.blog-image {
+  height: 40vh;
+  object-fit: cover;
+}
+
+.blog-container-text {
+  margin: 2rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 920px) {
+  .blog-container-text {
+    width: 100%;
+  }
+}
+
+.blog-title {
+  font-size: $sizeTitleBig;
+  color: $colorTextPrimary;
+}
+
+.blog-subtitle {
+  font-size: $sizeText;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: $colorTextPrimary;
+}
+
+.blog-text {
+  font-size: $sizeText;
+  color: $colorTextSecondary;
+  margin-top: 1rem;
+}
+
+.blog-date {
+  color: $colorTextTertiary;
+  font-size: $sizeText;
+  margin-top: 1rem;
+}
+
+ion-spinner {
+  color: $colorPrimary !important;
+  margin-top: $heightMenu*2;
+  width: 100%;
+  text-align: center;
+}
