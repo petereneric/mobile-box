@@ -1,25 +1,25 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
-      <img src="../../assets/image/forest.jpg" width="1920px" height="1280px" class="header-image-main">
+      <img src="../../assets/image/forest.webp" width="1920px" height="1280px" class="header-image-main">
       <div class="header-title-container">
         <p class="header-title"><b>Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</b></p>
-        <h1 class="header-title-button" (click)="onMenu('handys-spenden')">HANDYS SPENDEN</h1>
+        <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
       </div>
       <div class="header-footer">
         <ion-row class="header-footer">
           <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
             <p class="header-footer-title">IN PARTNERSCHAFT MIT</p>
-            <img src="../../assets/logo/bund.png" width="1110" height="136" class="header-footer-logo">
+            <img src="../../assets/logo/bund.webp" width="1110" height="136" class="header-footer-logo">
           </ion-col>
           <ion-col class="header-footer-column" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
             <p class="header-footer-title">ZERTIFIZIERT DURCH</p>
-            <img src="../../assets/logo/gutcert.jpg" width="500" height="119" class="header-footer-logo">
+            <img src="../../assets/logo/gutcert.webp" width="500" height="119" class="header-footer-logo">
           </ion-col>
         </ion-row>
       </div>
       <div class="header-circle-quarter">
-        <img src="../../assets/image/circle.png" class="header-image-circle">
+        <img src="../../assets/image/circle.webp" height="1200px" width="250px" class="header-image-circle">
       </div>
     </div>
     <ion-grid>
@@ -59,11 +59,11 @@
       </div>
       <ion-row class="section">
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <img src="../../assets/image/phones.jpg" height="720" width="1080" class="section-image-left">
+          <img src="../../assets/image/phones.webp" height="720" width="1080" class="section-image-left">
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <div class="section-container-text">
-            <h2 class="section-title"><b>Warum wir deine alten Handys sammeln</b></h2>
+            <h3 class="section-title"><b>Warum wir deine alten Handys sammeln</b></h3>
             <div>
               <p class="section-text"><b>200 Millionen alte Handys</b> lagern in deutschen Schubladen. Das hat eine repräsentative Umfrage des Branchenverbands Bitkom 2021 ergeben. Gemeinsam mit Dir wollen wir aktiv daran arbeiten, dass diese Handys umweltgerecht verwertet werden.
                 </p>
@@ -74,14 +74,14 @@
         </ion-col>
       </ion-row>
       <div class="section-container-green">
-        <h2 class="section-title-white"><b>Das passiert mit deinen alten Handys</b></h2>
+        <h3 class="section-title-white"><b>Das passiert mit deinen alten Handys</b></h3>
         <div class="box-group">
           <ion-row>
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="infinite"></ion-icon>
-                <p
-                  class="box-title-white">Sammlung</p>
+                <h2
+                  class="box-title-white">Handy Sammlung</h2>
                 <p class="box-text-white">Gerne kannst Du uns deine alten Handys zusenden oder an einer unserer vielen
                   Sammelstellen abgeben. Diese werden anschließend an unserem Standort in Köln erfasst und abhängig von Alter und Zustand in die Fraktionen Wiederverwendung und Recycling unterteilt.</p>
               </div>
@@ -89,8 +89,8 @@
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
               <div class="box-green">
                 <ion-icon class="box-icon-white" name="aperture"></ion-icon>
-                <h3
-                  class="box-title-white">Handy Recycling</h3>
+                <h2
+                  class="box-title-white">Handy Recycling</h2>
                 <p class="box-text-white">Handys enthalten wertvolle Rohstoffe wie Gold, Silber und Kupfer. Daher lassen
                   wir nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln. Diese Rohstoffe müssen nun nicht mehr in Bergwerken abgebaut werden sondern stehen dem Rohstoffkreislauf wieder zur Verfügung.</p>
               </div>
@@ -131,7 +131,7 @@
           </div>
         </ion-col>
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <img src="../../assets/image/certificate.jpg" width="340" height="481" class="section-image-certificate">
+          <img src="../../assets/image/certificate.webp" width="340" height="481" class="section-image-certificate">
         </ion-col>
       </ion-row>
       <div class="section">
@@ -140,7 +140,7 @@
         <ion-row class="box-group">
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/duh.png" width="340" height="481" class="box-image">
+              <img (click)="onLink('https://www.duh.de/home/')" src="../../assets/logo/duh.webp" width="340" height="481" class="box-logo">
               <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oDuh != null ? oDuh.cPayee : "-"}}</p>
             </div>
@@ -148,7 +148,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/bund.png" width="1110" height="136" class="box-image">
+              <img (click)="onLink('https://www.bund-nrw.de/')" src="../../assets/logo/bund.webp" width="1110" height="136" class="box-logo">
               <p
                 class="box-title">{{oBundNrw != null ? uNumbers.getNumberFormatted(oBundNrw.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
@@ -156,7 +156,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/koelner_zoo.png" width="287" height="176" class="box-image">
+              <img (click)="onLink('https://www.koelnerzoo.de/')" src="../../assets/logo/koelner_zoo.webp" width="287" height="176" class="box-logo">
               <p
                 class="box-title">{{oKoelnerZoo != null ? uNumbers.getNumberFormatted(oKoelnerZoo.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oKoelnerZoo != null ? oKoelnerZoo.cPayee : "-"}}</p>
@@ -164,7 +164,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img src="../../assets/logo/foej.jpg" width="225" height="225"  class="box-image">
+              <img (click)="onLink('https://foej.de/')" src="../../assets/logo/foej.webp" width="225" height="225"  class="box-logo">
               <p
                 class="box-title">{{oFoej != null ? uNumbers.getNumberFormatted(oFoej.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oFoej != null ? oFoej.cPayee : "-"}}</p>
@@ -178,29 +178,59 @@
       <div class="arrow-down"></div>
       <div class="box-group">
         <ion-row>
-          <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="mail-outline"></ion-icon>
               <h3 class="box-title">Handys spenden</h3>
               <ion-button class="box-button" (click)="onMenu('handys-spenden')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
-          <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="rocket-outline"></ion-icon>
               <h3 class="box-title">Sammelaktion starten</h3>
               <ion-button class="box-button" (click)="onMenu('sammelaktion-starten')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
-          <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size-xs="12">
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="paper-plane-outline"></ion-icon>
               <p class="box-title">Kontakt aufnehmen</p>
               <ion-button class="box-button" (click)="onContact()">Mehr erfahren</ion-button>
             </div>
           </ion-col>
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
+            <div class="box">
+              <ion-icon class="box-icon" name="newspaper-outline"></ion-icon>
+              <p class="box-title">Newsletter abonieren</p>
+              <ion-button class="box-button" (click)="onSubscribe()">Mehr erfahren</ion-button>
+            </div>
+          </ion-col>
         </ion-row>
       </div>
+      <!--
+      <div class="blog-section-container">
+        <p class="blog-section-title">Neuigkeiten</p>
+        <div class="blog-section-content">
+          <ion-grid>
+            <ion-row>
+              <ion-col size-size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+                <app-blog (ping)="onBlog($event)" [oBlog]="lBlog !=null ? lBlog[0] : null"></app-blog>
+              </ion-col>
+              <ion-col size-size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+                <app-blog (ping)="onBlog($event)" [oBlog]="lBlog !=null ? lBlog[1] : null"></app-blog>
+              </ion-col>
+              <ion-col size-size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+                <app-blog (ping)="onBlog($event)" [oBlog]="lBlog !=null ? lBlog[2] : null"></app-blog>
+              </ion-col>
+              <ion-col size-size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+                <app-blog (ping)="onBlog($event)" [oBlog]="lBlog !=null ? lBlog[3] : null"></app-blog>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      -->
     </ion-grid>
     <app-footer></app-footer>
   </div>

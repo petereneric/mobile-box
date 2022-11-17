@@ -68,7 +68,7 @@ ul {
 }
 
 ul li::before {
-  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  content: "•"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
   color: $colorPrimary; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
@@ -114,9 +114,11 @@ ion-tab-bar {
 
 ion-tab-button {
   width: 10rem;
+
   ion-label {
     font-size: 1rem;
   }
+
   ion-icon {
     font-size: 1.5rem;
     padding-bottom: 0.35rem !important;
@@ -139,10 +141,61 @@ ion-toggle {
   --handle-background-checked: #315c00;
 }
 
+ion-label {
+  padding-bottom: 0.25rem;
+  white-space: normal !important;
+  --color: #424242 !important;
+  --highlight-color-invalid: #424242 !important;
+}
+
+ion-item {
+  --border-color: #bdbdbd;
+  padding: 0.4rem 1rem 0.4rem 1rem;
+  //--border-color: $colorPrimary; // default underline color
+  //--highlight-color-invalid: #e30909 !important; // invalid underline color
+  //--highlight-color-valid: #c00101 !important; // valid underline color
+}
+
+ion-textarea {
+  margin-top: 0.05rem !important;
+}
+
+ion-select {
+  max-width: 90% !important;
+}
+
+ion-select::part(text) {
+  white-space: normal !important;
+}
+
+// text-wrap for alert labels
+.alert-tappable.alert-radio {
+  height: auto;
+  contain: content;
+}
+
+.alert-radio-label.sc-ion-alert-md {
+  white-space: pre-line;
+}
+
+.alert-radio-label.sc-ion-alert-ios {
+  white-space: pre-line;
+}
+
+.ion-item-toggle-check {
+  display: flex;
+  margin-left: -1rem;
+  padding-top: 0.85rem;
+}
+
+.ion-label-check {
+  margin-left: 1rem;
+}
+
 // Logo
 
 .logo-white {
-  height: 5rem;
+  height: 5rem !important;
   object-fit: cover;
   filter: brightness(0) invert(1);
 }
@@ -336,11 +389,13 @@ ion-toggle {
   color: white;
   line-height: 5rem;
   font-weight: 500;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .header-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 4rem;
   }
 }
 
@@ -394,6 +449,7 @@ ion-toggle {
 
 .box-group {
   margin-top: 2.5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .box {
@@ -479,13 +535,18 @@ ion-toggle {
   padding-right: 1rem !important;
 }
 
+.box-logo {
+  @extend .box-image;
+  cursor: pointer;
+}
+
 .box-button {
-  --color: $colorPrimary;
-  --background: $colorTransparent !important;
+  --color: white;
+  --background: $colorPrimary !important;
+  background: $colorPrimary !important;
   --ion-text-color: white;
-  border: 1px solid $colorPrimary;
   border-radius: 1rem;
-  color: $colorPrimary !important;
+  color: white !important;
   --box-shadow: #00;
   display: block;
   width: auto;
@@ -494,8 +555,8 @@ ion-toggle {
 }
 
 .box-button:hover {
-  --background: $colorPrimary !important;
-  background: $colorPrimary !important;
+  --background: #1c3100 !important;
+  background: #1c3100 !important;
   color: white !important;
 }
 
@@ -524,10 +585,36 @@ ion-toggle {
 
 // section
 
+.section2 {
+  padding: 2rem 4rem 2rem 4rem !important;
+}
+
 .section {
   margin-top: 2.5rem !important;
   margin-right: 0rem !important;
   margin-left: 0rem !important;
+}
+
+.blog-section-container {
+  background: $colorBackground;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 920px) {
+  .blog-section-container {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+.blog-section-title {
+  @extend .page-title;
+  padding: 2rem 0.5rem 2rem 0.5rem;
+}
+
+.blog-section-content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .section-rounded {
@@ -564,7 +651,7 @@ ion-toggle {
 
 .section-container-text {
   padding: 2.5rem !important;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -671,6 +758,26 @@ ion-toggle {
   padding-right: 5rem !important;
 }
 
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  padding: 10rem 4rem 4rem 4rem;
+  background: $colorPrimary;
+  height: auto;
+}
+
+.section-intro-title {
+  color: white;
+  font-size: $sizeTitleBig;
+  padding: 1rem;
+}
+
+.section-intro-text {
+  color: white;
+  font-size: $sizeTextBig;
+  padding: 1rem;
+  line-height: $lineHeightTextBig;
+}
 
 
 .arrow-down {
@@ -748,7 +855,7 @@ ion-toggle {
 // Buttons
 
 .button {
-  border: 1px solid;
+  border: $borderButton solid;
   width: auto;
   border-radius: 1rem;
   cursor: pointer;
@@ -756,6 +863,7 @@ ion-toggle {
   margin: 1rem;
   text-align: center;
   font-size: $sizeText;
+  font-weight: 700;
 }
 
 .button-one {
@@ -767,6 +875,26 @@ ion-toggle {
 
 .button-one:hover {
 
+}
+
+.button-white-one {
+  font-size: 1.5rem;
+  background: white;
+  color: $colorPrimary !important;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  width: fit-content !important;
+  align-self: center !important;
+  border-radius: 1rem;
+  padding: 1rem !important;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button-white-one:hover {
+  background: $colorPrimary;
+  color: white !important;
 }
 
 .button-two {
@@ -783,7 +911,7 @@ ion-toggle {
 
 .button-white-two {
   font-size: 1.5rem;
-  border: 1px solid white;
+  border: $borderButton solid white;
   color: white !important;
   display: block;
   width: auto;
@@ -793,7 +921,7 @@ ion-toggle {
   border-radius: 1rem;
   padding: 1rem !important;
   cursor: pointer;
-  font-weight: 500;
+
 }
 
 .button-white-two:hover {
@@ -811,86 +939,38 @@ ion-toggle {
   padding: 0px !important;
 }
 
-// Cookie Banner
-
-/*
-.cookie-banner {
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
-  overflow: auto;
-}
-
-.cookie-topper {
-  height: 1rem;
-  background: $colorPrimary;
-}
-
-.cookie-container {
-  display: block;
-  margin: 4rem;
-}
-
-.cookie-header {
-  display: flex;
-}
-
-.cookie-title {
-  font-size: $sizeTitle;
-  color: $colorTextPrimary;
-  align-self: center;
-}
-
-.cookie-logo {
-  height: 3.5rem;
-  margin-left: auto !important;
-}
-
-.cookie-text-container {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.cookie-text {
-  font-size: $sizeText;
-  color: $colorTextSecondary;
-}
-
-.cookie-button-container {
-  display: flex;
-  justify-content: stretch;
-  align-items: center;
-  margin-bottom: auto !important;
-}
-
-.cookie-button-one {
-  @extend .button-one;
-}
-
-.cookie-button-two {
-  @extend .button-two;
-}
-
-.cookie-footer {
-
-}
-
-.cookie-footer-row {
-  margin-top: 4rem !important;
-  width: 100% !important;
-  display: flex;
-  flex-direction: column;
-}
-
-.cookie-footer-text {
+// input
+.input-info {
+  color: $colorTextTertiary;
   font-size: $sizeTextSmall;
-  color: $colorTextSecondary;
-  cursor: pointer;
-  margin-bottom: 1rem;
+  display: block;
+  margin-right: 1rem;
+  margin-left: 2rem;
 }
 
-.cookie-footer-text:hover {
-  text-decoration: underline;
+.input-invalid {
+  color: $red;
+  font-size: $sizeTextSmall;
+  display: block;
+  margin-right: 1rem;
+  margin-left: 2rem;
 }
 
- */
+// form
+.no-underline {
+  --highlight-background: transparent;
+
+}
+
+.form-container {
+  width: 70%;
+  padding: 2rem 4rem 2rem 4rem !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 920px) {
+  .form-container {
+    width: 100%;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+}

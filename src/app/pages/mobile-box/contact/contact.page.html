@@ -1,27 +1,97 @@
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-        <img src="../../assets/image/forest.jpg" class="section-image-left">
-      </ion-col>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="section-container-text">
-        <p class="section-title">E-Mail</p>
-        <div class="section-container-text">
-          <p class="section-text">Bei Fragen jeglicher Art, kannst Du uns gerne jederzeit kontaktieren. Wenn Du Kontakt zu uns per E-Mail aufnehmen möchtest, bitten wir Dich uns an folgende Adresse zu schreiben:
-          sammlung@mobile-box.eu . Steven ist Dein Ansprechpartner und beantwortet deine Fragen gerne.</p>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="section-container-text">
-        <p class="section-title">Telefon</p>
-        <div class="section-container-text">
-          <p class="section-text">Alternativ kannst Du uns auch direkt anrufen. Auch auf diesem Wege beantworten wir gerne deine Fragen und helfen Dir bei Problemen weiter. Auch hier ist Steven für Dich erreichbar.</p>
-        </div>
-      </ion-col>
-      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-        <img src="../../assets/image/forest.jpg" class="section-image-left">
-      </ion-col>
-    </ion-row>
+  <div class="section-intro">
+    <p class="section-intro-title">Kontakt</p>
+    <p class="section-intro-text">Du hast Fragen zu der Spende deiner alten Handys oder zum Starten einer Sammelaktion?
+      Wir helfen Dir gerne. Sende uns eine Nachricht und wir bearbeiten dein Anliegen innerhalb von 48 Stunden.</p>
+  </div>
+  <ion-grid class="form-container">
+    <form [formGroup]="formGroup">
+      <ion-row>
+        <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item class="closed" lines="full">
+            <ion-label position="floating">Vorname*</ion-label>
+            <ion-textarea #vSurname rows="1" auto-grow="false" type="text" formControlName="cPrename"></ion-textarea>
+          </ion-item>
+          <span *ngIf="bSubmitted && errorControl.cPrename.errors?.required" class="input-invalid">Pflichtfeld</span>
+          <span *ngIf="bSubmitted && errorControl.cPrename.errors?.maxlength"
+                class="input-invalid">Maximal-Länge von {{maxInput}} Zeichen überschritten</span>
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item lines="full">
+            <ion-label class="input-label" position="floating">Nachname*</ion-label>
+            <ion-textarea #vSurname rows="1" auto-grow="false" type="text" formControlName="cSurname"></ion-textarea>
+          </ion-item>
+          <span *ngIf="bSubmitted && errorControl.cSurname.errors?.required" class="input-invalid">Pflichtfeld</span>
+          <span *ngIf="bSubmitted && errorControl.cSurname.errors?.maxlength"
+                class="input-invalid">Maximal-Länge von {{maxInput}} Zeichen überschritten</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-xl="4" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+          <ion-item class="ion-item-toggle-check">
+            <ion-label class="ion-label-check">Private Handyspende</ion-label>
+            <ion-checkbox [ngModelOptions]="{standalone: true}" [ngModel]="bPrivate" [checked]=bPrivate (ionChange)="onPrivate($event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="!bPrivate" size-xl="4" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item class="ion-item-select">
+            <ion-label position="floating" class="input-label">Bereich/Branche</ion-label>
+            <ion-select [ngModelOptions]="{standalone: true}" [(ngModel)]="oType" [okText]="'Übernehmen'"
+                        [cancelText]="'Abbrechen'">
+              <ion-select-option *ngFor="let oType of lTypes" [value]="oType">{{oType.cName}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <span *ngIf="false && bSubmitted && oType == null"
+                class="input-invalid">Pflichtfeld oder "Private Handyspende" auswählen</span>
+        </ion-col>
+        <ion-col *ngIf="!bPrivate" size-xl="4" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item lines="full">
+            <ion-label class="input-label" position="floating">Name der Einrichtung</ion-label>
+            <ion-textarea #vName rows="1" auto-grow="false" type="text" formControlName="cName"></ion-textarea>
+          </ion-item>
+          <span *ngIf="false && bSubmitted && errorControl.cName.errors?.required" class="input-invalid">Pflichtfeld oder "Private Handyspende" auswählen</span>
+          <span *ngIf="bSubmitted && errorControl.cName.errors?.maxlength"
+                class="input-invalid">Maximal-Länge von {{maxInput}} Zeichen überschritten</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item lines="full">
+            <ion-label class="input-label" position="floating">E-Mail*</ion-label>
+            <ion-textarea #vEmail rows="1" auto-grow="false" type="text" formControlName="cEmail"></ion-textarea>
+          </ion-item>
+          <span *ngIf="bSubmitted && errorControl.cEmail.errors?.required" class="input-invalid">Pflichtfeld</span>
+          <span *ngIf="bSubmitted && errorControl.cEmail.errors?.pattern" class="input-invalid">Fehlerhafte Eingabe</span>
+          <span *ngIf="bSubmitted && errorControl.cEmail.errors?.maxlength"
+                class="input-invalid">Maximal-Länge von {{maxInput}} Zeichen überschritten</span>
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="12">
+          <ion-item lines="full">
+            <ion-label class="input-label" position="floating">Telefon</ion-label>
+            <ion-textarea #vPhone rows="1" auto-grow="false" type="text" formControlName="cPhone"></ion-textarea>
+          </ion-item>
+          <span *ngIf="bSubmitted && errorControl.cPhone.errors?.maxlength"
+                class="input-invalid">Maximal-Länge von {{maxInput}} Zeichen überschritten</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label class="input-label" position="floating">Nachricht*</ion-label>
+            <ion-textarea type="text" formControlName="cMessage" auto-grow="true" rows="2" maxlength="1000"
+                          placeholder="Schreibe uns eine Nachricht..." (ionChange)="onChangeMesssage()"></ion-textarea>
+          </ion-item>
+          <span *ngIf="bSubmitted && errorControl.cMessage.errors?.required" class="input-invalid">Pflichtfeld</span>
+        </ion-col>
+      </ion-row>
+      <ion-row align="right">
+        <ion-col>
+          <span
+            [ngClass]="{'input-info': sizeMessage < maxInputMessage, 'input-invalid': sizeMessage == maxInputMessage}">{{sizeMessage}}
+            /{{maxInputMessage}}</span>
+        </ion-col>
+      </ion-row>
+    </form>
+    <div class="button-one" (click)="onSend()">Nachricht absenden</div>
   </ion-grid>
 </ion-content>

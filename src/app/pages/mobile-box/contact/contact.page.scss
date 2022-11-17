@@ -1,0 +1,38 @@
+@import "../../../../global";
+
+:host {
+  .item-interactive.ion-invalid {
+    --highlight-background: #bdbdbd !important;
+    --highlight-height: 0px !important;
+  }
+
+  .item-interactive.ion-valid {
+    --highlight-background: #bdbdbd !important;
+    --highlight-height: 0px !important;
+  }
+}
+
+
+
+.section-form {
+  padding: 4rem;
+}
+
+.input-invalid {
+  color: $red;
+  font-size: $sizeTextSmall;
+  display: block;
+  margin-right: 1rem;
+  margin-left: 2rem;
+}
+
+.button-one {
+  display: inline-block;
+  width: auto !important;
+}
+
+.ion-item-select {
+  margin-top: 0.1rem !important;
+}
+
+
