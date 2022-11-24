@@ -1,6 +1,59 @@
-.searchbar {
+.ion-content {
 
 }
+.container-refresh-outline-button {
+  --box-shadow: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 920px) {
+  .search {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.search1{
+  text-align: center;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  justify-item: center;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  justify-item: center;
+
+}
+.searchbar {
+  border: 1px lightgray solid;
+  --box-shadow: none;
+  width: auto;
+  height: auto;
+  display: flex;
+
+
+}
+
+.search-results {
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 2rem;
+}
 .dropoffLocationlist {
+  margin: 1rem;
+}
+.googleMaps {
 
 }

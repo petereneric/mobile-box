@@ -15,6 +15,12 @@ export class LocationPage implements OnInit {
 
   // data
   lLocations = null
+  cLocation = ""
+
+  getValue(val:string)
+  {
+    console.log(val)
+  }
 
   constructor(private connApi: ConnApiService) {
 
@@ -23,8 +29,11 @@ export class LocationPage implements OnInit {
   ngOnInit() {
   }
 
+
   loadLocations(cZip, cCity, nDistance) {
+    // TODO: Konsolenausgabe der Searchbar-Eingabe nach Speichern dieser Eingabe in einer eigenen Variable (cLocation)
     console.log("loadLocations")
+    console.log(this.cLocation)
     // set url
     let urlVariable = ""
     if (cZip === null && cCity !== null) {
@@ -39,6 +48,10 @@ export class LocationPage implements OnInit {
       this.lLocations = response.body.lLocations
       console.log(this.lLocations)
     })
+
+
   }
+
+
 
 }
