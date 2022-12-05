@@ -1,6 +1,12 @@
 .ion-content {
 
 }
+.search {
+  display: flex;
+  margin-left: 18% !important;
+  margin-right: 18% !important;
+}
+
 .container-refresh-outline-button {
   --box-shadow: none;
   width: auto;
@@ -9,40 +15,13 @@
   padding: 2rem;
 }
 
-@media screen and (min-width: 0px) and (max-width: 920px) {
-  .search {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-}
-
-.search1{
-  text-align: center;
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  justify-item: center;
-}
-
-.search {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  justify-item: center;
-
-}
 .searchbar {
   border: 1px lightgray solid;
   --box-shadow: none;
   width: auto;
   height: auto;
   display: flex;
-
-
+  text-align: center;
 }
 
 .search-results {
@@ -51,9 +30,19 @@
   display: flex;
   padding: 2rem;
 }
+
 .dropoffLocationlist {
   margin: 1rem;
 }
-.googleMaps {
 
+.Map {
+  display: flex;
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+}
+
+capacitor-google-map {
+  display: inline-block;
+  width: 50rem;
+  height: 40rem;
 }
