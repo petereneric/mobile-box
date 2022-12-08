@@ -94,7 +94,8 @@ export class ContactPage implements OnInit {
     // send request
     this.connApi.post(this.urlContact, message).subscribe((response: HttpResponse<any>) => {
       // Redirect to Thank you Page
-      this.router.navigate(['/contact-sent'])
+      this.router.navigate(['/kontakt-versendet'])
+
     }, error => {
       console.log(error)
     })
