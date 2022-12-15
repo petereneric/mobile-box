@@ -47,7 +47,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
 
 // The company location
-  mobileBox = { lat: 50.9519055, lng: 6.9017056 };
+ mapCentre = { lat: 50.9519055, lng: 6.9017056 };
 
   //Location
   Bremen = { lat: 53.0758196, lng: 8.8071646 };
@@ -59,11 +59,7 @@ export class LocationPage implements OnInit, AfterViewInit {
   // DOM
   @ViewChild('map') mapRef: ElementRef<HTMLElement>;
   newMap: GoogleMap;
-  center:  any = {
-    lat: 50.9519055,
-    lng: 6.9017056,
-
-  };
+  center:  any = this.mapCentre;
 
 
 
@@ -83,22 +79,24 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.createMap();
+    this.createMap(this.mapCentre);
   }
 
 
-  async createMap() {
+  async createMap(centerPosition) {
     this.newMap = await GoogleMap.create({
       id: 'capacitor-google-maps',
       element: this.mapRef.nativeElement,
       apiKey: apiKey,
       config: {
-        center: this.center,
+        center: centerPosition,
         zoom: 10,
       },
     });
 
-    this.addMarker(this.center.lat, this.center.lng);
+    centerPosition = this.mapCentre
+
+    this.addMarker(this.mapCentre.lat, this.mapCentre.lng);
 
 
   }
@@ -138,8 +136,8 @@ export class LocationPage implements OnInit, AfterViewInit {
       this.markerState = 0;
       this.center = await this.newMap.addMarker({
           coordinate: {
-            lat: this.mobileBox['lat'],
-            lng: this.mobileBox['lng']
+            lat: this.mapCentre['lat'],
+            lng: this.mapCentre['lng']
           }
         }
       )
@@ -155,7 +153,9 @@ export class LocationPage implements OnInit, AfterViewInit {
     console.log("loadLocations")
     console.log(this.cLocation)
 
-    this.center =  this.Bremen
+    //this.moveCenter(this.latCenter, this.lngCenter)
+
+    //this.center =  this.Bremen
     //this.createMap();
 
 
@@ -170,6 +170,14 @@ export class LocationPage implements OnInit, AfterViewInit {
         this.lngCenter = this.geoCenter['geoLongitude']
         console.log(this.latCenter)
         console.log(this.lngCenter)
+
+        var newCenter = {
+          lat: this.latCenter,
+          lng: this.lngCenter
+        }
+        this.mapCentre = newCenter
+
+        this.createMap(newCenter)
       })
     }
 
@@ -184,9 +192,23 @@ export class LocationPage implements OnInit, AfterViewInit {
           this.lngCenter = this.geoCenter['geoLongitude']
           console.log(this.latCenter)
           console.log(this.lngCenter)
+
+           var newCenter = {
+            lat: this.latCenter,
+             lng: this.lngCenter
+           }
+
+          this.mapCentre = newCenter
+
+           this.createMap(newCenter)
+
+
+
         })
 
     }
+
+    //this.moveCenter(this.latCenter, this.lngCenter)
 
 
 
