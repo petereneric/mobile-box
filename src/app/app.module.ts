@@ -21,7 +21,7 @@ import {DialogCookieSettingsModule} from "./components/dialogs/dialog-cookie-set
 @NgModule({
   declarations: [AppComponent],
   imports: [DialogCookieSettingsModule, CommonModule, MatDialogModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, RouterModule, HttpClientModule],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

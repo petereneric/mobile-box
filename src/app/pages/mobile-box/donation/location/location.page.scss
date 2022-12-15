@@ -1,0 +1,48 @@
+.ion-content {
+
+}
+.search {
+  display: flex;
+  margin-left: 18% !important;
+  margin-right: 18% !important;
+}
+
+.container-refresh-outline-button {
+  --box-shadow: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 2rem;
+}
+
+.searchbar {
+  border: 1px lightgray solid;
+  --box-shadow: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  text-align: center;
+}
+
+.search-results {
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 2rem;
+}
+
+.dropoffLocationlist {
+  margin: 1rem;
+}
+
+.Map {
+  display: flex;
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+}
+
+capacitor-google-map {
+  display: inline-block;
+  width: 50rem;
+  height: 40rem;
+}
