@@ -323,14 +323,14 @@ export class LocationPage implements OnInit, AfterViewInit {
     let cMessage = null
     if (kmDistance == null) {
       // 50+
-      cMessage = 'Leider befinden sich keine Abgabestandorte im Radius kleiner als 50km zu dem Stadtzentrum deiner Suche. Klicke auf "OK", ' +
+      cMessage = 'Leider befinden sich keine Abgabestandorte im Radius von 50km zu dem Stadtzentrum deiner Suche. Klicke auf "OK", ' +
         'dann werden dir alle verfügbaren Abgabestandorte in ganz Deutschland angezeigt oder klicke auf "VERSENDEN" und du wirst ' +
         'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detailierte Anleitung wie du dein Handy zu uns verschicken kannst.'
     } else {
       // 30+ && <= 50
       cMessage = 'Es befinden sich Abgabestandorte passend zu deiner Suche. Klicke auf "OK", ' +
-        'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die den Radius von 30km zu dem Stadtzentrum deiner Suche besitzen. ' +
-        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung wie du dein Handy zu uns verschicken kannst.'
+        'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die im Radius von 30km zu dem Stadtzentrum deiner Suche liegen. ' +
+        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung wie du dein Handy zu uns zuschicken kannst.'
     }
     const alert = await this.alertController.create({
       header: 'Der nächste Abgabestandort ist bis zu ' + kmDistance + 'km entfernt',
