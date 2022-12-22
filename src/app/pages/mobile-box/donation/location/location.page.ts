@@ -218,8 +218,11 @@ export class LocationPage implements OnInit, AfterViewInit {
 
 
 
-        if ( this.kmDistance <= 50) {
+        if (this.kmDistance <= 30) {
           this.createMap(newCenter, 9.6)
+        }
+        if (this.kmDistance > 30 && this.kmDistance <= 50) {
+          this.createMap(newCenter, 8)
         }
         if (this.kmDistance == null || this.kmDistance > 50){
           this.createMap(this.geoGermany, 6)
@@ -247,8 +250,11 @@ export class LocationPage implements OnInit, AfterViewInit {
         this.mapCentre = newCenter
 
 
-        if (this.kmDistance <= 50) {
+        if (this.kmDistance <= 30) {
           this.createMap(newCenter, 9.6)
+        }
+        if (this.kmDistance > 30 && this.kmDistance <= 50) {
+          this.createMap(newCenter, 8)
         }
         if (this.kmDistance == null || this.kmDistance > 50){
           this.createMap(this.geoGermany, 6)
