@@ -2,18 +2,17 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {ConnApiService} from "../../../../services/conn-api/conn-api.service";
 import {HttpResponse} from "@angular/common/http";
 
-import { GoogleMap, Marker } from '@capacitor/google-maps';
-import { environment } from 'src/environments/environment.prod';
-import { CapacitorGoogleMaps } from '@capacitor/google-maps/dist/typings/implementation';
-import { Geolocation } from '@capacitor/geolocation';
+import {GoogleMap, Marker} from '@capacitor/google-maps';
+import {environment} from 'src/environments/environment.prod';
+import {CapacitorGoogleMaps} from '@capacitor/google-maps/dist/typings/implementation';
+import {Geolocation} from '@capacitor/geolocation';
 import {animation} from "@angular/animations";
 import {Observable} from "rxjs";
-import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import {AlertController} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 
 const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
-
 
 
 @Component({
@@ -38,7 +37,7 @@ export class LocationPage implements OnInit, AfterViewInit {
   latCenter = null
   lngCenter = null
 
- distanceMatrixService: any ;
+  distanceMatrixService: any;
   originMarker;
   infowindow;
   circles: [];
@@ -49,27 +48,22 @@ export class LocationPage implements OnInit, AfterViewInit {
 
 
 // The company location
- mapCentre = { lat: 50.9519055, lng: 6.9017056 };
+  mapCentre = {lat: 50.9519055, lng: 6.9017056};
 
   //Location
-  Bremen = { lat: 53.0758196, lng: 8.8071646 };
-  Munich = { lat: 48.1371079, lng: 11.5753822 };
-
-
+  Bremen = {lat: 53.0758196, lng: 8.8071646};
+  Munich = {lat: 48.1371079, lng: 11.5753822};
 
 
   // DOM
   @ViewChild('map') mapRef: ElementRef<HTMLElement>;
   newMap: GoogleMap;
-  center:  any = this.mapCentre;
-
-
+  center: any = this.mapCentre;
 
 
   markerId: string;
 
-  getValue(val:string)
-  {
+  getValue(val: string) {
     console.log(val)
   }
 
@@ -78,6 +72,7 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.loadLocations(null, "completeMap", null)
   }
 
   ngAfterViewInit() {
@@ -103,12 +98,30 @@ export class LocationPage implements OnInit, AfterViewInit {
     this.addMarker(this.mapCentre.lat, this.mapCentre.lng);
 
 
+    console.log(this.lLocations)
+
+
+    //Load locations into map
+
+    for (let location of this.lLocations) {
+      console.log(location)
+      var newMarker =
+        {
+          title: location['cName'],
+          coordinate: {
+            lat: Number(location['geoLatitude']),
+            lng: Number(location['geoLongitude'])
+          }
+
+        }
+
+
+      console.log("Marker:" + newMarker)
+      this.newMap.addMarker(newMarker);
+    }
+
+
   }
-
-
-
-
-
 
 
   async addMarker(lat, lng) {
@@ -153,7 +166,6 @@ export class LocationPage implements OnInit, AfterViewInit {
   } */
 
 
-
   loadLocations(cZip, cCity, nDistance) {
 
 
@@ -174,6 +186,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
       this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
         console.log(response.body)
+        this.lLocations = response.body.lLocations
         let kmDistance = response.body.kmDistance;
         this.geoCenter = response.body.geoCenter
         this.latCenter = this.geoCenter['geoLatitude']
@@ -189,7 +202,9 @@ export class LocationPage implements OnInit, AfterViewInit {
 
         this.createMap(newCenter, 10)
 
-        if (kmDistance == null || kmDistance >= 30) {
+
+
+        if (kmDistance == null || kmDistance > 30) {
           this.alertRadius(response.body.kmDistance)
         }
 
@@ -197,76 +212,39 @@ export class LocationPage implements OnInit, AfterViewInit {
     }
 
 
+    if (cZip !== null && cCity === null) {
+      urlVariable = this.urlLocationsZip + cZip
 
-      if (cZip !== null && cCity === null) {
-      urlVariable = this.urlLocationsZip+cZip
+      this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
+        this.geoCenter = response.body.geoCenter
+        this.latCenter = this.geoCenter['geoLatitude']
+        this.lngCenter = this.geoCenter['geoLongitude']
+        console.log(this.latCenter)
+        console.log(this.lngCenter)
 
-        this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
-          this.geoCenter = response.body.geoCenter
-          this.latCenter = this.geoCenter['geoLatitude']
-          this.lngCenter = this.geoCenter['geoLongitude']
-          console.log(this.latCenter)
-          console.log(this.lngCenter)
+        var newCenter = {
+          lat: this.latCenter,
+          lng: this.lngCenter
+        }
 
-           var newCenter = {
-            lat: this.latCenter,
-             lng: this.lngCenter
-           }
+        this.mapCentre = newCenter
 
-          this.mapCentre = newCenter
-
-           this.createMap(newCenter, 10)
-
+        this.createMap(newCenter, 10)
 
 
-        })
+      })
 
     }
 
-    // request
-    this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
-      this.lLocations = response.body.lLocations
-      console.log(this.lLocations)
-
-
-      //Load locations into map
-
-      for (let location of this.lLocations) {
-        console.log(location)
-        var newMarker =
-          {
-            title: location['cName'],
-            coordinate: {
-              lat: Number(location['geoLatitude']),
-              lng: Number(location['geoLongitude'])
-            }
-
-          }
-
-
-        console.log("Marker:" + newMarker)
-        this.newMap.addMarker(newMarker);
-      }
-    })
-
-        console.log('marker added')
-
-
-
-
-
-
 
   }
-
-
 
 
   /**
 
 
    ADD RADIUS OVERLAY MAP
-  set_radius = new google.maps.Circle({
+   set_radius = new google.maps.Circle({
     strokeColor: "#f38038",
     strokeOpacity: 0.4,
     strokeWeight: 2,
