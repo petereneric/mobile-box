@@ -18,6 +18,7 @@ import {CommonModule} from "@angular/common";
 import {DialogCookieSettingsModule} from "./components/dialogs/dialog-cookie-settings/dialog-cookie-settings.module";
 
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [DialogCookieSettingsModule, CommonModule, MatDialogModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, RouterModule, HttpClientModule],

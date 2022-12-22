@@ -3,8 +3,10 @@
     <button (click)="loadLocations(null, cLocation, null)" class="container-refresh-outline-button">
       <ion-icon size="large" name="search-outline"></ion-icon>
     </button>
-    <ion-input [(ngModel)]="cLocation" #box (keyup)="getValue(box.value)" (keydown.enter)="loadLocations(null, cLocation, null)" class="searchbar" [clearInput]="true"
-               placeholder="PLZ oder Stadt" value="Default Value"></ion-input>
+    <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, null)" class="searchbar" [clearInput]="true"
+               placeholder="Name deiner Stadt eingeben" value="Default Value"></ion-input>
+    <!--<button expand="block" (click)="locate(addMarker(lat,lng))">Wo bin ich?
+    </button>-->
   </ion-row>
   <ion-row>
     <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="10" size-xs="10">
