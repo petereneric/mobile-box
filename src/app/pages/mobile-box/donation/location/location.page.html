@@ -15,7 +15,7 @@
     <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="12" size-xs="12">
       <ion-content>
         <div class="dropoffLocationlist">
-          <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations"></location-element>
+          <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations" (click)="refocusMap($event)"></location-element>
         </div>
       </ion-content>
 
