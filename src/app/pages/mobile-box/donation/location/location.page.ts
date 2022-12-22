@@ -42,8 +42,8 @@ export class LocationPage implements OnInit, AfterViewInit {
   circles: [];
   markers: [];
 
-  mapState: 0 | 1 = 0;
-  markerState: 0 | 1 = 0;
+  //mapState: 0 | 1 = 0;
+  //markerState: 0 | 1 = 0;
 
 
 // The company location
@@ -79,22 +79,24 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.createMap(this.mapCentre);
+    this.createMap(this.mapCentre, 15);
   }
 
 
-  async createMap(centerPosition) {
+  async createMap(centerPosition, zoomFactor) {
     this.newMap = await GoogleMap.create({
       id: 'capacitor-google-maps',
       element: this.mapRef.nativeElement,
       apiKey: apiKey,
       config: {
         center: centerPosition,
-        zoom: 10,
+        zoom: zoomFactor,
       },
     });
 
     centerPosition = this.mapCentre
+
+    zoomFactor = 10
 
     this.addMarker(this.mapCentre.lat, this.mapCentre.lng);
 
@@ -117,6 +119,8 @@ export class LocationPage implements OnInit, AfterViewInit {
       draggable: true,
     });
   }
+
+  /*
 
   async moveCenter(latCenter, lngCenter) {
     if (!this.center){
@@ -143,7 +147,7 @@ export class LocationPage implements OnInit, AfterViewInit {
       )
     }
 
-  }
+  } */
 
 
   loadLocations(cZip, cCity, nDistance) {
@@ -177,7 +181,7 @@ export class LocationPage implements OnInit, AfterViewInit {
         }
         this.mapCentre = newCenter
 
-        this.createMap(newCenter)
+        this.createMap(newCenter, 10)
       })
     }
 
@@ -200,7 +204,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
           this.mapCentre = newCenter
 
-           this.createMap(newCenter)
+           this.createMap(newCenter, 10)
 
 
 
@@ -208,23 +212,10 @@ export class LocationPage implements OnInit, AfterViewInit {
 
     }
 
-    //this.moveCenter(this.latCenter, this.lngCenter)
-
-
-
     // request
     this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
       this.lLocations = response.body.lLocations
       console.log(this.lLocations)
-
-      //TODO: Change center position
-      //Set Center to input
-
-
-        /**[{lat: this.connApi.get(urlVariable['geoLatitude']),
-        lng: this.connApi.get(urlVariable['geoLongitude'])
-      }]
-      console.log(this.center) **/
 
 
       //Load locations into map
@@ -241,8 +232,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
           }
 
-          //this.moveCenter(this.latCenter, this.lngCenter)
-          //console.log(this.center)
+
         console.log("Marker:" + newMarker)
         this.newMap.addMarker(newMarker);
       }
@@ -250,7 +240,6 @@ export class LocationPage implements OnInit, AfterViewInit {
 
         console.log('marker added')
 
-    //TODO: Delete created markers on additional searches
 
 
 
@@ -260,8 +249,12 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
 
+
+
   /**
-   *ADD RADIUS OVERLAY MAP
+
+
+   ADD RADIUS OVERLAY MAP
   set_radius = new google.maps.Circle({
     strokeColor: "#f38038",
     strokeOpacity: 0.4,
@@ -270,7 +263,7 @@ export class LocationPage implements OnInit, AfterViewInit {
     fillOpacity: 0.25,
     map: this.newMap,
     center: new google.maps.LatLng(this.center.lat, this.center.lng),
-    radius: 20 * 1000, // 20km
+    radius: 50 * 1000, // 20km
   });
    **/
 
