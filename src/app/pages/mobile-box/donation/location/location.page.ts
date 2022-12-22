@@ -8,6 +8,8 @@ import { CapacitorGoogleMaps } from '@capacitor/google-maps/dist/typings/impleme
 import { Geolocation } from '@capacitor/geolocation';
 import {animation} from "@angular/animations";
 import {Observable} from "rxjs";
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
@@ -71,7 +73,7 @@ export class LocationPage implements OnInit, AfterViewInit {
     console.log(val)
   }
 
-  constructor(private connApi: ConnApiService) {
+  constructor(private connApi: ConnApiService, private router: Router, public alertController: AlertController) {
 
   }
 
@@ -102,6 +104,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
 
   }
+
 
 
 
@@ -150,6 +153,7 @@ export class LocationPage implements OnInit, AfterViewInit {
   } */
 
 
+
   loadLocations(cZip, cCity, nDistance) {
 
 
@@ -169,6 +173,8 @@ export class LocationPage implements OnInit, AfterViewInit {
       urlVariable = this.urlLocationsCity + cCity
 
       this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
+        console.log(response.body)
+        let kmDistance = response.body.kmDistance;
         this.geoCenter = response.body.geoCenter
         this.latCenter = this.geoCenter['geoLatitude']
         this.lngCenter = this.geoCenter['geoLongitude']
@@ -182,6 +188,11 @@ export class LocationPage implements OnInit, AfterViewInit {
         this.mapCentre = newCenter
 
         this.createMap(newCenter, 10)
+
+        if (kmDistance == null || kmDistance >= 30) {
+          this.alertRadius(response.body.kmDistance)
+        }
+
       })
     }
 
@@ -267,5 +278,34 @@ export class LocationPage implements OnInit, AfterViewInit {
   });
    **/
 
+
+  async alertRadius(kmDistance) {
+    let cMessage = null;
+    if (kmDistance == null) {
+      // 50+
+      cMessage = 'Leider befinden sich keine Abgabestandorte im Radius kleiner als 50km zu dem Stadtzentrum deiner Suche. Klicke auf "OK", ' +
+        'dann werden dir alle verfügbaren Abgabestandorte in ganz Deutschland angezeigt oder klicke auf "VERSENDEN" und du wirst ' +
+        'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detailierte Anleitung wie du dein Handy zu uns verschicken kannst.'
+    } else {
+      // 30+ && <= 50
+      cMessage = 'Es befinden sich Abgabestandorte passend zu deiner Suche. Klicke auf "OK", ' +
+        'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die den Radius von 30km zu dem Stadtzentrum deiner Suche besitzen. ' +
+        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung wie du dein Handy zu uns verschicken kannst.'
+    }
+    const alert = await this.alertController.create({
+      header: 'Der nächste Abgabestandort ist bis zu ' + kmDistance + 'km entfernt',
+      subHeader: '',
+      message: cMessage,
+      cssClass: 'my-alert',
+      buttons: [
+        {text: 'Ok'},
+        {
+          text: 'Versenden', handler: () => {
+            this.router.navigate(['/handys-spenden/versenden'])
+          }
+        }]
+    });
+    await alert.present();
+  }
 
 }
