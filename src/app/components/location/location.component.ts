@@ -7,12 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class LocationComponent implements OnInit {
 
-  @Input() oLocation
+  @Input() oLocation;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("location component started")
+    console.log("location component started");
   }
 
 }

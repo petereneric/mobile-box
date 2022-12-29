@@ -2,17 +2,38 @@
 
 }
 .search {
+  margin: 2% 18%!important;
   display: flex;
-  margin-left: 18% !important;
-  margin-right: 18% !important;
+  border-radius: 5px;
+  //: 10%;
+  //max-height: 2rem;
+}
+
+.search-results-container{
+  display: flex;
+  justify-content: center !important;
+  //justify-items: center;
+  align-content: center !important;
+  align-items: center !important;
+  margin: 0 !important;
+  width: 100%;
+
 }
 
 .container-refresh-outline-button {
   --box-shadow: none;
   width: auto;
   height: auto;
+  max-height: 5rem;
   display: flex;
   padding: 2rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  :hover{
+    opacity: 0.5;
+  }
 }
 
 .searchbar {
@@ -20,6 +41,7 @@
   --box-shadow: none;
   width: auto;
   height: auto;
+  max-height: 5rem;
   display: flex;
   text-align: center;
 }
@@ -29,10 +51,15 @@
   height: auto;
   display: flex;
   padding: 2rem;
+
 }
 
 .dropoffLocationlist {
   margin: 1rem;
+
+  :hover {
+    opacity: 0.5;
+  }
 }
 
 .Map {
@@ -43,6 +70,8 @@
 
 capacitor-google-map {
   display: inline-block;
-  width: 50rem;
-  height: 40rem;
+  width: 35rem;
+  height: 35rem;
 }
+
+//TODO: Add responsiveness to search result section

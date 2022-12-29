@@ -12,6 +12,7 @@ import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import CircleOptions = google.maps.CircleOptions;
 import Circle = google.maps.Circle;
+import {LocationComponent} from "../../../../components/location/location.component";
 
 
 const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
@@ -22,6 +23,7 @@ const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
   selector: 'app-location',
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
+  imports: [LocationComponent],
 })
 
 
@@ -34,42 +36,42 @@ export class LocationPage implements OnInit, AfterViewInit {
   // data
   lLocations = null
   cLocation = ""
+
+  //Defining the centre
   geoCenter = null
-
-
   latCenter = null
   lngCenter = null
 
+  //Defining map constructs
   distanceMatrixService: any;
   originMarker;
-  infowindow;
+  infoWindow: google.maps.InfoWindow;
   circles: [];
-  markers: [];
-
-  //mapState: 0 | 1 = 0;
-  //markerState: 0 | 1 = 0;
 
 
-// The company location
+
+  //Company location
   mapCentre = {lat: 50.9519055, lng: 6.9017056};
 
-  //Location
+  //Other Locations
   geoGermany = {lat: 51.184738, lng: 10.59135}
   Bremen = {lat: 53.0758196, lng: 8.8071646};
   Munich = {lat: 48.1371079, lng: 11.5753822};
 
 
+  markerId: any;
+  kmDistance: any;
 
+  infoWindows: any = [];
+  markers = [];
+
+  @Input() oLocation;
 
   // DOM
   @ViewChild('map') mapRef: ElementRef<HTMLElement>;
-  newMap: GoogleMap;
+
+  newMap: any;
   center: any = this.mapCentre;
-  setRadius: Circle;
-
-
-  markerId: string;
-  kmDistance: any;
 
   getValue(val: string) {
     console.log(val)
@@ -88,6 +90,8 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
 
+  //Main
+
   async createMap(centerPosition, zoomFactor) {
     this.newMap = await GoogleMap.create({
       id: 'capacitor-google-maps',
@@ -101,28 +105,15 @@ export class LocationPage implements OnInit, AfterViewInit {
       },
     });
 
+    //Initial settings
     centerPosition = this.mapCentre
-
-
-
-    /**
-
-
-    this.setRadius = new google.maps.Circle({
-      strokeColor: "#f38038",
-      strokeOpacity: 0.4,
-      strokeWeight: 2,
-      fillColor: "#f38038",
-      fillOpacity: 0.25,
-      //map: this.newMap,
-      center: new google.maps.LatLng({lat: 50, lng: 6}),
-      radius: 50 * 1000, // 20km
-    }); **/
-
-
     zoomFactor = 10
 
-    for (let location of this.lLocations) {
+    //Options for Rendering Location markers
+
+
+
+        for (let location of this.lLocations) {
       console.log(location)
       var newMarker =
         {
@@ -131,88 +122,59 @@ export class LocationPage implements OnInit, AfterViewInit {
             lat: Number(location['geoLatitude']),
             lng: Number(location['geoLongitude'])
           },
-
+          iconUrl: 'https://www.mobile-box.eu/assets/image/Mobile_Box_Location_Pin.png',
+          iconAnchor: new google.maps.Point(Number(location['geoLatitude']), Number(location['geoLongitude'])),
+          iconSize: new google.maps.Size(85, 85),
+          map: this.newMap,
+          snippet: 'test 123'
         }
 
-
       console.log("Marker:" + newMarker)
+
       this.newMap.addMarker(newMarker);
     }
 
-    this.addMarker(this.mapCentre.lat, this.mapCentre.lng);
-
-    function addMarkerInfo() {
-      //define content for info window
-
-      const contentString =  "<b>This is a Test</b>";
-
-      var infoWindow = new google.maps.InfoWindow({
-        content: "Test contetn property",
-        ariaLabel: "Test",
-      });
-
-      google.maps.event.addListener(this.markerId, 'click', function () {
-        infoWindow.open
-      });
-    };
-
-        }
-
-
-
-
-
-  async addMarker(lat, lng) {
-
-    // Add a marker to the map
-    this.markerId = await this.newMap.addMarker({
-      coordinate: {
-        lat: lat,
-        lng: lng,
-      },
-      draggable: false,
-      // iconUrl: 'https://www.mobile-box.eu/assets/image/Mobile_Box_Location_Pin.png',
-      //iconSize: new google.maps.Size(100, 100),
-    });
-
-  /*
-        async moveCenter(latCenter, lngCenter) {
-    if (!this.center){
-      return;
-    }
-    await this.newMap.removeMarker(this.center);
-
-    if(this.markerState = 0){
-      this.markerState = 1;
-      this.center = await this.newMap.addMarker({
-        coordinate: {
-          lat: latCenter,
-          lng: lngCenter
-        }
-      });
-    } else {
-      this.markerState = 0;
-      this.center = await this.newMap.addMarker({
-          coordinate: {
-            lat: this.mapCentre['lat'],
-            lng: this.mapCentre['lng']
-          }
-        }
-      )
-    }
-*/
   }
+
+ //TODO: Write function emphasize clicked list item
+  highlightSelectedMarker() {
+    //Check if clicked list item has map marker
+   // if (this.oLocation['cName']){
+      //console.log('mouseover test')}
+  }
+
+  //TODO: Write Function for popup on click event
+  addMarkerInfo() {
+    //define content for info window
+     /*
+    for (let location of this.lLocations){
+      let infoContent = '<b>' + location['cName'] + '</b> </br>'+
+        '<p>' + location['cStreet'] + '' + location['cStreetnumber'] +
+        '</b> </br>'+ location['cZip'] + '' + location['cCity'] + '</p>'
+
+      let infoWindow = new google.maps.InfoWindow({
+        content: infoContent,
+        //position: marker['coordinate'],
+      });
+
+      infoWindow.open(this.newMap)
+
+      */
+
+
+
+
+  };
+
+
 
 
   loadLocations(cZip, cCity, nDistance, kmDistance) {
 
 
-    // TODO: Konsolenausgabe der Searchbar-Eingabe nach Speichern dieser Eingabe in einer eigenen Variable (cLocation)
+    //Konsolenausgabe der Searchbar-Eingabe nach Speichern dieser Eingabe in einer eigenen Variable (cLocation)
     console.log("loadLocations")
     console.log(this.cLocation)
-
-
-
 
 
 
@@ -295,17 +257,9 @@ export class LocationPage implements OnInit, AfterViewInit {
 
     }
 
-      //console.log('marker added');
-    }
-
-
-
-
-
+  }
 
   /**
-
-
    ADD RADIUS OVERLAY MAP
    set_radius = new google.maps.Circle({
     strokeColor: "#f38038",
@@ -319,21 +273,29 @@ export class LocationPage implements OnInit, AfterViewInit {
   });
    **/
 
+  //Conditional alerts for results
   async alertRadius(kmDistance) {
     let cMessage = null
-    if (kmDistance == null) {
+    let cMessageTitle = null
+    if (kmDistance == null || kmDistance > 50) {
       // 50+
-      cMessage = 'Leider befinden sich keine Abgabestandorte im Radius von 50km zu dem Stadtzentrum deiner Suche. Klicke auf "OK", ' +
+      cMessageTitle = 'Es wurden keine Abgabestandorte in einem Umkreis von 50 km gefunden.'
+      cMessage = 'Leider befinden sich keine Abgabestandorte im Radius von 50km zum Stadtzentrum deiner Suche. Klicke auf "OK", ' +
         'dann werden dir alle verfügbaren Abgabestandorte in ganz Deutschland angezeigt oder klicke auf "VERSENDEN" und du wirst ' +
-        'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detailierte Anleitung wie du dein Handy zu uns verschicken kannst.'
+        'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detailierte Anleitung dazu, wie du uns dein Handy zusenden kannst.'
     } else {
       // 30+ && <= 50
-      cMessage = 'Es befinden sich Abgabestandorte passend zu deiner Suche. Klicke auf "OK", ' +
-        'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die im Radius von 30km zu dem Stadtzentrum deiner Suche liegen. ' +
-        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung wie du dein Handy zu uns zuschicken kannst.'
+
+      cMessageTitle = 'Es wurden Abgabestandorte in einem Umkreis von' + kmDistance +'km gefunden.'
+
+      cMessage = 'Es befinden sich Abgabestandorte in der Nähe deines angegebenen Standortes. Klicke auf "OK", ' +
+        'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die im Radius von ' + kmDistance + ' km zum Stadtzentrum deiner Suche liegen. ' +
+        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung dazu, wie du uns dein Handy zusenden kannst.'
     }
+
+
     const alert = await this.alertController.create({
-      header: 'Der nächste Abgabestandort ist bis zu ' + kmDistance + 'km entfernt',
+      header: cMessageTitle,
       subHeader: '',
       message: cMessage,
       cssClass: 'my-alert',
@@ -348,4 +310,9 @@ export class LocationPage implements OnInit, AfterViewInit {
     await alert.present();
   }
 
+
 }
+function addMarkerInfo() {
+    throw new Error('Function not implemented.');
+}
+
