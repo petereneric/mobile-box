@@ -38,7 +38,6 @@ export class LocationPage implements OnInit, AfterViewInit {
   cLocation = ""
 
   //Defining the centre
-  geoCenter = null
   latCenter = null
   lngCenter = null
 
@@ -50,17 +49,13 @@ export class LocationPage implements OnInit, AfterViewInit {
 
 
 
-  //Company location
-  mapCentre = {lat: 50.9519055, lng: 6.9017056};
-
-  //Other Locations
+  //locations
   geoGermany = {lat: 51.184738, lng: 10.59135}
   Bremen = {lat: 53.0758196, lng: 8.8071646};
   Munich = {lat: 48.1371079, lng: 11.5753822};
-
+  geoCenter = this.geoGermany
 
   markerId: any;
-  kmDistance: any;
 
   infoWindows: any = [];
   markers = [];
@@ -71,7 +66,6 @@ export class LocationPage implements OnInit, AfterViewInit {
   @ViewChild('map') mapRef: ElementRef<HTMLElement>;
 
   newMap: any;
-  center: any = this.mapCentre;
 
   getValue(val: string) {
     console.log(val)
@@ -86,11 +80,54 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.createMap(this.mapCentre, 15);
+    this.createMap(this.geoCenter, 6);
+    this.loadLocations(null, "initial")
   }
 
+  loadLocations(cZip, cCity) {
 
-  //Main
+    if (cZip === null && cCity !== null) {
+
+      // receive locations
+      this.connApi.get(this.urlLocationsCity + cCity).subscribe((response: HttpResponse<any>) => {
+        // echo
+        console.log(response.body)
+
+        // data
+        let data = response.body;
+        this.lLocations = data.lLocations
+        let kmDistance = data.kmDistance
+        if (data.geoCenter !== null) {
+          this.geoCenter = {
+            lat: data.geoCenter['geoLatitude'],
+            lng: data.geoCenter['geoLongitude']
+          }
+        }
+
+
+        // create map
+        if (kmDistance <= 30) {
+          this.createMap(this.geoCenter, 9.6)
+        }
+
+        if (kmDistance > 30 && kmDistance <= 50) {
+          this.createMap(this.geoCenter, 8)
+          this.alertRadius(response.body.kmDistance)
+        }
+
+        if (kmDistance == null || kmDistance > 50) {
+          console.log("show Germany")
+          this.createMap(this.geoGermany, 6)
+          this.alertRadius(response.body.kmDistance)
+        }
+      })
+    }
+
+    // zip not used for search
+    if (cZip !== null && cCity === null) {
+
+    }
+  }
 
   async createMap(centerPosition, zoomFactor) {
     this.newMap = await GoogleMap.create({
@@ -101,19 +138,10 @@ export class LocationPage implements OnInit, AfterViewInit {
         center: centerPosition,
         zoom: zoomFactor,
         clickableIcons: true,
-
       },
     });
 
-    //Initial settings
-    centerPosition = this.mapCentre
-    zoomFactor = 10
-
-    //Options for Rendering Location markers
-
-
-
-        for (let location of this.lLocations) {
+    for (let location of this.lLocations) {
       console.log(location)
       var newMarker =
         {
@@ -133,145 +161,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
       this.newMap.addMarker(newMarker);
     }
-
   }
-
- //TODO: Write function emphasize clicked list item
-  highlightSelectedMarker() {
-    //Check if clicked list item has map marker
-   // if (this.oLocation['cName']){
-      //console.log('mouseover test')}
-  }
-
-  //TODO: Write Function for popup on click event
-  addMarkerInfo() {
-    //define content for info window
-     /*
-    for (let location of this.lLocations){
-      let infoContent = '<b>' + location['cName'] + '</b> </br>'+
-        '<p>' + location['cStreet'] + '' + location['cStreetnumber'] +
-        '</b> </br>'+ location['cZip'] + '' + location['cCity'] + '</p>'
-
-      let infoWindow = new google.maps.InfoWindow({
-        content: infoContent,
-        //position: marker['coordinate'],
-      });
-
-      infoWindow.open(this.newMap)
-
-      */
-
-
-
-
-  };
-
-
-
-
-  loadLocations(cZip, cCity, nDistance, kmDistance) {
-
-
-    //Konsolenausgabe der Searchbar-Eingabe nach Speichern dieser Eingabe in einer eigenen Variable (cLocation)
-    console.log("loadLocations")
-    console.log(this.cLocation)
-
-
-
-    // set url
-    let urlVariable = ""
-    if (cZip === null && cCity !== null) {
-      urlVariable = this.urlLocationsCity + cCity
-
-      this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
-        console.log(response.body)
-        this.lLocations = response.body.lLocations
-        let kmDistance = response.body.kmDistance;
-        this.geoCenter = response.body.geoCenter
-        this.kmDistance = response.body.kmDistance
-        console.log(this.kmDistance)
-        console.log(response.body)
-        this.latCenter = this.geoCenter['geoLatitude']
-        this.lngCenter = this.geoCenter['geoLongitude']
-        console.log(this.latCenter)
-        console.log(this.lngCenter)
-        console.log(this.kmDistance)
-
-        var newCenter = {
-          lat: this.latCenter,
-          lng: this.lngCenter
-        }
-        this.mapCentre = newCenter
-
-
-        this.lLocations = response.body.lLocations
-
-        console.log(response.body)
-
-
-        if (this.kmDistance <= 30) {
-          this.createMap(newCenter, 9.6)
-        }
-        if (this.kmDistance > 30 && this.kmDistance <= 50) {
-          this.createMap(newCenter, 8)
-          this.alertRadius(response.body.kmDistance)
-        }
-        if (this.kmDistance == null || this.kmDistance > 50) {
-          this.createMap(this.geoGermany, 6)
-          this.alertRadius(response.body.kmDistance)
-        }
-
-
-      })
-    }
-
-
-    if (cZip !== null && cCity === null) {
-      urlVariable = this.urlLocationsZip + cZip
-
-      this.connApi.get(urlVariable).subscribe((response: HttpResponse<any>) => {
-        this.geoCenter = response.body.geoCenter
-        this.latCenter = this.geoCenter['geoLatitude']
-        this.lngCenter = this.geoCenter['geoLongitude']
-        console.log(this.latCenter)
-        console.log(this.lngCenter)
-
-        var newCenter = {
-          lat: this.latCenter,
-          lng: this.lngCenter
-        }
-
-        this.mapCentre = newCenter
-
-        if (this.kmDistance <= 30) {
-          this.createMap(newCenter, 9.6)
-        }
-        if (this.kmDistance > 30 && this.kmDistance <= 50) {
-          this.createMap(newCenter, 8)
-        }
-        if (this.kmDistance == null || this.kmDistance > 50) {
-          this.createMap(this.geoGermany, 6)
-        }
-
-      })
-
-    }
-
-  }
-
-  /**
-   ADD RADIUS OVERLAY MAP
-   set_radius = new google.maps.Circle({
-    strokeColor: "#f38038",
-    strokeOpacity: 0.4,
-    strokeWeight: 2,
-    fillColor: "#f38038",
-    fillOpacity: 0.25,
-    map: this.newMap,
-    center: new google.maps.LatLng(this.center.lat, this.center.lng),
-    radius: 50 * 1000, // 20km
-  });
-   **/
 
   //Conditional alerts for results
   async alertRadius(kmDistance) {
@@ -310,8 +200,11 @@ export class LocationPage implements OnInit, AfterViewInit {
     await alert.present();
   }
 
+  highlightSelectedMarker() {
 
+  }
 }
+
 function addMarkerInfo() {
     throw new Error('Function not implemented.');
 }
