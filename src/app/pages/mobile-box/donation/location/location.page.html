@@ -1,31 +1,34 @@
 <ion-content>
   <ion-row class="search">
-    <button (click)="loadLocations(null, cLocation, null)" class="container-refresh-outline-button">
+    <button (click)="loadLocations(null, cLocation, null, kmDistance)" class="container-refresh-outline-button">
       <ion-icon size="large" name="search-outline"></ion-icon>
     </button>
-    <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, null)" class="searchbar" [clearInput]="true"
+    <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, null, kmDistance)" class="searchbar" [clearInput]="true"
                placeholder="Name deiner Stadt eingeben" value="Default Value"></ion-input>
     <!--<button expand="block" (click)="locate(addMarker(lat,lng))">Wo bin ich?
     </button>-->
   </ion-row>
-  <ion-row>
-    <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="10" size-xs="10">
-      <p class="search-results">Suchtreffer: {{lLocations != null ? lLocations.length : "0"}}</p>
-    </ion-col>
+  <ion-row style="padding-left: 10% !important;">
+      <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="10" size-xs="10">
+        <p class="search-results">Suchtreffer: {{lLocations !== null ? lLocations.length : "0"}}</p>
+      </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="12" size-xs="12">
-      <ion-content>
-        <div class="dropoffLocationlist">
-          <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations" (click)="refocusMap($event)"></location-element>
-        </div>
-      </ion-content>
 
-    </ion-col>
-    <ion-col size-xl="8" size-lg="7" size-md="7" size-sm="12" size-xs="12">
-      <div class="Map">
-        <capacitor-google-map #map>Capacitor-Google-Maps</capacitor-google-map>
-      </div>
-    </ion-col>
+  <ion-row style="padding-left: 10% !important; display: flex;">
+      <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="12" size-xs="12">
+        <ion-content>
+          <div class="dropoffLocationlist">
+            <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations" (mouseover)="highlightSelectedMarker()"></location-element>
+          </div>
+        </ion-content>
+
+      </ion-col>
+      <ion-col size-xl="8" size-lg="7" size-md="7" size-sm="12" size-xs="12">
+        <div class="Map">
+          <capacitor-google-map #map>Capacitor-Google-Maps</capacitor-google-map>
+        </div>
+      </ion-col>
   </ion-row>
+
+
 </ion-content>

@@ -821,6 +821,8 @@ ion-select::part(text) {
 
 .my-alert .alert-wrapper {
   justify-content: center;
+  min-width: 33%;
+
 
   .alert-button-group {
     display: flex;
