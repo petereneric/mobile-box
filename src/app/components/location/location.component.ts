@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'location-element',
@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class LocationComponent implements OnInit {
 
   @Input() oLocation;
+  @Output() ping: EventEmitter<any> = new EventEmitter<any>()
 
   constructor() { }
 
@@ -15,4 +16,14 @@ export class LocationComponent implements OnInit {
     console.log("location component started");
   }
 
+  onClick() {
+    const event = {
+      oLocation: this.oLocation
+    }
+    this.ping.emit(event)
+  }
+
+  onLink(link: string) {
+    window.open((!(link.substring(0, 8) === "https://") ? "https://" : "") + link, '_blank');
+  }
 }

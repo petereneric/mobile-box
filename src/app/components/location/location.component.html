@@ -1,16 +1,17 @@
-<div class="drop-offLocation">
+<div class="drop-offLocation" >
   <div>
     <div class="titel">
         {{oLocation.cName}}
     </div>
-     <div class="subtitel">
+     <div class="subtitelTwo">
         {{oLocation.cStreet}}
         {{oLocation.cStreetNumber}},
         {{oLocation.cZip}}
         {{oLocation.cCity}}
      </div>
+    <div *ngIf="oLocation.cWebsite != undefined" class="website" (click)="onLink(oLocation.cWebsite)">{{oLocation.cWebsite}}</div>
   </div>
-  <div class="infobutton">
+  <div class="infobutton" (click)="onClick()">
   <ion-icon name="information-circle-outline"></ion-icon>
   </div>
 </div>

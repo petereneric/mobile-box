@@ -4,10 +4,10 @@
     </ion-col>
     <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="12" size-xs="12">
       <ion-row>
-        <button (click)="loadLocations(null, cLocation)" class="container-refresh-outline-button">
+        <button (click)="loadLocations(null, cLocation, true)" class="container-refresh-outline-button">
           <ion-icon size="large" name="search-outline"></ion-icon>
         </button>
-        <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation)" class="searchbar" [clearInput]="true"
+        <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, true)" class="searchbar" [clearInput]="true"
                    placeholder="Name deiner Stadt eingeben" value="Default Value"></ion-input>
         <!--<button expand="block" (click)="locate(addMarker(lat,lng))">Wo bin ich?
         </button>-->
@@ -26,7 +26,7 @@
       <ion-col size-xl="4" size-lg="5" size-md="5" size-sm="12" size-xs="12">
         <ion-content>
           <div class="dropoffLocationlist">
-            <location-element [oLocation]=oLocation *ngFor="let oLocation of lLocations" (mouseover)="highlightSelectedMarker()"></location-element>
+            <location-element (ping)="onClickLocation($event)" [oLocation]=oLocation *ngFor="let oLocation of lLocations" (mouseover)="highlightSelectedMarker()"></location-element>
           </div>
         </ion-content>
 

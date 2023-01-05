@@ -18,7 +18,6 @@ import {LocationComponent} from "../../../../components/location/location.compon
 const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
 
 
-
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
@@ -48,7 +47,6 @@ export class LocationPage implements OnInit, AfterViewInit {
   circles: [];
 
 
-
   //locations
   geoGermany = {lat: 51.184738, lng: 10.59135}
   Bremen = {lat: 53.0758196, lng: 8.8071646};
@@ -59,6 +57,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
   infoWindows: any = [];
   markers = [];
+  bDialogLocationOpen = false
 
   @Input() oLocation;
 
@@ -81,10 +80,14 @@ export class LocationPage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.createMap(this.geoCenter, 6);
-    this.loadLocations(null, "initial")
+    this.loadLocations(null, "initial", false)
   }
 
-  loadLocations(cZip, cCity) {
+  ngOnDestroy() {
+    this.newMap.destroy
+  }
+
+  loadLocations(cZip, cCity, bDialog) {
 
     if (cZip === null && cCity !== null) {
 
@@ -112,13 +115,13 @@ export class LocationPage implements OnInit, AfterViewInit {
 
         if (kmDistance > 30 && kmDistance <= 50) {
           this.createMap(this.geoCenter, 8)
-          this.alertRadius(response.body.kmDistance)
+          if (bDialog) this.alertRadius(response.body.kmDistance)
         }
 
         if (kmDistance == null || kmDistance > 50) {
           console.log("show Germany")
           this.createMap(this.geoGermany, 6)
-          this.alertRadius(response.body.kmDistance)
+          if (bDialog) this.alertRadius(response.body.kmDistance)
         }
       })
     }
@@ -130,6 +133,7 @@ export class LocationPage implements OnInit, AfterViewInit {
   }
 
   async createMap(centerPosition, zoomFactor) {
+
     this.newMap = await GoogleMap.create({
       id: 'capacitor-google-maps',
       element: this.mapRef.nativeElement,
@@ -143,17 +147,18 @@ export class LocationPage implements OnInit, AfterViewInit {
 
     for (let location of this.lLocations) {
       console.log(location)
-      var newMarker =
+      var newMarker: Marker =
         {
           title: location['cName'],
           coordinate: {
             lat: Number(location['geoLatitude']),
             lng: Number(location['geoLongitude'])
           },
-          iconUrl: 'https://www.mobile-box.eu/assets/image/Mobile_Box_Location_Pin.png',
-          iconAnchor: new google.maps.Point(Number(location['geoLatitude']), Number(location['geoLongitude'])),
-          iconSize: new google.maps.Size(85, 85),
-          map: this.newMap,
+          // needs to fixed to specific location, currently icon moves while zooming
+          //iconUrl: 'https://www.mobile-box.eu/assets/image/Mobile_Box_Location_Pin.png',
+          //iconAnchor: new google.maps.Point(Number(location['geoLatitude']), Number(location['geoLongitude'])),
+          //iconSize: new google.maps.Size(85, 85),
+          //map: this.newMap,
           snippet: 'test 123'
         }
 
@@ -161,6 +166,15 @@ export class LocationPage implements OnInit, AfterViewInit {
 
       this.newMap.addMarker(newMarker);
     }
+
+    this.newMap.setOnMarkerClickListener(data => {
+      Object.keys(this.lLocations).forEach(key => {
+        if (this.lLocations[key].cName === data.title) {
+          console.log(this.lLocations[key])
+          this.dialogLocation(this.lLocations[key])
+        }
+      })
+    })
   }
 
   //Conditional alerts for results
@@ -176,7 +190,7 @@ export class LocationPage implements OnInit, AfterViewInit {
     } else {
       // 30+ && <= 50
 
-      cMessageTitle = 'Es wurden Abgabestandorte in einem Umkreis von' + kmDistance +'km gefunden.'
+      cMessageTitle = 'Es wurden Abgabestandorte in einem Umkreis von' + kmDistance + 'km gefunden.'
 
       cMessage = 'Es befinden sich Abgabestandorte in der Nähe deines angegebenen Standortes. Klicke auf "OK", ' +
         'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die im Radius von ' + kmDistance + ' km zum Stadtzentrum deiner Suche liegen. ' +
@@ -203,9 +217,50 @@ export class LocationPage implements OnInit, AfterViewInit {
   highlightSelectedMarker() {
 
   }
+
+  async dialogLocation(oLocation) {
+    if (!this.bDialogLocationOpen) {
+      this.bDialogLocationOpen = true
+
+      console.log("dialogLocation")
+      const alert = await this.alertController.create({
+        header: oLocation.cName,
+        subHeader: oLocation.cWebsite,
+        message: oLocation.cStreet + " " + oLocation.cStreetNumber + ", " + oLocation.cZip + " " + oLocation.cCity,
+        cssClass: 'my-alert',
+        buttons: [
+          {text: 'Schließen'}
+        ]
+      })
+
+      await alert.present();
+
+      await alert.onDidDismiss().then(res => {
+        console.log("dialog closed")
+        this.bDialogLocationOpen = false
+      })
+    }
+  }
+
+  onClickLocation($event: any) {
+    console.log("onClickLocation")
+    console.log($event.oLocation)
+    const oLocation = $event.oLocation
+
+    this.newMap.setCamera({
+      coordinate: {
+        lat: Number(oLocation.geoLatitude),
+        lng: Number(oLocation.geoLongitude)
+      },
+      zoom: 15,
+      animate: true
+    })
+  }
 }
 
+
+
 function addMarkerInfo() {
-    throw new Error('Function not implemented.');
+  throw new Error('Function not implemented.');
 }
 
