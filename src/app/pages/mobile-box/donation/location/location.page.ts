@@ -12,6 +12,7 @@ import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import CircleOptions = google.maps.CircleOptions;
 import Circle = google.maps.Circle;
+//import {close} from "fs";
 
 
 const apiKey = 'AIzaSyBi8-bcvFsKzomxh6TXLc6CfLaATi1PjEk';
@@ -84,6 +85,37 @@ export class LocationPage implements OnInit, AfterViewInit {
   ngOnDestroy() {
     this.newMap.destroy
   }
+
+  //Reset to initial View on [clearinput]
+
+  onClearInput() {
+
+    /*
+
+    const resetButton = document.querySelectors('[aria-label="reset"]')
+
+    for (let i = 0; i < resetButton.length; i++) {
+      resetButton[i].addEventListener('click', () => {
+        console.log("reset map")
+        this.createMap(this.geoCenter, 6);
+        this.loadLocations(null, "initial", false)
+      });
+    }
+    */
+
+    const resetButton = document.querySelector('[aria-label="reset"]')
+
+      resetButton.addEventListener('click', (e) => {
+        console.log("reset map")
+        this.createMap(this.geoCenter, 6);
+        this.loadLocations(null, "initial", false)
+      });
+
+
+  }
+
+
+
 
   loadLocations(cZip, cCity, bDialog) {
 
@@ -184,7 +216,7 @@ export class LocationPage implements OnInit, AfterViewInit {
       cMessageTitle = 'Es wurden keine Abgabestandorte in einem Umkreis von 50 km gefunden.'
       cMessage = 'Leider befinden sich keine Abgabestandorte im Radius von 50km zum Stadtzentrum deiner Suche. Klicke auf "OK", ' +
         'dann werden dir alle verfügbaren Abgabestandorte in ganz Deutschland angezeigt oder klicke auf "VERSENDEN" und du wirst ' +
-        'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detailierte Anleitung dazu, wie du uns dein altes Handy zusenden kannst.'
+        'direkt auf die Seite "Versenden" weitergeleitet. Dort findest du eine detaillierte Anleitung dazu, wie du uns dein altes Handy zusenden kannst.'
     } else {
       // 30+ && <= 50
 
@@ -192,7 +224,7 @@ export class LocationPage implements OnInit, AfterViewInit {
 
       cMessage = 'Es befinden sich Abgabestandorte in der Nähe deines angegebenen Standortes. Klicke auf "OK", ' +
         'dann werden dir alle verfügbaren Abgabestandorte angezeigt, die im Radius von ' + kmDistance + ' km zum Stadtzentrum deiner Suche liegen. ' +
-        'Oder klicke auf "VERSENDEN" dort findest du eine detailierte Anleitung dazu, wie du uns dein altes Handy zusenden kannst.'
+        'Oder klicke auf "VERSENDEN" dort findest du eine detaillierte Anleitung dazu, wie du uns dein altes Handy zusenden kannst.'
     }
 
 
