@@ -18,12 +18,14 @@
         <div class="settings-container">
           <div class="settings-header">
             <p>{{oCategory.cName}}</p>
-            <ion-toggle *ngIf="oCategory.id > 0" [disabled]="oCategory.id == 1" class="settings-header-toggle" [checked]="oCategory.bActive"
+            <ion-toggle *ngIf="oCategory.id > 0" [disabled]="oCategory.id == 1" class="settings-header-toggle"
+                        [checked]="oCategory.bActive"
                         (ionChange)="onToggleSettings($event)"></ion-toggle>
           </div>
           <div class="settings-info">
             <p class="settings-info-text">{{oCategory.cText}}</p>
-            <p class="settings-info-text-details" (click)="onCookieDetails()">{{oCategory.id > 0 ? oCategory.lCookieList.length > 0 ? 'Cookie-Details' : 'Keine Cookies' : ''}}</p>
+            <p class="settings-info-text-details"
+               (click)="onCookieDetails()">{{oCategory.id > 0 ? oCategory.lCookieList.length > 0 ? 'Cookie-Details' : 'Keine Cookies' : ''}}</p>
             <div *ngIf="bShowCookieList" class="cookie-category-container">
               <div *ngFor="let cookieList of oCategory.lCookieList" class="cookie-list-container">
                 <div class="cookie-list-header">
@@ -57,7 +59,7 @@
   </ion-grid>
   <div class="footer-container">
     <div class="footer-divider"></div>
-    <button  class="footer-button" (click)="closeDialog()">Meine Auswahl bestätigen</button>
+    <button class="footer-button" (click)="closeDialog()">Meine Auswahl bestätigen</button>
     <button *ngIf="!cookiesAccepted()" class="footer-button-two" (click)="onAcceptAll()">Alle zulassen</button>
   </div>
 

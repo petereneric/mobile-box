@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {CookieCategory} from '../../interfaces/cookieCategory'
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-dialog-cookie-settings',
@@ -17,7 +18,7 @@ export class DialogCookieSettingsComponent implements OnInit {
   bShowCookieList = false
   bShowCookies = false
 
-  constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private cookieService: CookieService, public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class DialogCookieSettingsComponent implements OnInit {
     this.oCategory.bActive = $event['detail']['checked'];
     this.saveSettings()
     this.setCookiesAccepted()
+    if (this.oCategory.id == 2) this.deleteCookies()
   }
 
   onCookieDetails() {
@@ -86,5 +88,10 @@ export class DialogCookieSettingsComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close()
+  }
+
+  deleteCookies() {
+    console.log("yessssssssss")
+    this.cookieService.deleteAll();
   }
 }

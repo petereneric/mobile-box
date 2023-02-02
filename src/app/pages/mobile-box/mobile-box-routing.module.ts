@@ -45,6 +45,10 @@ const routes: Routes = [
         loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
       },
       {
+        path: 'standorte-2-0',
+        redirectTo: 'handys-spenden/abgeben'
+      },
+      {
         path: '**',
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },

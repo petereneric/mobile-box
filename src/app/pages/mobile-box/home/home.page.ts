@@ -164,6 +164,6 @@ export class HomePage implements OnInit {
   }
 
   onSubscribe() {
-    // subscribe to newsletter
+    this.onLink("http://eepurl.com/icNgpX")
   }
 }

@@ -9,8 +9,9 @@ button:focus {
 .container {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100vh;
   overflow: auto;
+  overflow-y: scroll;
 }
 
 @media screen and (min-width: 0px) and (max-width: 900px){
