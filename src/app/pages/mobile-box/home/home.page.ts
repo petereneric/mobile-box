@@ -52,6 +52,7 @@ export class HomePage implements OnInit {
   }
 
   openSignupForm(){
+    console.log("callOne")
     this.dialogRef.open(MCSignupFormComponent);
   }
 

@@ -10,10 +10,11 @@ export class MCSignupFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("call")
   }
 
 
-   modal = document.querySelector('.modal');
+  modal = document.querySelector('.modal');
   openModal = document.querySelector('.open-signup-btn');
   closeModal = document.querySelector('.close-signup-btn');
 
