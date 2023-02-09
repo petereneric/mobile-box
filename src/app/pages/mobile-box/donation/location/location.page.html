@@ -3,12 +3,12 @@
     <ion-col size-xl="2" size-lg="2" size-md="1" size-sm="0" size-xs="0">
     </ion-col>
     <ion-col size-xl="8" size-lg="8" size-md="10" size-sm="12" size-xs="12">
-      <ion-row>
+      <ion-row class="searchbar-container" (mouseenter)="visibilityOn()" (mouseleave)="visibilityOff()">
         <button (click)="loadLocations(null, cLocation, true)" class="container-refresh-outline-button">
           <ion-icon size="large" name="search-outline"></ion-icon>
         </button>
-        <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, true)" class="searchbar" [clearInput]="true"
-                   placeholder="Name deiner Stadt eingeben" value="Default Value"></ion-input>
+        <ion-input [(ngModel)]="cLocation" #box (keydown.enter)="loadLocations(null, cLocation, true)" class="searchbar"
+                   placeholder="Name deiner Stadt eingeben" value="Default Value"><button id="clearButton" (click)="onClearInput()"><ion-icon  name="close-outline"></ion-icon></button></ion-input>
         <!--<button expand="block" (click)="locate(addMarker(lat,lng))">Wo bin ich?
         </button>-->
       </ion-row>
@@ -33,7 +33,7 @@
       </ion-col>
       <ion-col size-xl="8" size-lg="7" size-md="7" size-sm="12" size-xs="12">
         <div class="Map">
-          <capacitor-google-map #map>Capacitor-Google-Maps</capacitor-google-map>
+          <capacitor-google-map id="map" #map>Capacitor-Google-Maps</capacitor-google-map>
         </div>
       </ion-col>
   </ion-row>

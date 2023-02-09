@@ -3,8 +3,10 @@ import {Platform} from "@ionic/angular";
 import {SplashScreen} from "@ionic-native/splash-screen/ngx";
 import {StatusBar} from "@ionic-native/status-bar/ngx";
 
+
 import {NgcCookieConsentService, NgcNoCookieLawEvent, NgcInitializeEvent, NgcStatusChangeEvent} from "ngx-cookieconsent";
 import { Subscription } from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -30,4 +32,5 @@ export class AppComponent implements OnInit {
 
 
   }
+
 }

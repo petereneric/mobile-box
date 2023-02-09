@@ -16,11 +16,12 @@ import {NgcCookieConsentConfig, NgcCookieConsentModule} from 'ngx-cookieconsent'
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {DialogCookieSettingsModule} from "./components/dialogs/dialog-cookie-settings/dialog-cookie-settings.module";
+import { MCSignupFormComponent } from './components/dialogs/mc-signup-form/mc-signup-form.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MCSignupFormComponent],
   imports: [DialogCookieSettingsModule, CommonModule, MatDialogModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, RouterModule, HttpClientModule],
   providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
   bootstrap: [AppComponent],

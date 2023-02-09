@@ -8,6 +8,9 @@ import {Numbers} from "../../../utilities/numbers";
 import {EventpingBlog} from "../../../components/interfaces/eventpingBlog";
 import {Blog} from "../../../components/interfaces/blog";
 
+import {MatDialog} from "@angular/material/dialog";
+import {MCSignupFormComponent} from "../../../components/dialogs/mc-signup-form/mc-signup-form.component";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -33,7 +36,7 @@ export class HomePage implements OnInit {
   lBlog = null;
 
 
-  constructor(public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, public Alert: Alert) {
+  constructor(public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, private dialogRef: MatDialog ,public Alert: Alert) {
   }
 
   ngOnInit() {
@@ -46,6 +49,10 @@ export class HomePage implements OnInit {
 
     this.loadDataPartner()
     this.loadBlog()
+  }
+
+  openSignupForm(){
+    this.dialogRef.open(MCSignupFormComponent);
   }
 
 
