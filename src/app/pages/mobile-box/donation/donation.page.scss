@@ -1,0 +1,13 @@
+ion-tabs {
+
+}
+
+@media only screen and (max-width: 768px){
+  ion-tab-bar{
+    max-height: 4rem;
+
+  }
+  ion-label {
+    font-size: 1em;
+  }
+}

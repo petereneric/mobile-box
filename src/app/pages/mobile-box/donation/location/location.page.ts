@@ -6,7 +6,7 @@ import {GoogleMap, Marker} from '@capacitor/google-maps';
 import {environment} from 'src/environments/environment.prod';
 import {CapacitorGoogleMaps} from '@capacitor/google-maps/dist/typings/implementation';
 import {Geolocation} from '@capacitor/geolocation';
-import {animation} from "@angular/animations";
+import {animation, style} from "@angular/animations";
 import {Observable} from "rxjs";
 import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
@@ -86,34 +86,28 @@ export class LocationPage implements OnInit, AfterViewInit {
     this.newMap.destroy
   }
 
+
   //Reset to initial View on [clearinput]
 
   onClearInput() {
 
-    /*
+    this.cLocation = '';
 
-    const resetButton = document.querySelectors('[aria-label="reset"]')
-
-    for (let i = 0; i < resetButton.length; i++) {
-      resetButton[i].addEventListener('click', () => {
-        console.log("reset map")
-        this.createMap(this.geoCenter, 6);
-        this.loadLocations(null, "initial", false)
-      });
-    }
-    */
-
-    const resetButton = document.querySelector('[aria-label="reset"]')
-
-      resetButton.addEventListener('click', (e) => {
-        console.log("reset map")
-        this.createMap(this.geoCenter, 6);
-        this.loadLocations(null, "initial", false)
-      });
-
+    console.log("reset map")
+    this.createMap(this.geoCenter, 6);
+    this.loadLocations(null, "initial", false)
 
   }
+  //Change Properties of Clear Button
+  visibilityOn() {
+    const visibilityStatus = document.getElementById('clearButton');
 
+    visibilityStatus.style.setProperty('visibility', 'visible')
+  }
+  visibilityOff() {
+    const visibilityStatus = document.getElementById('clearButton');
+    visibilityStatus.style.setProperty('visibility', 'hidden')
+  }
 
 
 
@@ -160,6 +154,18 @@ export class LocationPage implements OnInit, AfterViewInit {
     if (cZip !== null && cCity === null) {
 
     }
+
+    //Scroll to Map after input
+    if (this.cLocation != '') {
+      document.getElementById("map").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+
+    }
+
+
   }
 
   async createMap(centerPosition, zoomFactor) {

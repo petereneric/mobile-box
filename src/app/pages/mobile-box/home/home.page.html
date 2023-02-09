@@ -202,14 +202,19 @@
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="newspaper-outline"></ion-icon>
-              <p class="box-title">Newsletter abonieren</p>
+              <p class="box-title">Newsletter abonnieren</p>
               <ion-button class="box-button" (click)="onSubscribe()">Mehr erfahren</ion-button>
             </div>
           </ion-col>
         </ion-row>
       </div>
 
-      <ion-icon id="subscription-btn" name="newspaper-outline" size="large" (click)="openSignupForm()"></ion-icon>
+      <div class="btn-container">
+        <p class="btn-titel">Newsletter</p>
+        <span title="Newsletter"><ion-icon id="subscription-btn" name="newspaper-outline" size="medium" (click)="openSignupForm()"></ion-icon></span>
+      </div>
+
+
 
 
       <!--

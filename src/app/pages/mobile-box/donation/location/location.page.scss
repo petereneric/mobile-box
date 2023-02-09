@@ -1,70 +1,111 @@
 .ion-content {
 
 }
-.search {
-  display: flex;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 2rem !important;
+
+
+  .search {
+    display: flex;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 2rem !important;
+  }
+
+
+  .search-results-container{
+    display: flex;
+    justify-content: center !important;
+    //justify-items: center;
+    align-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    width: 100%;
+
+  }
+
+  .container-refresh-outline-button {
+    --box-shadow: none;
+    width: auto;
+    height: auto;
+    max-height: 5rem;
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .searchbar {
+    border: 1px lightgray solid;
+    --box-shadow: none;
+    width: auto;
+    height: auto;
+    max-height: 5rem;
+    display: flex;
+    text-align: center;
+  }
+
+  .search-results {
+    width: auto;
+    height: auto;
+    display: flex;
+    padding: 2rem;
+
+  }
+
+  .dropoffLocationlist {
+    margin: 1rem;
+  }
+
+  .Map {
+    display: flex;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+
+  capacitor-google-map {
+    display: inline-block;
+    width: 100%;
+    height: 35rem;
+  }
+
+#clearButton{
+  background: none;
+  position: relative;
+  visibility: hidden;
 }
 
 
-.search-results-container{
-  display: flex;
-  justify-content: center !important;
-  //justify-items: center;
-  align-content: center !important;
-  align-items: center !important;
-  margin: 0 !important;
-  width: 100%;
+//Mobile
+@media only screen and (max-width: 768px){
+  .searchbar-container{
+    width: 100%;
+  }
 
+
+  .Map {
+    display: flex;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+
+  capacitor-google-map {
+    display: inline-block;
+    width: 100%;
+    height: 35rem;
+  }
+
+  .container-refresh-outline-button {
+    --box-shadow: none;
+    width: auto;
+    height: auto;
+    max-height: 3rem;
+    display: flex;
+    padding: 0.5rem;
+  }
+
+  ion-icon{
+    font-size: smaller;
+  }
 }
 
-.container-refresh-outline-button {
-  --box-shadow: none;
-  width: auto;
-  height: auto;
-  max-height: 5rem;
-  display: flex;
-  padding: 2rem;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin-left: auto;
-}
-
-.searchbar {
-  border: 1px lightgray solid;
-  --box-shadow: none;
-  width: auto;
-  height: auto;
-  max-height: 5rem;
-  display: flex;
-  text-align: center;
-}
-
-.search-results {
-  width: auto;
-  height: auto;
-  display: flex;
-  padding: 2rem;
-
-}
-
-.dropoffLocationlist {
-  margin: 1rem;
-}
-
-.Map {
-  display: flex;
-  margin-left: 5% !important;
-  margin-right: 5% !important;
-}
-
-capacitor-google-map {
-  display: inline-block;
-  width: 100%;
-  height: 35rem;
-}
-
-//TODO: Add responsiveness to search result section

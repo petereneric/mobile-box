@@ -1,14 +1,36 @@
-
-#subscription-btn{
+.btn-container{
   position: fixed;
   bottom: 10%;
   right: 5%;
+  display: grid;
+  text-align: center;
+
+}
+
+#subscription-btn{
+  //position: fixed;
+  //bottom: 10%;
+  //right: 5%;
   background: #1c3100;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
   padding: 20px;
   color: white;
-
+  pointer-events:none;
 
 }
+
+.btn-titel {
+  display: none;
+  margin-bottom: 4px;
+}
+
+.btn-container:hover{
+  transform: scale(1.1);
+
+  .btn-titel{
+    display: grid;
+  }
+}
+
