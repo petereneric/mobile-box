@@ -26,7 +26,29 @@
   font-family: neo_sans_pro_medium;
   src: url(assets/font/NeoSansProMedium.OTF) format("opentype");
 }
+/*
+@media (prefers-color-scheme: dark) {
+  body {
+    /* dark mode variables go here /
+    // Color - Text - Dark
 
+    $colorTextPrimary: #e8e8e8 !important;
+    $colorTextSecondary: #BDBDBD !important;
+    $colorTextTertiary: #888888 !important;
+    $colorDivider: #BDBDBD !important;
+    $colorBackground: #212121 !important;
+    $colorUnderline: #b4b4b4 !important;
+  }
+
+  // Color - Text
+  $colorTextPrimary: #212121;
+  $colorTextSecondary: #424242;
+  $colorTextTertiary: #888888;
+  $colorDivider: #BDBDBD;
+  $colorBackground: #e8e8e8;
+  $colorUnderline: #b4b4b4;
+}
+*/
 // MENU
 $heightMenu: 6rem;
 
@@ -975,4 +997,109 @@ ion-select::part(text) {
     padding-right: 0rem !important;
     padding-left: 0rem !important;
   }
+}
+
+///Dark Mode
+@media (prefers-color-scheme: dark) {
+
+    /* dark mode variables go here */
+    // Color - Text - Dark
+
+    $colorTextPrimary: #e8e8e8 !important;
+    $colorTextSecondary: #BDBDBD !important;
+    $colorTextTertiary: #888888 !important;
+    $colorDivider: #BDBDBD !important;
+    $colorBackground: #212121 !important;
+    $colorUnderline: #b4b4b4 !important;
+
+
+  // Text | Color
+  $textColorMenu:  #b4b4b4;
+
+
+
+  // MENU
+
+
+  .menu-vertical-text-selected {
+    @extend .menu-vertical-text;
+    text-decoration: underline;
+  }
+
+  .menu-vertical-text:hover {
+    text-decoration: underline;
+  }
+
+
+  .menu-text {
+    color: $textColorMenu;
+  }
+
+  .menu-text-underline {
+    background: $colorPrimary;
+  }
+
+  .menu-toggle {
+    color: $colorPrimary;
+  }
+
+
+  //BOXES
+  .box-title {
+    color: $colorTextPrimary;
+  }
+
+  .box-subtitle{
+    color: $colorTextTertiary;
+  }
+
+ //SECTION
+  .section-list-item {
+    color: $colorTextSecondary;
+  }
+
+  .section-text {
+    color: $colorTextSecondary;
+  }
+
+  .section-container-green {
+    background: $colorPrimary;
+  }
+
+  //TEXTS
+
+  .text {
+    font-size: 1rem;
+    color: $colorTextPrimary;
+  }
+
+  .text-secondary {
+    @extend .text;
+    color: $colorTextSecondary;
+  }
+
+  // Alert & Toast
+
+  .my-alert .alert-wrapper {
+
+    .alert-sub-title {
+      color: $colorTextSecondary;
+    }
+
+    .alert-message {
+      color: $colorTextPrimary;
+    }
+
+    .alert-title {
+      color: $colorTextPrimary;
+    }
+  }
+
+
+  // input
+  .input-info {
+    color: $colorTextTertiary;
+  }
+
+
 }
