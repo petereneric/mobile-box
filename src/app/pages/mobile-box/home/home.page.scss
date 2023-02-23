@@ -8,9 +8,6 @@
 }
 
 #subscription-btn{
-  //position: fixed;
-  //bottom: 10%;
-  //right: 5%;
   background: #1c3100;
   width: 50px;
   height: 50px;
@@ -18,6 +15,7 @@
   padding: 20px;
   color: white;
   pointer-events:none;
+  box-shadow: 3px 3px 5px 1px black;
 
 }
 
@@ -34,3 +32,30 @@
   }
 }
 
+//Mobile
+@media only screen and (max-width: 768px){
+
+  #subscription-btn{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.mat-dialog-container {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.mat-dialog-content {
+  max-width: 100%;
+}
+
+///Dark Mode
+@media (prefers-color-scheme: dark) {
+  #bund-logo {
+       background-color: white;
+     }
+  #duh-logo {
+    background-color: white;
+  }
+}

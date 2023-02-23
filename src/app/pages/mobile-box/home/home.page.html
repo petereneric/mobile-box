@@ -140,7 +140,7 @@
         <ion-row class="box-group">
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img (click)="onLink('https://www.duh.de/home/')" src="../../assets/logo/duh.webp" width="340" height="481" class="box-logo">
+              <img id="duh-logo"(click)="onLink('https://www.duh.de/home/')" src="../../assets/logo/duh.webp" width="340" height="481" class="box-logo">
               <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oDuh != null ? oDuh.cPayee : "-"}}</p>
             </div>
@@ -148,7 +148,7 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img (click)="onLink('https://www.bund-nrw.de/')" src="../../assets/logo/bund.webp" width="1110" height="136" class="box-logo">
+              <img id="bund-logo" (click)="onLink('https://www.bund-nrw.de/')" src="../../assets/logo/bund.webp" width="1110" height="136" class="box-logo">
               <p
                 class="box-title">{{oBundNrw != null ? uNumbers.getNumberFormatted(oBundNrw.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
