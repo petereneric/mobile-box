@@ -356,8 +356,7 @@ ion-select::part(text) {
   position: relative;
   height: 10rem;
   //filter: brightness(0) invert(1);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
+ -webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -393,16 +392,18 @@ ion-select::part(text) {
 .header-title-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   position: absolute;
-  text-align: center;
+  text-align: left;
   align-self: center;
   width: 100%;
+  margin-left: 5rem;
 }
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .header-title-container {
     margin-top: $heightMenu/4;
+    margin-left: auto;
   }
 }
 
@@ -412,17 +413,50 @@ ion-select::part(text) {
   line-height: 5rem;
   font-weight: 500;
   padding: 1rem;
+  margin-top: 6rem;
+}
+
+.header-text {
+  font-size: 1.3rem;
+  color: white;
+  line-height: 2rem;
+  font-weight: 400;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .header-title {
-    font-size: 2rem;
-    line-height: 4rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
   }
 }
 
 .header-title-button {
+  font-size: 1.5rem;
+  color: $colorPrimary !important;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  width: fit-content !important;
+  align-self: center !important;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 1.5rem !important;
+  cursor: pointer;
+  background: white !important;
+}
+
+.header-title-button:hover{
+  color: white !important;
+  background: transparent !important;
+  border: $borderButton solid white !important;
+  box-sizing: border-box;
+  padding: 1.5rem !important;
+}
+.header-title-button-white {
   @extend .button-white-two;
+  box-sizing: border-box;
+  padding: 1.5rem !important;
 }
 
 .header-footer {
@@ -443,6 +477,7 @@ ion-select::part(text) {
     width: 100vw !important;
     align-self: center;
     margin-left: 0rem !important;
+    visibility: hidden;
   }
 }
 
@@ -647,6 +682,12 @@ ion-select::part(text) {
   border-bottom-right-radius: 3rem;
 }
 
+.section-image-container{
+  text-align: center;
+  justify-items: center;
+  align-content: center;
+}
+
 .section-image {
 
 }
@@ -670,6 +711,12 @@ ion-select::part(text) {
 .section-image-certificate:hover {
   filter: none;
 }
+.section-image-indicator{
+  width: 60%;
+  //object-fit: cover;
+
+
+}
 
 .section-container-text {
   padding: 2.5rem !important;
@@ -688,11 +735,29 @@ ion-select::part(text) {
   text-align: center;
 }
 
+.section-title-regular {
+  font-size: 2rem;
+  color: $colorPrimary;
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .section-title {
     font-size: 1.5rem;
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
+  }
+
+  .section-title-regular {
+    font-size: 1.5rem;
+    color: $colorPrimary;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
 }
 
@@ -759,6 +824,7 @@ ion-select::part(text) {
   color: $colorTextSecondary;
   line-height: 2rem;
   margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-container-green {
@@ -926,6 +992,7 @@ ion-select::part(text) {
   border: $colorPrimary;
   color: $colorPrimary;
   background: transparent;
+
 }
 
 .button-two:hover {
@@ -943,7 +1010,8 @@ ion-select::part(text) {
   width: fit-content !important;
   align-self: center !important;
   border-radius: 1rem;
-  padding: 1rem !important;
+  box-sizing: border-box;
+  padding: 1.5rem !important;
   cursor: pointer;
 
 }
@@ -953,6 +1021,55 @@ ion-select::part(text) {
   color: $colorPrimary !important;
 }
 
+.button-group {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+
+.button-orange{
+  font-size: 1.5rem;
+  background: $colorCopper;
+  color: white;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  width: fit-content !important;
+  align-self: center !important;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 2rem !important;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.button-orange:hover{
+  color: $colorCopper;
+  background-color: transparent;
+  border: $colorCopper solid;
+}
+
+.button-orange-rev {
+  font-size: 1.5rem;
+  color: $colorCopper;
+  background: white;
+  display: block;
+  width: auto;
+  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  width: fit-content !important;
+  align-self: center !important;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 2rem !important;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.button-orange-rev:hover{
+  background-color: $colorCopper;
+  color: white;
+
+}
 // Dialog
 
 .mat-dialog-container {

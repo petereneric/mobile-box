@@ -1,10 +1,17 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
-      <img src="../../assets/image/forest.webp" width="1920px" height="1280px" class="header-image-main">
+      <img src="../../assets/image/forestGradient.png" width="1920px" height="1280px" class="header-image-main">
       <div class="header-title-container">
-        <p class="header-title"><b>Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</b></p>
-        <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
+        <p class="header-title"><b>200 Millionen alte Handys in <br>
+          Deutschland sind unsere Mission.</b></p>
+        <p class="header-text">Wir wollen bis Ende 2025 1 Millionen dieser Geräte umweltgerecht verwerten. <br> Unterstütze uns dabei, indem Du uns deine
+          alten Handys spendest<br> oder in deiner Stadt eine Handy-Sammelaktion startest.</p>
+        <ion-row>
+            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
+            <h1 class="header-title-button-white" (click)="onMenu('handys-spenden')">SAMMELAKTION STARTEN</h1>
+        </ion-row>
+
       </div>
       <div class="header-footer">
         <ion-row class="header-footer">
@@ -57,6 +64,8 @@
           </ion-col>
         </ion-row>
       </div>
+
+      <!--
       <ion-row class="section">
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <img src="../../assets/image/phones.webp" height="720" width="1080" class="section-image-left">
@@ -73,6 +82,54 @@
           </div>
         </ion-col>
       </ion-row>
+      -->
+
+      <ion-row>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <section class="section-image-ctn">
+            <div class="section-image-container">
+              <img src="../../assets/image/letter_mockup.png" width="450">
+            </div>
+
+          </section>
+
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-container-text">
+            <h3 class="section-title-regular"><b>Alte Handys umweltgerecht entsorgen</b></h3>
+            <div>
+              <p class="section-text">Raus aus der Schublade mit deinen alten Handys und ab zu Mobile-Box damit. Denn wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht entsorgen. Egal ob durch innereuropäisches Recycling oder nachhaltige Wiederverwendung, gemeinsam schonen wir Ressourcen und leisten einen wichtigen Beitrag zum Umweltschutz.
+              </p>
+            </div>
+            <ion-row class="button-group">
+              <button class="button-orange" (click)="onMenu('handys-spenden')">HANDYS SPENDEN</button>
+              <button class="button-orange-rev" (click)="onMenu('handys-spenden/abgeben')">ABGABESTELLE FINDEN</button>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-container-text">
+            <h3 class="section-title-regular"><b>Kostenlose Sammelbox bestellen</b></h3>
+            <div>
+              <p class="section-text">Du möchtest in deiner Schule, deiner Stadt oder deinem Verein alte Handys sammeln? Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine persönliche Betreuung und die Garantie, dass alle gesammelten Handys umweltgerecht verwertet werden.</p>
+            </div>
+            <ion-row class="button-group">
+              <button class="button-orange" (click)="onMenu('handys-spenden')">DIREKT BESTELLEN</button>
+              <button class="button-orange-rev" (click)="onMenu('handys-spenden')">MEHR INFORMATIONEN</button>
+            </ion-row>
+          </div>
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-image-container">
+            <img src="../../assets/image/sammelbox.png" width="450"  class="section-image-indicator" >
+          </div>
+
+        </ion-col>
+      </ion-row>
+
       <div class="section-container-green">
         <h3 class="section-title-white"><b>Das passiert mit deinen alten Handys</b></h3>
         <div class="box-group">
