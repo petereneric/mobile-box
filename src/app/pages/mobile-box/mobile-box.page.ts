@@ -35,8 +35,10 @@ export class MobileBoxPage implements OnInit {
         this.menuSelected = 1
       case '/sammelaktion-starten':
         this.menuSelected = 2
-      case '/%C3%BCber-uns':
+      case '/verwertung':
         this.menuSelected = 3
+      case '/%C3%BCber-uns':
+        this.menuSelected = 4
     }
 
     this.dataService.callbackMenu().subscribe((data) => {
@@ -52,6 +54,14 @@ export class MobileBoxPage implements OnInit {
         case 'sammelaktion-starten':
           this.menuSelected = 2
           this.router.navigate(['sammelaktion-starten'])
+          break
+        case 'verwertung':
+          this.menuSelected = 3
+          this.router.navigate(['verwertung'])
+          break
+        case '/%C3%BCber-uns':
+          this.menuSelected = 4
+          this.router.navigate(['/%C3%BCber-uns'])
           break
       }
     })

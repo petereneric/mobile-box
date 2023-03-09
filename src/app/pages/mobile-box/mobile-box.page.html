@@ -15,9 +15,13 @@
         <p class="menu-text">SAMMELAKTION STARTEN</p>
         <div [ngClass]="menuSelected == 2 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
-      <div class="menu-container-text-single" [routerLink]="'/über-uns'" (click)="onMenu(3)">
-        <p class="menu-text">ÜBER UNS</p>
+      <div class="menu-container-text-single" [routerLink]="'/verwertung'" (click)="onMenu(3)">
+        <p class="menu-text">VERWERTUNG</p>
         <div [ngClass]="menuSelected == 3 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
+      </div>
+      <div class="menu-container-text-single" [routerLink]="'/über-uns'" (click)="onMenu(4)">
+        <p class="menu-text">ÜBER UNS</p>
+        <div [ngClass]="menuSelected == 4 ? 'menu-text-underline-visible' : 'menu-text-underline'"></div>
       </div>
     </div>
     <ion-icon id="menu-toggle" slot="end" class="menu-toggle" [name]="bMenuVertical ? 'close' : 'menu'"
@@ -37,8 +41,10 @@
        [routerLink]="'/handys-spenden'" (click)="onMenu(1)">HANDYS SPENDEN</p>
     <p [ngClass]="menuSelected == 2 ? 'menu-vertical-text-selected' : 'menu-vertical-text'"
        [routerLink]="'/sammelaktion-starten'" (click)="onMenu(2)">SAMMELAKTION STARTEN</p>
-    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/über-uns'"
-       (click)="onMenu(3)">ÜBER UNS</p>
+    <p [ngClass]="menuSelected == 3 ? 'menu-vertical-text-selected' : 'menu-vertical-text'"
+       [routerLink]="'/verwertung'" (click)="onMenu(3)">VERWERTUNG</p>
+    <p [ngClass]="menuSelected == 4 ? 'menu-vertical-text-selected' : 'menu-vertical-text'" [routerLink]="'/über-uns'"
+       (click)="onMenu(4)">ÜBER UNS</p>
   </div>
 </div>
 <div *ngIf="!cookiesAccepted()" class="cookie-container">

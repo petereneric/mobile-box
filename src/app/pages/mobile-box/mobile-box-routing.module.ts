@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
       },
       {
+        path: 'verwertung',
+        loadChildren: () => import('./exploitation/exploitation.module').then( m => m.ExploitationPageModule)
+      },
+      {
         path: 'sammelaktion-starten',
         loadChildren: () => import('./collection/collection.module').then( m => m.CollectionPageModule)
       },
@@ -54,6 +58,8 @@ const routes: Routes = [
       },
     ]
   },
+
+
 
 
 
