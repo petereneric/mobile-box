@@ -32,6 +32,10 @@
   }
 }
 
+.section-verwertung{
+  //background-image: ;
+}
+
 //Mobile
 @media only screen and (max-width: 768px){
 
@@ -49,6 +53,53 @@
 .mat-dialog-content {
   max-width: 100%;
 }
+//Section Verwertung
+
+.verwertung-background-img{
+  width: 100%;
+  height: 30rem;
+  position: absolute;
+  object-fit: cover;
+  filter: brightness(80%)
+}
+.box-verwertung{
+  //background-image: url("../assets/phones.webp") ;
+  display: flex;
+  flex-direction: column;
+  margin: 1.25rem;
+  color: white;
+  border-radius: 35px;
+  padding: 2.5rem;
+  opacity: 0.8;
+
+  ion-icon{
+    align-self: end;
+  }
+
+}
+
+
+.box-v1 {
+@extend .box-verwertung;
+  background-color:  #1D4314;
+
+}
+
+.box-v2 {
+  @extend .box-verwertung;
+  background-color:  #B1A31D;
+}
+
+.box-v3 {
+  @extend .box-verwertung;
+  background-color:  #0A9AA4;
+
+}
+
+.box-v4 {
+  @extend .box-verwertung;
+  background-color:  #A4380A;
+}
 
 ///Dark Mode
 @media (prefers-color-scheme: dark) {
@@ -59,3 +110,54 @@
     background-color: white;
   }
 }
+
+//ADJUSTMENTS MOBILE VERSION
+
+
+@media(max-width: 780px) {
+  //header subtext
+  .only-on-mobile {
+    display: block;
+  }
+
+  .desktop-version {
+    display: none;
+  }
+
+  .header-title-button{
+    align-self: center;
+  }
+
+  .header-container img{
+    /* Gradient Preview */
+
+    position: absolute;
+
+    background: linear-gradient(225deg, rgba(49, 92, 0, 0.84) 0%, rgba(49, 92, 0, 0.87) 4.42%, rgba(49, 92, 0, 0.94) 8.84%, rgba(49, 92, 0, 0.859122) 13.26%, rgba(49, 92, 0, 0.857227) 17.68%, rgba(49, 92, 0, 0.853229) 22.1%, rgba(49, 92, 0, 0.845959) 26.52%, rgba(49, 92, 0, 0.833988) 30.94%, rgba(49, 92, 0, 0.815625) 35.36%, rgba(49, 92, 0, 0.78892) 39.77%, rgba(49, 92, 0, 0.53) 44.41%, rgba(49, 92, 0, 0.6) 46.73%, rgba(49, 92, 0, 0.56) 48.61%, rgba(49, 92, 0, 0.61) 53.03%, rgba(49, 92, 0, 0.550578) 57.45%, rgba(49, 92, 0, 0.443811) 61.87%, rgba(49, 92, 0, 0.311542) 66.29%, rgba(49, 92, 0, 0.15) 70.71%);
+
+  }
+
+  .section-sammeln ion-col:nth-of-type(2){
+    order: -1;
+  }
+
+}
+
+//ADJUSTMENTS DESKTOP VERSION
+
+  @media(min-width: 782px) {
+    //header subtext
+    .only-on-mobile {
+      display: none;
+    }
+    .desktop-version{
+      display: block;
+    }
+
+    .row-spenden {
+      margin-bottom: 4rem;
+
+    }
+  }
+
+

@@ -348,7 +348,7 @@ ion-select::part(text) {
   height: 45rem;
   position: absolute;
   object-fit: cover;
-  filter: brightness(80%)
+  filter: brightness(80%);
 }
 
 .header-image-circle {
@@ -402,7 +402,7 @@ ion-select::part(text) {
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .header-title-container {
-    margin-top: $heightMenu/4;
+    margin-top: $heightMenu/10;
     margin-left: auto;
   }
 }
@@ -413,7 +413,8 @@ ion-select::part(text) {
   line-height: 5rem;
   font-weight: 500;
   padding: 1rem;
-  margin-top: 6rem;
+  //margin-top: 4rem;
+
 }
 
 .header-text {
@@ -425,6 +426,11 @@ ion-select::part(text) {
 }
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
+  .header-image-main{
+    background: linear-gradient(45deg, rgba(49, 92, 0, 0.84) 0%, rgba(49, 92, 0, 0.87) 4.42%, rgba(49, 92, 0, 0.94) 8.84%, rgba(49, 92, 0, 0.859122) 13.26%, rgba(49, 92, 0, 0.857227) 17.68%, rgba(49, 92, 0, 0.853229) 22.1%, rgba(49, 92, 0, 0.845959) 26.52%, rgba(49, 92, 0, 0.833988) 30.94%, rgba(49, 92, 0, 0.815625) 35.36%, rgba(49, 92, 0, 0.78892) 39.77%, rgba(49, 92, 0, 0.53) 44.41%, rgba(49, 92, 0, 0.6) 46.73%, rgba(49, 92, 0, 0.56) 48.61%, rgba(49, 92, 0, 0.61) 53.03%, rgba(49, 92, 0, 0.550578) 57.45%, rgba(49, 92, 0, 0.443811) 61.87%, rgba(49, 92, 0, 0.311542) 66.29%, rgba(49, 92, 0, 0.15) 70.71%);
+
+  }
+
   .header-title {
     font-size: 1.5rem;
     line-height: 2.5rem;
@@ -441,22 +447,24 @@ ion-select::part(text) {
   align-self: center !important;
   border-radius: 1rem;
   box-sizing: border-box;
-  padding: 1.5rem !important;
+  padding: 1.2rem !important;
   cursor: pointer;
   background: white !important;
+  font-weight: bolder;
 }
 
 .header-title-button:hover{
   color: white !important;
   background: transparent !important;
-  border: $borderButton solid white !important;
+  outline: $borderButton solid white !important;
   box-sizing: border-box;
-  padding: 1.5rem !important;
+  padding: 1.2rem !important;
 }
 .header-title-button-white {
   @extend .button-white-two;
   box-sizing: border-box;
   padding: 1.5rem !important;
+  font-weight: bolder;
 }
 
 .header-footer {
@@ -477,7 +485,7 @@ ion-select::part(text) {
     width: 100vw !important;
     align-self: center;
     margin-left: 0rem !important;
-    visibility: hidden;
+    display: none;
   }
 }
 
@@ -744,6 +752,11 @@ ion-select::part(text) {
   text-align: left;
 }
 
+.section-verwertung{
+  margin-bottom: auto;
+  display: flex;
+}
+
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .section-title {
     font-size: 1.5rem;
@@ -945,7 +958,7 @@ ion-select::part(text) {
 // Buttons
 
 .button {
-  border: $borderButton solid;
+  outline: $borderButton solid;
   width: auto;
   border-radius: 1rem;
   cursor: pointer;
@@ -1002,7 +1015,7 @@ ion-select::part(text) {
 
 .button-white-two {
   font-size: 1.5rem;
-  border: $borderButton solid white;
+  //border: $borderButton solid white;
   color: white !important;
   display: block;
   width: auto;
@@ -1033,12 +1046,12 @@ ion-select::part(text) {
   color: white;
   display: block;
   width: auto;
-  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  //margin: 0.5rem 1rem 0.5rem 1rem !important;
   width: fit-content !important;
   align-self: center !important;
   border-radius: 1rem;
   box-sizing: border-box;
-  padding: 2rem !important;
+  padding: 1.5rem !important;
   cursor: pointer;
   font-weight: 700;
 }
@@ -1046,7 +1059,11 @@ ion-select::part(text) {
 .button-orange:hover{
   color: $colorCopper;
   background-color: transparent;
-  border: $colorCopper solid;
+  outline: $colorCopper solid;
+}
+
+.button-orange:first-child{
+  margin-right: 1.5rem ;
 }
 
 .button-orange-rev {
@@ -1055,12 +1072,12 @@ ion-select::part(text) {
   background: white;
   display: block;
   width: auto;
-  margin: 0.5rem 1rem 0.5rem 1rem !important;
+  //margin: 0.5rem 1rem 0.5rem 1rem !important;
   width: fit-content !important;
   align-self: center !important;
   border-radius: 1rem;
   box-sizing: border-box;
-  padding: 2rem !important;
+  padding: 1.5rem !important;
   cursor: pointer;
   font-weight: 700;
 }

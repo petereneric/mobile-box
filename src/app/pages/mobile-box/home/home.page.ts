@@ -21,6 +21,7 @@ export class HomePage implements OnInit {
 
   // Urls
   urlStatisticsOverview = "statistics/overview"
+  urlSammelstandorte = "locations/statistics"
   urlBlog = "blog"
 
   // data
@@ -28,12 +29,17 @@ export class HomePage implements OnInit {
   oStatisticsOverview = null;
   oStatisticsOverviewTest = null;
 
+  oSammelstandorte = null;
+
   oBundNrw = null;
   oKoelnerZoo = null;
   oFoej = null;
   oDuh = null;
 
   lBlog = null;
+
+  cTotalResources = null;
+
 
 
   constructor(public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, private dialogRef: MatDialog ,public Alert: Alert) {
@@ -46,6 +52,12 @@ export class HomePage implements OnInit {
       this.oStatisticsOverview = response.body;
       console.log(this.oStatisticsOverview)
     })
+
+    this.connApi.get(this.urlSammelstandorte).subscribe((response: HttpResponse<any>) => {
+      this.oSammelstandorte = response.body.nLocationsPublic;
+      console.log(this.oSammelstandorte)
+    })
+
 
     this.loadDataPartner()
     this.loadBlog()
@@ -151,6 +163,23 @@ export class HomePage implements OnInit {
       return "-"
     }
   }
+
+  getResources(){
+
+    if (this.oStatisticsOverview != null) {
+      var weightGold = this.oStatisticsOverview.gGold
+      var weightSilver = this.oStatisticsOverview.gSilver
+      var weightCopper = this.oStatisticsOverview.gCopper
+
+      this.cTotalResources = Number(weightGold) + Number(weightCopper) + Number(weightSilver)
+
+      let resources = this.transGramm(this.cTotalResources)
+      return resources.value + " " + resources.unit
+    } else {
+      return "-"
+    }
+
+}
 
   onContact() {
     this.router.navigate(['/kontakt'])
