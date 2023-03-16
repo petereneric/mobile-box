@@ -1,10 +1,19 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
-      <img src="../../assets/image/forest.webp" width="1920px" height="1280px" class="header-image-main">
+      <img src="../../assets/image/forestGradient.png" width="1920px" height="1280px" class="header-image-main">
       <div class="header-title-container">
-        <p class="header-title"><b>Spende deine alten Handys <br>und sei Teil einer nachhaltigen <br>Kreislaufwirtschaft</b></p>
-        <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
+        <p class="header-title"><b>200 Millionen alte Handys in <br>
+          Deutschland sind unsere Mission.</b></p>
+        <p class="header-text desktop-version">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz, indem Du uns deine
+          alten Handys spendest<br> oder in deiner Stadt eine Handy-Sammelaktion startest.</p>
+
+        <p class="header-text only-on-mobile">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz!</p>
+        <ion-row>
+            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
+            <h1 class="header-title-button-white" (click)="onMenu('handys-spenden')">SAMMELAKTION STARTEN</h1>
+        </ion-row>
+
       </div>
       <div class="header-footer">
         <ion-row class="header-footer">
@@ -34,29 +43,31 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
-              <ion-icon class="box-icon" name="leaf-outline"></ion-icon>
-              <p class="box-title">{{oStatisticsOverview != null ? (transGramm(oStatisticsOverview.gGold)).value + " " + (transGramm(oStatisticsOverview.gGold)).unit : "-"}}</p>
-              <p class="box-subtitle">RECYCELTES GOLD</p>
+              <ion-icon class="box-icon" name="leaf"></ion-icon>
+              <p class="box-title">{{getResources()}}</p>
+              <p class="box-subtitle">RECYCELTE ROHSTOFFE</p>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
-              <ion-icon class="box-icon" name="leaf-outline"></ion-icon>
+              <ion-icon class="box-icon" name="home"></ion-icon>
               <p
-                class="box-title">{{oStatisticsOverview != null ? (transGramm(oStatisticsOverview.gSilver)).value + " " + (transGramm(oStatisticsOverview.gSilver)).unit : "-"}}</p>
-              <p class="box-subtitle">RECYCELTES SILBER</p>
+                class="box-title">{{oSammelstandorte}}</p>
+              <p class="box-subtitle">SAMMELSTANDORTE</p>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
-              <ion-icon class="box-icon" name="leaf-outline"></ion-icon>
+              <ion-icon class="box-icon" name="school"></ion-icon>
               <p
-                class="box-title">{{oStatisticsOverview != null ? (transGramm(oStatisticsOverview.gCopper)).value + " " + (transGramm(oStatisticsOverview.gCopper)).unit : "-"}}</p>
-              <p class="box-subtitle">RECYCELTES KUPFER</p>
+                class="box-title">{{oExperience}} Jahre</p>
+              <p class="box-subtitle">ERFAHRUNG</p>
             </div>
           </ion-col>
         </ion-row>
       </div>
+
+      <!--
       <ion-row class="section">
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <img src="../../assets/image/phones.webp" height="720" width="1080" class="section-image-left">
@@ -73,6 +84,110 @@
           </div>
         </ion-col>
       </ion-row>
+      -->
+      <div class="section-spenden-sammeln">
+
+      <ion-row class="row-spenden">
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <div class="section-image-container">
+              <img src="../../assets/image/letter_mockup.png" width="450">
+            </div>
+
+
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-container-text">
+            <h3 class="section-title-regular"><b>Alte Handys umweltgerecht entsorgen</b></h3>
+            <div>
+              <p class="section-text">Raus aus der Schublade mit deinen alten Handys und ab zu Mobile-Box damit. Denn wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht entsorgen. Egal ob durch innereuropäisches Recycling oder nachhaltige Wiederverwendung, gemeinsam schonen wir Ressourcen und leisten einen wichtigen Beitrag zum Umweltschutz.
+              </p>
+            </div>
+            <ion-row class="button-group">
+              <button class="button-orange" (click)="onMenu('handys-spenden')">HANDYS ZUSENDEN</button>
+              <button class="button-orange-rev" (click)="onMenu('handys-spenden/abgeben')">ABGABESTELLE FINDEN</button>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="section-sammeln">
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-container-text">
+            <h3 class="section-title-regular"><b>Kostenlose Sammelbox bestellen</b></h3>
+            <div>
+              <p class="section-text">Du möchtest in deiner Schule, deiner Stadt oder deinem Verein alte Handys sammeln? Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine persönliche Betreuung und die Garantie, dass alle gesammelten Handys umweltgerecht verwertet werden.</p>
+            </div>
+            <ion-row class="button-group">
+              <button class="button-orange" (click)="onLink('https://www.handysammlerportal.de/login')">DIREKT BESTELLEN</button>
+              <button class="button-orange-rev" (click)="onMenu('sammelaktion-starten')">MEHR INFORMATIONEN</button>
+            </ion-row>
+          </div>
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+          <div class="section-image-container">
+            <img src="../../assets/image/sammelbox.png" width="450"  class="section-image-indicator" >
+          </div>
+
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+      <!--
+
+      <div class="section-verwertung">
+        <img src="../../assets/image/phones.webp" width="1920px" height="100px" class="verwertung-background-img">
+        <div class="box-group">
+          <ion-row>
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+            <div class="box-v1">
+              <ion-row>
+                <h3>ERFASSUNG</h3>
+                <ion-icon class="box-icon-white" name="scan-outline"></ion-icon>
+              </ion-row>
+
+              <p>Jedes gesammelte Handy wird an unserem Standort in Köln digital erfasst und optisch bewertet. Alter und Zustand entscheiden darüber, ein Handy wiederverwendet oder recycelt wird. </p>
+            </div>
+          </ion-col>
+
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+            <div class="box-v2">
+              <ion-row>
+                <h3>RECYCLING</h3>
+                <ion-icon class="box-icon-white" name="aperture"></ion-icon>
+              </ion-row>
+
+              <p>Handys enthalten wertvolle Rohstoffe wie
+                Gold, Silber und Kupfer. Daher lassen wir
+                nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln.</p>
+            </div>
+          </ion-col>
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+            <div class="box-v3">
+              <ion-row>
+                <h3>DATENLÖSCHUNG</h3>
+                <ion-icon class="box-icon-white" name="lock-closed"></ion-icon>
+              </ion-row>
+              <p>Persönliche Daten werden entweder durch den Recyclingprozess physisch zerstört oder im Falle der Wiederverwendung durch herstellereigene Verfahren vollständig gelöscht.</p>
+
+            </div>
+          </ion-col>
+
+          <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
+            <div class="box-v4">
+              <ion-row>
+                <h3>WIEDERVERWENDUNG</h3>
+                <ion-icon class="box-icon-white" name="infinite"></ion-icon>
+              </ion-row>
+              <p>Aktuell können wir 5% aller gesammelten Handys wiederverwenden und bei uns im Online-Shop als sogenannte Futurephones zum Kauf anbieten.</p>
+
+              </div>
+          </ion-col>
+          </ion-row>
+        </div>
+      </div>
+ --->
+
       <div class="section-container-green">
         <h3 class="section-title-white"><b>Das passiert mit deinen alten Handys</b></h3>
         <div class="box-group">
@@ -116,6 +231,8 @@
           </ion-row>
         </div>
       </div>
+
+
       <ion-row class="section">
         <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
           <div class="section-container-text">
