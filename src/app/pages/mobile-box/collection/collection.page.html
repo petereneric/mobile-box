@@ -66,6 +66,50 @@
         </ion-row>
       </div>
     </div>
+    <div class="section">
+      <p class="section-title">Sammelergebnisse der letzten 30 Tage</p>
+      <div class="table-container">
+        <ion-grid class="ion-grid-table">
+          <ion-row class="ion-row-table">
+            <ion-col [ngClass]="'ion-col-table-header'" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
+              <div>
+                Sammler
+              </div>
+            </ion-col>
+            <ion-col [ngClass]="'ion-col-table-header'" size-xl="3" size-lg="3" size-md="3" size-sm="3" size-xs="3">
+              <div>
+                Gesammelte Handys
+              </div>
+            </ion-col>
+            <ion-col [ngClass]="'ion-col-table-header'" size-xl="3" size-lg="3" size-md="3" size-sm="3" size-xs="3">
+              <div>
+                Recycelte Rohstoffe*
+              </div>
+            </ion-col>
+
+          </ion-row>
+          <ion-row *ngFor="let row of lData" class="ion-row-table">
+            <ion-col [ngClass]="'ion-col-table'" size-xl="6" size-lg="6" size-md="6" size-sm="6" size-xs="6">
+              <div>
+                {{row.cName != null ? row.cName : 'Summe'}}
+              </div>
+            </ion-col>
+            <ion-col [ngClass]="'ion-col-table'" size-xl="3" size-lg="3" size-md="3" size-sm="3" size-xs="3">
+              <div>
+                {{row.nDevices != null ? row.nDevices : '&nbsp;'}}
+              </div>
+            </ion-col>
+            <ion-col [ngClass]="'ion-col-table'" size-xl="3" size-lg="3" size-md="3" size-sm="3" size-xs="3">
+              <div>
+                {{row.gRecycling != null ? transGramm(row.gRecycling).value + " " + transGramm(row.gRecycling).unit : ''}}
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <p class="table-hint">*Aktuell werden Gold, Silber und Kupfer umweltschonend recycelt. Kupfer macht dabei den
+          Großteil aus.</p>
+      </div>
+    </div>
   </ion-grid>
   <app-footer></app-footer>
 </ion-content>

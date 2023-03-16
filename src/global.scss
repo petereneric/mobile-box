@@ -1100,6 +1100,77 @@ ion-select::part(text) {
   .input-info {
     color: $colorTextTertiary;
   }
+}
 
+// Table
 
+.table-container {
+  margin: 2rem 8rem 4rem 8rem !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 920px) {
+  .table-container {
+    margin: 2rem 0.15rem 2rem 0.15rem !important;
+  }
+}
+
+.ion-grid-table {
+  //padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  border-color: $divider !important;
+  border-width: 1px !important;
+  border-style: solid;
+
+}
+
+.ion-row-table {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.ion-col-table-header {
+  background: $colorPrimaryLight;
+  color: $white !important;
+  border-color: $divider !important;
+  border-width: 1px !important;
+  border-style: solid;
+  padding: 0.5rem !important;
+  font-weight: 500;
+}
+
+.ion-col-table-header-first-col {
+  margin-left: -1px !important;
+}
+
+.ion-col-table {
+  border-color: $divider !important;
+  border-width: 1px !important;
+  border-style: solid;
+  color: $colorTextSecondary !important;
+  padding: 0.5rem !important;
+}
+
+.ion-col-table-first-col {
+  margin-left: -1px !important;
+}
+
+.ion-col-table-last-row {
+  margin-bottom: -1px !important;
+}
+
+.ion-col-table-first-col-last-row {
+  margin-left: -1px !important;
+  margin-bottom: -1px !important;
+}
+
+.ion-col-table-selected {
+  color: $colorPrimary;
+}
+
+.table-hint {
+  font-size: $sizeTextSmall;
+  color: $colorTextSecondary;
+  line-height: $lineHeightText;
+  margin-top: 0.5rem !important;
 }
