@@ -31,6 +31,9 @@ export class HomePage implements OnInit {
 
   oSammelstandorte = null;
 
+  oExperience = null;
+  currentYear = null;
+
   oBundNrw = null;
   oKoelnerZoo = null;
   oFoej = null;
@@ -61,6 +64,8 @@ export class HomePage implements OnInit {
 
     this.loadDataPartner()
     this.loadBlog()
+
+    this.getDate()
   }
 
   openSignupForm(){
@@ -180,6 +185,13 @@ export class HomePage implements OnInit {
     }
 
 }
+ getDate(){
+    this.currentYear = new Date().getFullYear();
+    console.log(this.currentYear)
+
+   this.oExperience = Number(this.currentYear) - 2012;
+
+  }
 
   onContact() {
     this.router.navigate(['/kontakt'])
