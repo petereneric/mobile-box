@@ -706,8 +706,6 @@ ion-select::part(text) {
   text-align: center;
   justify-items: center;
   align-content: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .section-image {
@@ -765,13 +763,6 @@ ion-select::part(text) {
   margin-right: auto;
   text-align: left;
 }
-.section-title-white {
-  font-size: $sizeTitleBig;
-  color: white;
-  font-weight: 700;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .section-verwertung{
   margin-bottom: auto;
@@ -793,7 +784,6 @@ ion-select::part(text) {
     margin-right: auto;
     text-align: left;
   }
-
 }
 
 .section-list {
@@ -861,14 +851,6 @@ ion-select::part(text) {
 .section-text {
   font-size: 1.2rem;
   color: $colorTextSecondary;
-  line-height: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.section-text-white {
-  font-size: 1.2rem;
-  color: white;
   line-height: 2rem;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
