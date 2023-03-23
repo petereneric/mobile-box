@@ -437,8 +437,20 @@ ion-select::part(text) {
   }
 }
 
+.header-button-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 920px) {
+  .header-button-container {
+    flex-direction: column;
+  }
+}
+
 .header-title-button {
-  font-size: 1.5rem;
+  font-size: $sizeButton;
   color: $colorPrimary !important;
   display: block;
   width: auto;
@@ -446,25 +458,25 @@ ion-select::part(text) {
   width: fit-content !important;
   align-self: center !important;
   border-radius: 1rem;
-  box-sizing: border-box;
+  //box-sizing: border-box; // padding and borders are included in height
   padding: 1.2rem !important;
   cursor: pointer;
   background: white !important;
-  font-weight: bolder;
+  font-family: 'neo_sans_pro_medium' !important;
 }
 
 .header-title-button:hover{
-  color: white !important;
-  background: transparent !important;
-  outline: $borderButton solid white !important;
-  box-sizing: border-box;
-  padding: 1.2rem !important;
+  //color: white !important;
+  //background: transparent !important;
+  //outline: $borderButton solid white !important;
+  //box-sizing: border-box;
+  //padding: 1.2rem !important;
 }
 .header-title-button-white {
   @extend .button-white-two;
-  box-sizing: border-box;
-  padding: 1.5rem !important;
-  font-weight: bolder;
+  //box-sizing: border-box;s
+  padding: 1.2rem !important;
+  font-family: 'neo_sans_pro_medium' !important;
 }
 
 .header-footer {
@@ -744,7 +756,7 @@ ion-select::part(text) {
 }
 
 .section-title-regular {
-  font-size: 2rem;
+  font-size: $sizeTitleBig;
   color: $colorPrimary;
   font-weight: 500;
   margin-left: auto;
@@ -781,7 +793,7 @@ ion-select::part(text) {
 .section-list-item {
   font-size: 1.2rem;
   color: $colorTextSecondary;
-  line-height: 1.5rem;
+  line-height: 1.8rem;
   margin-bottom: 0.75rem;
 }
 
@@ -789,7 +801,7 @@ ion-select::part(text) {
   --color: $colorPrimary;
   --background: $colorTransparent !important;
   --ion-text-color: white;
-  border: 1px solid $colorPrimary;
+  border: 2px solid $colorPrimary;
   border-radius: 1rem;
   color: $colorPrimary !important;
   --box-shadow: #00;
@@ -798,6 +810,10 @@ ion-select::part(text) {
   margin: 1.5rem 1rem 0.5rem 1rem;
   padding: 1rem !important;
   height: auto !important;
+  word-break: keep-all;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: $sizeButton;
 }
 
 .section-button:hover {
@@ -957,21 +973,27 @@ ion-select::part(text) {
 
 // Buttons
 
+.button-group {
+  margin-top: 2rem;
+  padding: 1.2rem;
+}
+
 .button {
-  outline: $borderButton solid;
+  //outline: $borderButton solid;
+  font-family: 'neo_sans_pro_medium' !important;
   width: auto;
   border-radius: 1rem;
   cursor: pointer;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1rem !important;
+  margin-top: 1rem !important;
   text-align: center;
-  font-size: $sizeText;
-  font-weight: 700;
+  font-size: $sizeButton;
+  line-height: $sizeButton+0.6rem;
 }
 
 .button-one {
   @extend .button;
-  border: $colorPrimary;
+  //border: $colorPrimary;
   color: white;
   background: $colorPrimary;
 }
@@ -1014,7 +1036,7 @@ ion-select::part(text) {
 }
 
 .button-white-two {
-  font-size: 1.5rem;
+  font-size: $sizeButton;
   //border: $borderButton solid white;
   color: white !important;
   display: block;
@@ -1030,14 +1052,18 @@ ion-select::part(text) {
 }
 
 .button-white-two:hover {
-  background: white !important;
-  color: $colorPrimary !important;
+  //background: white !important;
+  //color: $colorPrimary !important;
 }
 
-.button-group {
-  margin-top: 2rem;
-  padding: 1rem;
+
+.button-three {
+  @extend .button;
+  //border: $colorPrimary;
+  color: $colorPrimary;
+  background: transparent;
 }
+
 
 
 .button-orange{

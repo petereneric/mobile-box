@@ -1,17 +1,22 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="page">
   <div class="page">
     <div class="header-container">
-      <img src="../../assets/image/forestGradient.png" width="1920px" height="1280px" class="header-image-main">
+      <img src="../../assets/image/forestGradient.webp" alt="alte handys entsorgen" width="1920px" height="1280px"
+           class="header-image-main">
       <div class="header-title-container">
         <p class="header-title"><b>200 Millionen alte Handys in <br>
           Deutschland sind unsere Mission.</b></p>
-        <p class="header-text desktop-version">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz, indem Du uns deine
+        <p class="header-text desktop-version">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht
+          verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz, indem Du deine
           alten Handys spendest<br> oder in deiner Stadt eine Handy-Sammelaktion startest.</p>
 
-        <p class="header-text only-on-mobile">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz!</p>
+        <p class="header-text only-on-mobile">Bis Ende 2025 wollen wir 1 Millionen dieser Geräte umweltgerecht
+          verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz!</p>
         <ion-row>
-            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
-            <h1 class="header-title-button-white" (click)="onMenu('handys-spenden')">SAMMELAKTION STARTEN</h1>
+          <div class="header-button-container">
+            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS ENTSORGEN</h1>
+            <h4 class="header-title-button-white" (click)="onMenu('handys-spenden')">HANDY SAMMLUNG STARTEN</h4>
+          </div>
         </ion-row>
 
       </div>
@@ -32,13 +37,13 @@
       </div>
     </div>
     <ion-grid>
-      <div class="box-group">
+      <div class="box-group-statistics">
         <ion-row>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
             <div class="box">
               <ion-icon class="box-icon" name="phone-portrait-outline"></ion-icon>
               <p class="box-title">{{uNumbers.getNumberFormatted(get_nDevices())}}</p>
-              <h3 class="box-subtitle">GESAMMELTE HANDYS</h3>
+              <h4 class="box-subtitle">GESAMMELTE HANDYS</h4>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="6">
@@ -87,51 +92,66 @@
       -->
       <div class="section-spenden-sammeln">
 
-      <ion-row class="row-spenden">
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <ion-row class="row-spenden">
+          <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
             <div class="section-image-container">
-              <img src="../../assets/image/letter_mockup.png" width="450">
+              <img src="../../assets/image/letter_mockup.webp" width="450">
             </div>
 
 
-        </ion-col>
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <div class="section-container-text">
-            <h3 class="section-title-regular"><b>Alte Handys umweltgerecht entsorgen</b></h3>
-            <div>
-              <p class="section-text">Raus aus der Schublade mit deinen alten Handys und ab zu Mobile-Box damit. Denn wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht entsorgen. Egal ob durch innereuropäisches Recycling oder nachhaltige Wiederverwendung, gemeinsam schonen wir Ressourcen und leisten einen wichtigen Beitrag zum Umweltschutz.
-              </p>
+          </ion-col>
+          <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <div class="section-container-text">
+              <h2 class="section-title-regular"><b>Handy entsorgen</b></h2>
+              <div>
+                <p class="section-text">Raus aus der Schublade mit deinen alten Handys und ab zu Mobile-Box damit. Denn
+                  wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht entsorgen. Egal ob durch
+                  innereuropäisches Recycling oder nachhaltige Wiederverwendung, gemeinsam schonen wir Ressourcen und
+                  leisten einen wichtigen Beitrag zum Umweltschutz.
+                </p>
+              </div>
+              <ion-row class="button-group">
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <h3 class="button-one" (click)="onMenu('handys-spenden')"><b>ALTE HANDYS EINSCHICKEN</b></h3>
+                </ion-col>
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <h2 class="button-three" (click)="onMenu('handys-spenden/abgeben')">ALTE HANDYS ABGEBEN</h2>
+                </ion-col>
+              </ion-row>
             </div>
-            <ion-row class="button-group">
-              <button class="button-orange" (click)="onMenu('handys-spenden')">HANDYS ZUSENDEN</button>
-              <button class="button-orange-rev" (click)="onMenu('handys-spenden/abgeben')">ABGABESTELLE FINDEN</button>
-            </ion-row>
-          </div>
-        </ion-col>
-      </ion-row>
+          </ion-col>
+        </ion-row>
 
-      <ion-row class="section-sammeln">
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <div class="section-container-text">
-            <h3 class="section-title-regular"><b>Kostenlose Sammelbox bestellen</b></h3>
-            <div>
-              <p class="section-text">Du möchtest in deiner Schule, deiner Stadt oder deinem Verein alte Handys sammeln? Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine persönliche Betreuung und die Garantie, dass alle gesammelten Handys umweltgerecht verwertet werden.</p>
+        <ion-row class="section-sammeln">
+          <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <div class="section-container-text">
+              <h3 class="section-title-regular"><b>Handy Sammelbox bestellen</b></h3>
+              <div>
+                <p class="section-text">Du möchtest in deiner Schule, deiner Stadt oder deinem Verein alte Handys
+                  sammeln? Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine
+                  persönliche Betreuung und die Garantie, dass alle gesammelten Handys umweltgerecht verwertet
+                  werden.</p>
+              </div>
+              <ion-row class="button-group">
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <div class="button-one"
+                          (click)="onLink('https://handysammlerportal.de/registration-collector/id/0')">KOSTENLOS BESTELLEN</div>
+                </ion-col>
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <div class="button-three" (click)="onMenu('sammelaktion-starten')">MEHR INFORMATIONEN</div>
+                </ion-col>
+              </ion-row>
             </div>
-            <ion-row class="button-group">
-              <button class="button-orange" (click)="onLink('https://www.handysammlerportal.de/login')">DIREKT BESTELLEN</button>
-              <button class="button-orange-rev" (click)="onMenu('sammelaktion-starten')">MEHR INFORMATIONEN</button>
-            </ion-row>
-          </div>
-        </ion-col>
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <div class="section-image-container">
-            <img src="../../assets/image/sammelbox.png" width="450"  class="section-image-indicator" >
-          </div>
+          </ion-col>
+          <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+            <div class="section-image-container">
+              <img src="../../assets/image/sammelbox.webp" width="450" class="section-image-indicator">
+            </div>
 
-        </ion-col>
-      </ion-row>
+          </ion-col>
+        </ion-row>
 
-    </div>
+      </div>
 
       <!--
 
@@ -189,7 +209,7 @@
  --->
 
       <div class="section-container-green">
-        <h3 class="section-title-white"><b>Das passiert mit deinen alten Handys</b></h3>
+        <h3 class="section-title-white"><b>Handy Verwertung</b></h3>
         <div class="box-group">
           <ion-row>
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
@@ -198,7 +218,8 @@
                 <h2
                   class="box-title-white">Handy Sammlung</h2>
                 <p class="box-text-white">Gerne kannst Du uns deine alten Handys zusenden oder an einer unserer vielen
-                  Sammelstellen abgeben. Diese werden anschließend an unserem Standort in Köln erfasst und abhängig von Alter und Zustand in die Fraktionen Wiederverwendung und Recycling unterteilt.</p>
+                  Sammelstellen abgeben. Diese werden anschließend an unserem Standort in Köln erfasst und abhängig von
+                  Alter und Zustand in die Fraktionen Wiederverwendung und Recycling unterteilt.</p>
               </div>
             </ion-col>
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
@@ -207,7 +228,9 @@
                 <h2
                   class="box-title-white">Handy Recycling</h2>
                 <p class="box-text-white">Handys enthalten wertvolle Rohstoffe wie Gold, Silber und Kupfer. Daher lassen
-                  wir nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln. Diese Rohstoffe müssen nun nicht mehr in Bergwerken abgebaut werden sondern stehen dem Rohstoffkreislauf wieder zur Verfügung.</p>
+                  wir nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln. Diese Rohstoffe
+                  müssen nun nicht mehr in Bergwerken abgebaut werden sondern stehen dem Rohstoffkreislauf wieder zur
+                  Verfügung.</p>
               </div>
             </ion-col>
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
@@ -215,8 +238,11 @@
                 <ion-icon class="box-icon-white" name="build"></ion-icon>
                 <p
                   class="box-title-white">Wiederverwendung</p>
-                <p class="box-text-white">Aktuell können wir 5% aller gesammelten Handys wiederverwenden, nachdem diese professionell von uns aufbereitet wurden. Dazu zählt neben der Datenlöschung, die Prüfung, Reinigung und teilweise Reparatur der Geräte.
-                  Aufbereitete Handys werden dann in unserem Online-Shop als sogenannte Futurephones zum Kauf angeboten.</p>
+                <p class="box-text-white">Aktuell können wir 5% aller gesammelten Handys wiederverwenden, nachdem diese
+                  professionell von uns aufbereitet wurden. Dazu zählt neben der Datenlöschung, die Prüfung, Reinigung
+                  und teilweise Reparatur der Geräte.
+                  Aufbereitete Handys werden dann in unserem Online-Shop als sogenannte Futurephones zum Kauf
+                  angeboten.</p>
               </div>
             </ion-col>
             <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
@@ -225,7 +251,9 @@
                 <p
                   class="box-title-white">Datenlöschung</p>
                 <p class="box-text-white">Auf Handys enthaltene persönliche Daten werden entweder durch den
-                  Recycling-Prozess physisch zerstört oder durch unsere Datenlöschverfahren vollständig gelöscht. Zu den Datenlöschverfahren gehört neben den herstellereigenen Verfahren, die Datenlöschung mit der ISO-zertifizierten Datenlöschsoftware der Firma Blancco.</p>
+                  Recycling-Prozess physisch zerstört oder durch unsere Datenlöschverfahren vollständig gelöscht. Zu den
+                  Datenlöschverfahren gehört neben den herstellereigenen Verfahren, die Datenlöschung mit der
+                  ISO-zertifizierten Datenlöschsoftware der Firma Blancco.</p>
               </div>
             </ion-col>
           </ion-row>
@@ -257,7 +285,8 @@
         <ion-row class="box-group">
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img id="duh-logo"(click)="onLink('https://www.duh.de/home/')" src="../../assets/logo/duh.webp" width="340" height="481" class="box-logo">
+              <img id="duh-logo" (click)="onLink('https://www.duh.de/home/')" src="../../assets/logo/duh.webp"
+                   width="340" height="481" class="box-logo">
               <p class="box-title">{{oDuh != null ? uNumbers.getNumberFormatted(oDuh.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oDuh != null ? oDuh.cPayee : "-"}}</p>
             </div>
@@ -265,7 +294,8 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img id="bund-logo" (click)="onLink('https://www.bund-nrw.de/')" src="../../assets/logo/bund.webp" width="1110" height="136" class="box-logo">
+              <img id="bund-logo" (click)="onLink('https://www.bund-nrw.de/')" src="../../assets/logo/bund.webp"
+                   width="1110" height="136" class="box-logo">
               <p
                 class="box-title">{{oBundNrw != null ? uNumbers.getNumberFormatted(oBundNrw.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oBundNrw != null ? oBundNrw.cPayee : "-"}}</p>
@@ -273,7 +303,8 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img (click)="onLink('https://www.koelnerzoo.de/')" src="../../assets/logo/koelner_zoo.webp" width="287" height="176" class="box-logo">
+              <img (click)="onLink('https://www.koelnerzoo.de/')" src="../../assets/logo/koelner_zoo.webp" width="287"
+                   height="176" class="box-logo">
               <p
                 class="box-title">{{oKoelnerZoo != null ? uNumbers.getNumberFormatted(oKoelnerZoo.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oKoelnerZoo != null ? oKoelnerZoo.cPayee : "-"}}</p>
@@ -281,7 +312,8 @@
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="6" size-xs="12">
             <div class="box">
-              <img (click)="onLink('https://foej.de/')" src="../../assets/logo/foej.webp" width="225" height="225"  class="box-logo">
+              <img (click)="onLink('https://foej.de/')" src="../../assets/logo/foej.webp" width="225" height="225"
+                   class="box-logo">
               <p
                 class="box-title">{{oFoej != null ? uNumbers.getNumberFormatted(oFoej.nDevices) : "-"}}</p>
               <p class="box-subtitle">{{oFoej != null ? oFoej.cPayee : "-"}}</p>
@@ -298,14 +330,14 @@
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="mail-outline"></ion-icon>
-              <h3 class="box-title">Handys spenden</h3>
+              <h2 class="box-title">Alte Handys spenden</h2>
               <ion-button class="box-button" (click)="onMenu('handys-spenden')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
           <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
             <div class="box">
               <ion-icon class="box-icon" name="rocket-outline"></ion-icon>
-              <h3 class="box-title">Sammelaktion starten</h3>
+              <h3 class="box-title">Handy Sammelaktion starten</h3>
               <ion-button class="box-button" (click)="onMenu('sammelaktion-starten')">Mehr erfahren</ion-button>
             </div>
           </ion-col>
@@ -326,12 +358,13 @@
         </ion-row>
       </div>
 
+      <!--
       <div class="btn-container" (click)="openSignupForm()">
         <p class="btn-titel">Newsletter</p>
-        <span title="Newsletter"><ion-icon id="subscription-btn" name="newspaper-outline" size="small"></ion-icon></span>
+        <span title="Newsletter"><ion-icon id="subscription-btn" name="newspaper-outline"
+                                           size="small"></ion-icon></span>
       </div>
-
-
+      -->
 
 
       <!--

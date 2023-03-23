@@ -1,3 +1,5 @@
+@import "../../../../global";
+
 .btn-container{
   position: fixed;
   bottom: 1.25rem;
@@ -78,6 +80,19 @@
 
 }
 
+.row-spenden {
+  margin-bottom: 4rem !important;
+}
+
+.section-sammeln {
+  margin-bottom: 4rem !important;
+}
+
+
+.box-group-statistics {
+  @extend .box-group;
+  margin-bottom: 2rem !important;
+}
 
 .box-v1 {
 @extend .box-verwertung;

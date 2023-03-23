@@ -50,3 +50,15 @@
 .cookie-button-container {
   text-align: center;
 }
+
+.cookie-button-two {
+  @extend .button-two;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cookie-button-one {
+  @extend .button-one;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

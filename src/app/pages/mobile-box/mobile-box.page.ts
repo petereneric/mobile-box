@@ -51,6 +51,10 @@ export class MobileBoxPage implements OnInit {
           this.menuSelected = 1
           this.router.navigate(['handys-spenden'])
           break;
+        case 'handys-spenden/abgeben':
+          this.menuSelected = 1
+          this.router.navigate(['handys-spenden/abgeben'])
+          break;
         case 'sammelaktion-starten':
           this.menuSelected = 2
           this.router.navigate(['sammelaktion-starten'])
