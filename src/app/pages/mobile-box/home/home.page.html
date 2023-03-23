@@ -208,57 +208,63 @@
       </div>
  --->
 
-      <div class="section-container-green">
-        <h3 class="section-title-white"><b>Handy Verwertung</b></h3>
-        <div class="box-group">
+
+      <ion-row class="section section-verwertung">
+        <img src="assets/image/phones-gradient-up-down.png" width="1920px" height="100px" class="verwertung-background-img">
+
+
+        <div class="box-regular">
           <ion-row>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
-              <div class="box-green">
-                <ion-icon class="box-icon-white" name="infinite"></ion-icon>
+            <ion-col class="section-intro-text ion-text-center">
+              <h2 class="section-title-white">Verwertung</h2>
+              <p>Wir von Mobile Box kümmern uns um die umweltgerechte & nachhaltige Verwertung von mobilen
+                Endgeräten. Dabei legen wir Wert darauf, sowohl das Potenzial dieser Geräte vollkommen auszuschöpfen als auch den Datenschutz einzuhalten.</p>
+            </ion-col>
+
+          </ion-row>
+        </div>
+
+
+          <div class="box-v1">
+            <ion-row>
+              <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
                 <h2
-                  class="box-title-white">Handy Sammlung</h2>
-                <p class="box-text-white">Gerne kannst Du uns deine alten Handys zusenden oder an einer unserer vielen
-                  Sammelstellen abgeben. Diese werden anschließend an unserem Standort in Köln erfasst und abhängig von
-                  Alter und Zustand in die Fraktionen Wiederverwendung und Recycling unterteilt.</p>
-              </div>
+                  class="box-title-white"><b>Wiederverwendung & Recycling</b></h2>
+                <p class="box-text-white section-text-white">Alle Geräte, die bei uns eingehen, durchlaufen eine Prozess
+                in dem sie auf Herz & Nieren überprüft werden. Am Ende dieses Prozesses entscheidet sich, ob diese <b>wiederverwendet</b>
+                oder <b>recycelt</b> werden.</p>
+
+              </ion-col>
+              <ion-col class="section-image-container" size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+                <img  class="image-radius" width="400" src="assets/image/refurbishment.png">
+              </ion-col>
+            </ion-row>
+          </div>
+
+        <div class="box-v2">
+          <ion-row>
+
+            <ion-col class="section-image-container" size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+              <img  class="image-radius" width="400" src="assets/image/Rechenzentrum_schloss.png">
             </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
-              <div class="box-green">
-                <ion-icon class="box-icon-white" name="aperture"></ion-icon>
-                <h2
-                  class="box-title-white">Handy Recycling</h2>
-                <p class="box-text-white">Handys enthalten wertvolle Rohstoffe wie Gold, Silber und Kupfer. Daher lassen
-                  wir nicht wiederverwendbare Handys von zertifizierten Partnern in Europa recyceln. Diese Rohstoffe
-                  müssen nun nicht mehr in Bergwerken abgebaut werden sondern stehen dem Rohstoffkreislauf wieder zur
-                  Verfügung.</p>
-              </div>
-            </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
-              <div class="box-green">
-                <ion-icon class="box-icon-white" name="build"></ion-icon>
-                <p
-                  class="box-title-white">Wiederverwendung</p>
-                <p class="box-text-white">Aktuell können wir 5% aller gesammelten Handys wiederverwenden, nachdem diese
-                  professionell von uns aufbereitet wurden. Dazu zählt neben der Datenlöschung, die Prüfung, Reinigung
-                  und teilweise Reparatur der Geräte.
-                  Aufbereitete Handys werden dann in unserem Online-Shop als sogenannte Futurephones zum Kauf
-                  angeboten.</p>
-              </div>
-            </ion-col>
-            <ion-col size-xl="3" size-lg="3" size-md="6" size-sm="12" size-xs="12">
-              <div class="box-green">
-                <ion-icon class="box-icon-white" name="lock-closed"></ion-icon>
-                <p
-                  class="box-title-white">Datenlöschung</p>
-                <p class="box-text-white">Auf Handys enthaltene persönliche Daten werden entweder durch den
-                  Recycling-Prozess physisch zerstört oder durch unsere Datenlöschverfahren vollständig gelöscht. Zu den
-                  Datenlöschverfahren gehört neben den herstellereigenen Verfahren, die Datenlöschung mit der
-                  ISO-zertifizierten Datenlöschsoftware der Firma Blancco.</p>
-              </div>
+
+            <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+              <h2
+                class="box-title-white"><b>Datenlöschung</b></h2>
+              <p class="box-text-white section-text-white">Der Datenschutz spielt bei uns eine wichtige Rolle, deshalb werden alle Geräte bei uns
+                einer Datenlöschung unterzogen. Dies geschieht entweder auf dem Weg der <b>physischen Datenlöschung</b>  mithilfe der <b>Löschsoftware</b> Blancco. <br></p>
+
             </ion-col>
           </ion-row>
         </div>
-      </div>
+
+          <ion-row class="button-group">
+            <ion-col class="more-button" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+              <h3 class="button-one" (click)="onMenu('verwertung')"><b>MEHR ZU VERWERTUNG</b></h3>
+            </ion-col>
+          </ion-row>
+      </ion-row>
+
 
 
       <ion-row class="section">
