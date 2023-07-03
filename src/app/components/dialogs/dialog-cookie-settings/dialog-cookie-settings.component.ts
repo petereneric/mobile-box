@@ -91,7 +91,10 @@ export class DialogCookieSettingsComponent implements OnInit {
   }
 
   deleteCookies() {
-    console.log("yessssssssss")
+
+  }
+
+  deleteCookie() {
     this.cookieService.deleteAll();
   }
 }

@@ -31,12 +31,15 @@ $colorTextSecondary: #424242;
 $colorTextTertiary: #888888;
 $colorDivider: #BDBDBD;
 $colorBackground: #e8e8e8;
+$colorBackgroundGreenLight: #f7f8f6;
 $colorUnderline: #b4b4b4;
+$colorAccent: #FF9800;
+$colorAccentDark: #F57C00;
 
 
 
 // Color
-$colorPrimary: #315c00;
+$colorPrimary: #315c00; // rgba(49, 92, 0, 1)
 $colorPrimaryLight: #a8c58e;
 $colorGold: #FFC107;
 $colorSilver: #9E9E9E;
@@ -50,17 +53,21 @@ $colorThemeGreen: #2db00a;
 $colorThemeGreenLight: #dcfcd3;
 $colorThemeOrange: #FF730F;
 $colorThemeOrangeLight: #fadcc9;
+$colorThemeOrangeTransparent: rgba(255, 115, 15, 0.5);
 $colorThemeYellow: #CAD41B;
 $colorThemeYellowLight: #fbffcb;
+$colorThemeYellowTransparent: rgba(202, 212, 27, 0.5);
 $colorThemeBlue: #2B7996;
 $colorThemeBlueLight: #a9c7d7;
+$colorThemeBlueTransparent: rgba(43, 121, 150, 0.5);
 $divider: #cccccc;
 $white: #ffffff;
 
 // Size - text
-$sizeText: 1rem;
+$sizeText: 1.2rem;
 $sizeTextBig: 1.5rem;
 $sizeTitle: 2rem;
+$sizeTitleHuge: 4.5rem;
 $sizeTitleBig: 2.5rem;
 $sizeTextSubtitle: 1.8rem;
 $sizeTextSmall: 0.8rem;

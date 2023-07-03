@@ -1,6 +1,6 @@
 @import "../../../../global";
 
-.btn-container{
+.btn-container {
   position: fixed;
   bottom: 1.25rem;
   right: 2.5rem;
@@ -9,14 +9,14 @@
   cursor: pointer;
 }
 
-#subscription-btn{
+#subscription-btn {
   background: #1c3100;
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
   padding: 1rem;
   color: white;
-  pointer-events:none;
+  pointer-events: none;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.51);
 
 }
@@ -26,22 +26,20 @@
   margin-bottom: 4px;
 }
 
-.btn-container:hover{
+.btn-container:hover {
   transform: scale(1.1);
 
-  .btn-titel{
+  .btn-titel {
     display: grid;
   }
 }
 
-.section-verwertung{
-  //background-image: ;
-}
+
 
 //Mobile
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
 
-  #subscription-btn{
+  #subscription-btn {
     width: 30px;
     height: 30px;
   }
@@ -55,16 +53,17 @@
 .mat-dialog-content {
   max-width: 100%;
 }
+
 //Section Verwertung
 
-.verwertung-background-img{
+.verwertung-background-img {
   width: 100%;
-  height: 30rem;
   position: absolute;
   object-fit: cover;
   filter: brightness(80%)
 }
-.box-verwertung{
+
+.box-verwertung {
   //background-image: url("../assets/phones.webp") ;
   display: flex;
   flex-direction: column;
@@ -74,18 +73,42 @@
   padding: 2.5rem;
   opacity: 0.8;
 
-  ion-icon{
+  ion-icon {
     align-self: end;
   }
 
 }
 
+.section-spenden-sammeln {
+  background-image: linear-gradient(45deg, #e5f3cc, #f6f8f5);
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+@media screen and (max-width: 920px) {
+  .section-spenden-sammeln {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+.section-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  height: 100%;
+}
+
+.section-image-donate {
+}
+
 .row-spenden {
-  margin-bottom: 4rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .section-sammeln {
-  margin-bottom: 4rem !important;
+  padding-top: 1rem;
+  padding-bottom: 4rem !important;
 }
 
 
@@ -95,32 +118,32 @@
 }
 
 .box-v1 {
-@extend .box-verwertung;
-  background-color:  #1D4314;
+  @extend .box-verwertung;
+  background-color: #1D4314;
 
 }
 
 .box-v2 {
   @extend .box-verwertung;
-  background-color:  #B1A31D;
+  background-color: #B1A31D;
 }
 
 .box-v3 {
   @extend .box-verwertung;
-  background-color:  #0A9AA4;
+  background-color: #0A9AA4;
 
 }
 
 .box-v4 {
   @extend .box-verwertung;
-  background-color:  #A4380A;
+  background-color: #A4380A;
 }
 
 ///Dark Mode
 @media (prefers-color-scheme: dark) {
   #bund-logo {
-       background-color: white;
-     }
+    background-color: white;
+  }
   #duh-logo {
     background-color: white;
   }
@@ -139,11 +162,11 @@
     display: none;
   }
 
-  .header-title-button{
+  .header-title-button {
     align-self: center;
   }
 
-  .header-container img{
+  .header-container img {
     /* Gradient Preview */
 
     position: absolute;
@@ -152,7 +175,7 @@
 
   }
 
-  .section-sammeln ion-col:nth-of-type(2){
+  .section-sammeln ion-col:nth-of-type(2) {
     order: -1;
   }
 
@@ -160,19 +183,159 @@
 
 //ADJUSTMENTS DESKTOP VERSION
 
-  @media(min-width: 782px) {
-    //header subtext
-    .only-on-mobile {
-      display: none;
-    }
-    .desktop-version{
-      display: block;
-    }
-
-    .row-spenden {
-      margin-bottom: 4rem;
-
-    }
+@media(min-width: 782px) {
+  //header subtext
+  .only-on-mobile {
+    display: none;
   }
+  .desktop-version {
+    display: block;
+  }
+
+  .row-spenden {
+    margin-bottom: 4rem;
+
+  }
+}
+
+.section-verwertung {
+  //background-image: ;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(150deg, rgb(49, 92, 0), rgba(49, 92, 0, 0.8)), url("../../../../assets/image/phones.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 4rem 8.5rem 3rem 8.5rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .section-verwertung {
+    padding: 2rem 2rem 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .section-verwertung {
+    padding: 2rem 2rem 1rem 2rem;
+  }
+}
+
+.exploitation-title {
+  font-size:$sizeTitleHuge !important;
+  color: white;
+  font-family: 'neo_sans_pro_medium' !important;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .exploitation-title {
+    font-size: $sizeTitle !important;
+    line-height: $sizeTitle+0.5rem !important;
+    text-align: center;
+  }
+}
+
+.exploitation-subtitle {
+  font-size: $sizeTitleBig !important;
+  line-height: 3.2rem !important;
+  color: white;
+  margin-top: 2rem !important;
+  width: 50%;
+  font-family: 'neo_sans_pro_medium' !important;
+}
+
+@media screen and (max-width: 900px) {
+  .exploitation-subtitle {
+    font-size: $sizeText !important;
+    line-height: 2rem !important;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.exploitation-boxes-container {
+  margin: 2rem -1rem 2rem -1rem !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .exploitation-boxes-container {
+    margin: 1rem -2rem 2rem -2rem !important;
+  }
+}
+
+.exploitation-boxes-container-row {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.exploitation-box-container-col {
+  margin-top: 1rem !important;
+}
+
+.exploitation-box-container {
+  padding: 3rem !important;
+  border-radius: 2rem !important;
+  margin: 1rem !important;
+  height: 100% !important;
+}
+
+@media screen and (max-width: 1300px) {
+  .exploitation-box-container {
+    padding: 1rem !important;
+  }
+}
+
+.exploitation-box-container-one {
+  @extend .exploitation-box-container;
+  background: $colorThemeYellowTransparent;
+}
+
+.exploitation-box-container-two {
+  @extend .exploitation-box-container;
+  background: $colorThemeBlueTransparent;
+}
+
+.exploitation-box-title {
+  color: white;
+  font-size: $sizeTitle;
+
+  font-family: 'neo_sans_pro_medium' !important;
+  margin-bottom: 1rem !important;
+}
+
+@media screen and (max-width: 1300px) {
+  .exploitation-box-title {
+    font-size: 1.8rem;
+  }
+}
+
+.exploitation-box-text {
+  color: white;
+  font-size: $sizeText;
+  line-height: 2rem;
+}
+
+.exploitation-box-image {
+  border-radius: 2rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  height: 15rem !important;
+  object-fit: cover;
+}
+
+.exploitation-box-image-container {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 2rem !important;
+}
+
+@media screen and (max-width: 1300px) {
+  .exploitation-box-image-container {
+    padding: 1rem !important;
+  }
+}
+
 
 

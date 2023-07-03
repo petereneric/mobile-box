@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {DataService} from "../../services/data/data.service";
 import {MatDialog} from "@angular/material/dialog";
 import { DialogCookieSettingsComponent } from 'src/app/components/dialogs/dialog-cookie-settings/dialog-cookie-settings.component';
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-mobile-box',
@@ -23,7 +24,16 @@ export class MobileBoxPage implements OnInit {
   menuOpacityFlex = 0.25
   menuOpacity = this.menuOpacityFix + this.menuOpacityFlex;
 
-  constructor(private dialog: MatDialog, private dataService: DataService, private router: Router) { }
+  constructor(private metaService: Meta, private dialog: MatDialog, private dataService: DataService, private router: Router) {
+    this.metaService.updateTag({
+      name: 'thumbnail',
+      content: "https://www.mobile-box.eu/assets/image/phones.webp"
+    })
+    this.metaService.updateTag({
+      name: 'description',
+      content: "Mobile-Box sammelt deine alten Handys und führt diese einer umweltgerechten Verwertung zu. Einfach per Post versenden oder eine Sammelaktion starten!"
+    })
+  }
 
   ngOnInit() {
     this.setCookiesDefault()

@@ -14,8 +14,8 @@
           verwerten. <br> Leiste deinen persönlichen Beitrag zum Umweltschutz!</p>
         <ion-row>
           <div class="header-button-container">
-            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS ENTSORGEN</h1>
-            <h4 class="header-title-button-white" (click)="onMenu('handys-spenden')">HANDY SAMMLUNG STARTEN</h4>
+            <h1 class="header-title-button" (click)="onMenu('handys-spenden')">ALTE HANDYS SPENDEN</h1>
+            <h3 class="header-title-button-two" (click)="onMenu('sammelaktion-starten')">HANDY SAMMLUNG STARTEN</h3>
           </div>
         </ion-row>
 
@@ -36,6 +36,7 @@
         <img src="../../assets/image/circle.webp" height="1200px" width="250px" class="header-image-circle">
       </div>
     </div>
+    <div class="shadow"></div>
     <ion-grid>
       <div class="box-group-statistics">
         <ion-row>
@@ -71,51 +72,30 @@
           </ion-col>
         </ion-row>
       </div>
-
-      <!--
-      <ion-row class="section">
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <img src="../../assets/image/phones.webp" height="720" width="1080" class="section-image-left">
-        </ion-col>
-        <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-          <div class="section-container-text">
-            <h3 class="section-title"><b>Warum wir deine alten Handys sammeln</b></h3>
-            <div>
-              <p class="section-text"><b>200 Millionen alte Handys</b> lagern in deutschen Schubladen. Das hat eine repräsentative Umfrage des Branchenverbands Bitkom 2021 ergeben. Gemeinsam mit Dir wollen wir aktiv daran arbeiten, dass diese Handys umweltgerecht verwertet werden.
-                </p>
-                <p class="section-text"><b>1 Tonne Golderz</b> muss geschürft werden um dieselbe Menge Gold zu gewinnen, wie sie in 41 Handys enthalten ist. Damit wird unterstrichen welcher Beitrag zum Umweltschutz, durch die Sammlung und das Recycling von alten Handys, geleistet werden kann.</p>
-                <p class="section-text"><b>10-jähriges Bestehen</b> der Handy-Sammlung von Mobile-Box sind für uns der Beweis, dass wir auf dem richtigen Weg sind, wenn es darum geht eine einfache Rückgabemöglichkeit für alte Handys zu schaffen.</p>
-            </div>
-          </div>
-        </ion-col>
-      </ion-row>
-      -->
+      <div class="shadow"></div>
       <div class="section-spenden-sammeln">
-
         <ion-row class="row-spenden">
           <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
             <div class="section-image-container">
-              <img src="../../assets/image/letter_mockup.webp" width="450">
+              <img class="section-image-donate" src="../../assets/image/letter_mockup.webp" width="450">
             </div>
-
-
           </ion-col>
           <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
             <div class="section-container-text">
-              <h2 class="section-title-regular"><b>Handy entsorgen</b></h2>
+              <h2 class="section-title-regular"><b>Alte Handys entsorgen</b></h2>
               <div>
                 <p class="section-text">Raus aus der Schublade mit deinen alten Handys und ab zu Mobile-Box damit. Denn
-                  wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht entsorgen. Egal ob durch
+                  wir sammeln deine alten Handys und lassen diese für Dich umweltgerecht verwerten. Egal ob durch
                   innereuropäisches Recycling oder nachhaltige Wiederverwendung, gemeinsam schonen wir Ressourcen und
                   leisten einen wichtigen Beitrag zum Umweltschutz.
                 </p>
               </div>
               <ion-row class="button-group">
                 <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-                  <h3 class="button-one" (click)="onMenu('handys-spenden')"><b>ALTE HANDYS EINSCHICKEN</b></h3>
+                  <h3 class="button-one-orange" (click)="onMenu('handys-spenden')"><b>ALTE HANDYS EINSCHICKEN</b></h3>
                 </ion-col>
                 <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-                  <h2 class="button-three" (click)="onMenu('handys-spenden/abgeben')">ALTE HANDYS ABGEBEN</h2>
+                  <h2 class="button-three-orange" (click)="onMenu('handys-spenden/abgeben')">ALTE HANDYS ABGEBEN</h2>
                 </ion-col>
               </ion-row>
             </div>
@@ -125,20 +105,21 @@
         <ion-row class="section-sammeln">
           <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
             <div class="section-container-text">
-              <h3 class="section-title-regular"><b>Handy Sammelbox bestellen</b></h3>
+              <h3 class="section-title-regular"><b>Alte Handys sammeln</b></h3>
               <div>
                 <p class="section-text">Du möchtest in deiner Schule, deiner Stadt oder deinem Verein alte Handys
-                  sammeln? Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine
+                  sammeln Dann ist Mobile-Box deine Wahl. Denn bei uns erhältst du kostenlose Sammelboxen, eine
                   persönliche Betreuung und die Garantie, dass alle gesammelten Handys umweltgerecht verwertet
-                  werden.</p>
+                  werden. Es entstehen Dir dabei keine Kosten.</p>
               </div>
               <ion-row class="button-group">
                 <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-                  <div class="button-one"
-                          (click)="onLink('https://handysammlerportal.de/registration-collector/id/0')">KOSTENLOS BESTELLEN</div>
+                  <div class="button-one-orange"
+                       (click)="onLink('https://handysammlerportal.de/registration-collector/id/0')">SAMMELBOX BESTELLEN
+                  </div>
                 </ion-col>
                 <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-                  <div class="button-three" (click)="onMenu('sammelaktion-starten')">MEHR INFORMATIONEN</div>
+                  <div class="button-three-orange" (click)="onMenu('sammelaktion-starten')">MEHR INFORMATIONEN</div>
                 </ion-col>
               </ion-row>
             </div>
@@ -150,11 +131,9 @@
 
           </ion-col>
         </ion-row>
-
       </div>
 
       <!--
-
       <div class="section-verwertung">
         <img src="../../assets/image/phones.webp" width="1920px" height="100px" class="verwertung-background-img">
         <div class="box-group">
@@ -208,63 +187,40 @@
       </div>
  --->
 
-
-      <ion-row class="section section-verwertung">
-        <img src="assets/image/phones-gradient-up-down.png" width="1920px" height="100px" class="verwertung-background-img">
-
-
-        <div class="box-regular">
+      <div class="section-verwertung">
+        <h2 class="exploitation-title">Handy Verwertung</h2>
+        <h4 class="exploitation-subtitle">Mobile-Box ermöglicht Dir die umweltgerechte und sichere Verwertung deiner alten Handys.</h4>
+        <ion-grid class="exploitation-boxes-container">
           <ion-row>
-            <ion-col class="section-intro-text ion-text-center">
-              <h2 class="section-title-white">Verwertung</h2>
-              <p>Wir von Mobile Box kümmern uns um die umweltgerechte & nachhaltige Verwertung von mobilen
-                Endgeräten. Dabei legen wir Wert darauf, sowohl das Potenzial dieser Geräte vollkommen auszuschöpfen als auch den Datenschutz einzuhalten.</p>
-            </ion-col>
+            <ion-col class="exploitation-box-container-col" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+              <ion-row class="exploitation-box-container-one">
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <h2 class="exploitation-box-title"><b>Wiederverwendung & Recycling</b></h2>
+                  <p class="exploitation-box-text">Mobile-Box hat sich auf die Aufbereitung und Wiederverwendung von alten Handys und Smartphones spezialisiert. Einem Teil der gesammelten Handys können wir daher ein zweites Leben schenken. Damit schaffen wir gemeinsam eine nachhaltige Alternative zu Neugeräten - So können deine alten Handys Ressourcen schonen! Denn auch wenn ein Handy nicht wiederverwendet werden kann, wird es von uns umweltschonend recycelt.</p>
 
+                </ion-col>
+                <ion-col class="exploitation-box-image-container" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <img class="exploitation-box-image" width="400" src="../../../../assets/image/exploitation/exploitation_refurb.png">
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col class="exploitation-box-container-col" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+              <ion-row class="exploitation-box-container-two">
+                <ion-col size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <h2 class="exploitation-box-title"><b>Vollständige Datenlöschung</b></h2>
+                  <p class="exploitation-box-text">Die geschulten Mitarbeiter und Mitarbeiterinnen von Mobile-Box löschen alle Daten, die sich auf gesammelten Handys und Smartphones befinden. Wir nutzen dazu herstellereigene Verfahren und die ISO-zertifizierte Löschsoftware der Firma Blancco. Seit der Gründung im Jahr 2012 ist die vollständige Datenlöschung zentrales Element der Handy-Sammlung.<br></p>
+                </ion-col>
+                <ion-col class="exploitation-box-image-container" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+                  <img class="exploitation-box-image" width="400" src="../../../../assets/image/exploitation/exploitation_security.png">
+                </ion-col>
+              </ion-row>
+            </ion-col>
           </ion-row>
+        </ion-grid>
+        <div class="button-container-center">
+          <h3 class="button-one-orange" (click)="onMenu('verwertung')"><b>MEHR ZUR VERWERTUNG ERFAHREN</b></h3>
         </div>
-
-
-          <div class="box-v1">
-            <ion-row>
-              <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-                <h2
-                  class="box-title-white"><b>Wiederverwendung & Recycling</b></h2>
-                <p class="box-text-white section-text-white">Alle Geräte, die bei uns eingehen, durchlaufen eine Prozess
-                in dem sie auf Herz & Nieren überprüft werden. Am Ende dieses Prozesses entscheidet sich, ob diese <b>wiederverwendet</b>
-                oder <b>recycelt</b> werden.</p>
-
-              </ion-col>
-              <ion-col class="section-image-container" size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-                <img  class="image-radius" width="400" src="assets/image/refurbishment.png">
-              </ion-col>
-            </ion-row>
-          </div>
-
-        <div class="box-v2">
-          <ion-row>
-
-            <ion-col class="section-image-container" size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-              <img  class="image-radius" width="400" src="assets/image/Rechenzentrum_schloss.png">
-            </ion-col>
-
-            <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
-              <h2
-                class="box-title-white"><b>Datenlöschung</b></h2>
-              <p class="box-text-white section-text-white">Der Datenschutz spielt bei uns eine wichtige Rolle, deshalb werden alle Geräte bei uns
-                einer Datenlöschung unterzogen. Dies geschieht entweder auf dem Weg der <b>physischen Datenlöschung</b>  mithilfe der <b>Löschsoftware</b> Blancco. <br></p>
-
-            </ion-col>
-          </ion-row>
-        </div>
-
-          <ion-row class="button-group">
-            <ion-col class="more-button" size-xl="6" size-lg="12" size-md="12" size-sm="12" size-xs="12">
-              <h3 class="button-one" (click)="onMenu('verwertung')"><b>MEHR ZUR VERWERTUNG</b></h3>
-            </ion-col>
-          </ion-row>
-      </ion-row>
-
+      </div>
 
 
       <ion-row class="section">

@@ -10,6 +10,7 @@ import {Blog} from "../../../components/interfaces/blog";
 
 import {MatDialog} from "@angular/material/dialog";
 import {MCSignupFormComponent} from "../../../components/dialogs/mc-signup-form/mc-signup-form.component";
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -44,8 +45,15 @@ export class HomePage implements OnInit {
   cTotalResources = null;
 
 
-
-  constructor(public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, private dialogRef: MatDialog ,public Alert: Alert) {
+  constructor(private metaService: Meta, public uNumbers: Numbers, private router: Router, private dataService: DataService, private connApi: ConnApiService, private dialogRef: MatDialog ,public Alert: Alert) {
+    this.metaService.updateTag({
+      name: 'thumbnail',
+      content: "https://www.mobile-box.eu/assets/image/phones.webp"
+    })
+    this.metaService.updateTag({
+      name: 'description',
+      content: "Mobile-Box sammelt deine alten Handys und führt diese einer umweltgerechten Verwertung zu. Einfach per Post versenden oder eine Sammelaktion starten!"
+    })
   }
 
   ngOnInit() {

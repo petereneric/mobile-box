@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
-import {NgcCookieConsentConfig, NgcCookieConsentModule} from 'ngx-cookieconsent';
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {DialogCookieSettingsModule} from "./components/dialogs/dialog-cookie-settings/dialog-cookie-settings.module";

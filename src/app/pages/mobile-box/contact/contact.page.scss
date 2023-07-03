@@ -1,14 +1,16 @@
 @import "../../../../global";
 
 :host {
-  .item-interactive.ion-invalid {
-    --highlight-background: #bdbdbd !important;
-    --highlight-height: 0px !important;
+  .item-interactive.ion-invalid{
+    --highlight-background: #dedede !important;
+    --highlight-height: 0px;
+    --border-color: #dedede !important;
   }
 
-  .item-interactive.ion-valid {
-    --highlight-background: #bdbdbd !important;
-    --highlight-height: 0px !important;
+  .item-interactive.ion-valid{
+    --highlight-background: #dcdcdc !important;
+    --highlight-height: 0px;
+    --border-color: #dcdcdc !important;
   }
 }
 
